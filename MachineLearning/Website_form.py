@@ -16,7 +16,11 @@ def vehicle():
     #         vehicle.append(estimate)
     form_data = request.form
     x = list(form_data.values())
+    print("First one")
+    print(x)
     x.pop(0)
+    print("Second one")
+    print(x)
     y = [
         "Age",
         "Diarrhea",
