@@ -1,4 +1,60 @@
+#This file cant be run error is venv downloaded the numpy cannot be found 
+#To do for this file later
+'''
+1. Separate the machine learning from the function so that i can insert the data into db
+2. Fix the numpy error in my venv    
+'''
+from flask import Flask,render_template,request
+import pickle
+import numpy as np
+
+app = Flask(__name__)
+
+@app.route('/')
+def greeting():
+    return render_template('form.html')
+
+
+@app.route("/result", methods=['POST'])
+def predict(): 
+    form_data = request.form
+    x = list(form_data.values())
+    x.pop(0)
+    y = ['Age', 
+         'Diarrhea', 
+         'Difficulty in Breathing', 
+         'Dry Cough', 
+         'Fever', 
+         'Nasal', 
+         'Pains', 
+         'Runny Nose', 
+         'Sore Throat', 
+         'Tireness']
+    z = [int(x[0])]
+    for i in range(len(y)):
+        if y[i] not in x:
+            z.insert(i+1, 0)
+        else :
+            y[i]=1
+            z.append(y[i])
+    print(z)
+    loaded_model = pickle.load(open('Capstone_RFC_model.sav','rb'))
+    a = np.expand_dims(z,0)
+    result = str(loaded_model.predict(a))
+    print(result)
+    return result
+
+
+if __name__=='__main__':
+    app.run()
+
+
+
+'''
+Old @jq Code
 from flask import Flask, render_template, request
+import pickle
+import numpy as np
 
 app = Flask(__name__)
 
@@ -8,39 +64,22 @@ def greeting():
     return render_template("form.html")
 
 
-@app.route("/vehicle", methods=["POST"])
-def vehicle():
-    #     vehicle = []
-    #     for i in range(6):
-    #         estimate = request.args.get("vehicle")
-    #         vehicle.append(estimate)
+@app.route("/compare_lists", methods=["POST"])
+
+def compare_lists(x, y):
     form_data = request.form
     x = list(form_data.values())
-    print("First one")
-    print(x)
-    x.pop(0)
-    print("Second one")
-    print(x)
-    y = [
-        "Age",
-        "Diarrhea",
-        "Difficulty in Breathing",
-        "Dry Cough",
-        "Fever",
-        "Nasal",
-        "Pains",
-        "Runny Nose",
-    ]
-
-    for i in range(len(y)):
-        if y[i] == x[i]:
-            x[i] = 1
-        elif y[i] != x[i]:
-            x.insert(i, 0)
-        print(x)
-    #     return str(dict(form_data.values()))
-    return str(list(form_data.values()))
-
+    z = []
+    i = 0
+    for yi in y:
+        if yi in x:
+            z.append(1)
+        else:
+            z.append(0)
+        i += 1
+    print(z)
+    return z
 
 if __name__ == "__main__":
     app.run()
+'''

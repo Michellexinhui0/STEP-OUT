@@ -6,11 +6,16 @@
 	<title>Form</title>
 </head>
 <body>
-	<form action="/vehicle" method = "POST">
+	<form action="/result" method = "POST">
 		<label for="gender">Gender</label><br>
 		<input type="radio" id="Male" Name ="Gender" value="Male">Male
 		<input type="radio" id="Female" Name ="Gender" value="Female">Female
 		<input type="radio" id="Transgender" Name ="Gender" value="Transgender">Transgender<br>
+		<label for="gender">Severity</label><br>
+		<input type="radio" id="None" Name ="Severity" value="0">None
+		<input type="radio" id="Mild" Name ="Severity" value="1">Mild
+		<input type="radio" id="Moderate" Name ="Severity" value="2">Moderate
+		<input type="radio" id="Severe" Name ="Severity" value="3">Severe<br>
 		<input type="checkbox" id="Symptom" name="Age" value="Age">
 		<label for="Age"> Age 60+</label><br>
 		<input type="checkbox" id="Symptom" name="Diarrhea" value="Diarrhea">
@@ -27,6 +32,10 @@
 		<label for="Pains"> Pains</label><br>
 		<input type="checkbox" id="Symptom" name="Runny Nose" value="Runny Nose">
 		<label for="Runny Nose"> Runny Nose</label><br>
+		<input type="checkbox" id="Symptom" name="Sore Throat" value="Sore Throat">
+		<label for="Sore Throat"> Sore Throat</label><br>
+		<input type="checkbox" id="Symptom" name="Tireness" value="Tireness">
+		<label for="Tireness"> Tireness</label><br>
 		<input type="submit" value="Submit">
 
 	</form>
