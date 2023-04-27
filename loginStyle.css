@@ -12,6 +12,9 @@ body {
 	flex-direction: column;
 	font-family: 'Montserrat', sans-serif;
 	height: 100vh;
+	background-image:url("imgs/background.png");
+	background-size:cover;
+	background-repeat:no-repeat;
 }
 
 button {
@@ -52,13 +55,6 @@ input {
 	padding: 12px 15px;
 	margin: 4px 0;
 	width: 80%;
-}
-
-.background{
-	height: 985px;
-	width:1050px;
-	position:absolute;
-	left:-10px;
 }
 
 .stepout{
