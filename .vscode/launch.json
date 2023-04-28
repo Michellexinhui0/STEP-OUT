@@ -10,7 +10,7 @@
             "request": "launch",
             "module": "flask",
             "env": {
-                "FLASK_APP": "Website_form.py",
+                "FLASK_APP": "MachineLearning/Website_form.py",
                 "FLASK_DEBUG": "1"
             },
             "args": [
@@ -20,6 +20,7 @@
             ],
             "jinja": true,
             "justMyCode": true
-        }
+        },
+
     ]
 }
