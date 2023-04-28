@@ -1,14 +1,12 @@
-#This file cant be run error is venv downloaded the numpy cannot be found 
-#To do for this file later
 '''
+To do for this file later
 1. Separate the machine learning from the function so that i can insert the data into db
-2. Fix the numpy error in my venv    
+2. Add mongodb    
 '''
-from flask import Flask,render_template,request
+
+from flask import Flask,render_template,request, url_for, redirect
 import pickle
 import numpy as np
-
-app = Flask(__name__)
 
 @app.route('/')
 def greeting():
@@ -19,7 +17,9 @@ def greeting():
 def predict(): 
     form_data = request.form
     x = list(form_data.values())
+    print("raw data ",x)
     x.pop(0)
+    print("remove 0 ", x)
     y = ['Age', 
          'Diarrhea', 
          'Difficulty in Breathing', 
@@ -37,7 +37,11 @@ def predict():
         else :
             y[i]=1
             z.append(y[i])
-    print(z)
+    print("this is z ", z)
+    
+    #inserting  data into db
+
+    
     loaded_model = pickle.load(open('Capstone_RFC_model.sav','rb'))
     a = np.expand_dims(z,0)
     result = str(loaded_model.predict(a))
