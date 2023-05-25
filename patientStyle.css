@@ -8,12 +8,12 @@
 body {
 	background: #ffffff;
 	font-family: 'Inter', sans-serif;
-    padding:0px 0px;
-    background-image:url("imgs/background.png");
+  padding:0px 0px;
+  background-image:url("imgs/background.png");
 	background-size:cover;
 	background-repeat:no-repeat;
-    line-height:1;
-    
+  line-height:1;
+  font-size:14px;
 }
 
 t {
@@ -270,8 +270,8 @@ button span:after {
 }
 
 .document-container{
-  flex:1;
   justify-content:center;
+  flex-grow:1;
 }
 
 .document{
@@ -281,4 +281,33 @@ button span:after {
   width:250px;
   height:80px;
   margin-top:15px;
+  flex-grow:1;
+  font-size:17px;
+}
+
+.basic-details{
+  display:grid;
+  grid-template-rows:55px 20px 20px 1fr 1fr;
+}
+
+.details-title{
+  font-size:25px;
+  text-decoration: underline;
+  margin: 15px 0px 0px 10px;
+}
+
+.details-container{
+  grid-template-columns:1fr 1fr 1fr;
+}
+
+.details-form{
+  grid-template-rows:1fr 1fr;
+  font-size:17px;
+}
+
+.details-input{
+  border-radius:15px;
+  border-width:1px;
+  border-color:#1a51540F;
+  color:black;
 }
