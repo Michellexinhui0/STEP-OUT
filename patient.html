@@ -23,7 +23,7 @@
       <div id="cover">
         <form method="get" action="">
           <div class="tb">
-            <div class="td" style="margin: 10px 10px"><input type="text" placeholder="Search for a patient" required></div>
+            <div class="td" style="margin: 10px 10px"><input type="text" class="top-search" placeholder="Search for a patient" required></div>
             <div class="td" id="s-cover">
               <button type="submit">
                 <div id="s-circle"></div>
@@ -187,10 +187,79 @@
             <!--2nd Section, display is set to none by default and will be shown after clicking on 'next' button-->
             <div class="categories" id="conditions">
               <div class="categories-border">
-                1
+                <div class="container-header">
+                  <numbering>1</numbering>
+                  
+                  <form class="search-form" method="get" action="">
+                    <div class="tb">
+                      <div class="td"><input type="text" class="category-search" placeholder="Search for a patient" required></div>
+                      <div class="td" id="s-cover">
+                        <button type="submit">
+                          <div id="s-circle"></div>
+                          <span></span>
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <button class="category">
+                  <img src="imgs/generalSickness.png"/>
+                  General Sickness
+                </button>
+                <button class="category">
+                  <img src="imgs/chest.png"/>
+                  Chest
+                </button>
+                <button class="category">
+                  <img src="imgs/hand.png"/>
+                  Hand
+                </button>
+                <button class="category">
+                  <img src="imgs/head.png"/>
+                  Head
+                </button>
+                <button class="category">
+                  <img src="imgs/leg.png"/>
+                  Leg
+                </button>
+                <button class="category">
+                  <img src="imgs/sensoryOrgans.png"/>
+                  Sensory Organs
+                </button>
+                <button class="category" style="border-style:none;">
+                  <img src="imgs/stomach.png"/>
+                  Stomach
+                </button>               
               </div>
-              <div>
-                2
+              <div class="symptoms-container">
+                <div class="container-header">
+                  <numbering>2</numbering>
+                  <tb>General Sickness Symptoms</tb>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" name="1" value="Allergies" checked/>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" name="2" value="Colds" checked/>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" name="3" value="Coughing" checked/>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" name="4" value="Flu" checked/>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" name="5" value="Diarrhea" checked/>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" name="6" value="Fatigue" checked/>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" name=7 value="Fever" checked/>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" name="8" value="Muscle Aches" checked/>
+                </div>
               </div>
               <div>
                 3

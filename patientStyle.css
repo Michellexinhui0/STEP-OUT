@@ -20,6 +20,19 @@ body {
   width:100vw;
 }
 
+numbering{
+  color: white;
+  background-color:#1a5154;
+  border-radius:30px;
+  width:30px;
+  height:30px;
+  text-align:center;
+  font-size:20px;
+  padding-top:5px;
+  margin-left:5px;
+  margin-top:10px;
+}
+
 t {
    font-size:14px; 
 }
@@ -53,7 +66,7 @@ tb{
   flex:3;
   border-color:#1a5154;
   border-style:none none solid none;
-  border-width:0.5px;
+  border-width:1px;
 }
 
 .column-text{
@@ -138,7 +151,7 @@ tb{
   
 .td {
   display: table-cell;
-  vertical-align: middle;
+  vertical-align:middle;
 }
   
 input,
@@ -160,10 +173,10 @@ button {
 }
   
 form {
-  height: 45px;
+  height: 100%;
 }
   
-input[type="text"] {
+.top-search {
   width: 100%;
   height: 70px;
   font-size: 30px;
@@ -351,11 +364,99 @@ button span:after {
   display:grid;
   grid-template-columns: 1fr 1fr 1fr;
   width:100%;
-  margin-top:15px;
+  height:100%;
+  padding-left:0px;
 }
 
 .categories-border{
   border-right-style:solid;
   border-width:1px;
   border-color:#1a5154;
+  margin-right:20px;
+  display:flex;
+  flex-direction:column;
+  flex:3fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
+}
+
+.container-header{
+  display:flex;
+  flex:1fr 5fr;
+  text-align:center;
+}
+
+.category-search{
+  font-size:20px;
+  height:20px;
+  height:100%;
+  width:100%;
+  margin-left:10px;
+  margin-top:10px;
+}
+
+.search-form{
+  border-color:#1a5154;
+  border-bottom-style:solid;
+  border-width:1px;
+  width:80%;
+  margin-left:10px;
+}
+
+.category{
+  display:flex;
+  flex-direction:row;
+  flex:1fr 5fr;
+  height:100%;
+  width:103%;
+  align-items: center;
+  border-bottom-style:solid;
+  border-color:#1a5154;
+  border-width:1px;
+  margin-left:-12px;
+}
+.category img{
+  height:40px;
+  width:40px;
+  margin:0px 15px;
+}
+
+.symptoms-container{
+  display:grid;
+  grid-template-rows:3fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
+}
+
+
+button:active {
+	transform: scale(0.95);
+}
+
+#toggle {
+    display: none;
+}
+
+  /* Style the toggle switch */
+.toggle-switch {
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    border-radius: 34px;
+    position: relative;
+    background-color:#1a5154;
+}
+
+  /* Style the toggle switch thumb */
+.toggle-switch::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 30px;
+    height: 30px;
+    background-color: #1a5154;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+  /* Style the toggle switch when it's checked */
+#toggle:checked + .toggle-switch::after {
+    transform: translateX(26px);
 }
