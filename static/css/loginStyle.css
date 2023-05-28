@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: #ffffff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-family: 'Montserrat', sans-serif;
+	height: 100vh;
+	background-image:url("imgs/background.png");
+	background-size:cover;
+	background-repeat:no-repeat;
+}
+
+button {
+	border-radius: 10px;
+	border: 1px solid #1a5154;
+	background-color: #1a5154;
+	color: #FFFFFF;
+	font-size: 18px;
+	font-weight: bold;
+	width: 80%;
+	padding: 12px;
+	margin: 4px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
+
+button:active {
+	transform: scale(0.95);
+}
+
+
+form {
+	background-color: #FFFFFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 50px;
+	height: 100%;
+	text-align: center;
+}
+
+input {
+	background-color: #ffffff;
+	border: 1px solid #1a5154;
+  	border-radius: 10px;
+	padding: 12px 15px;
+	margin: 4px 0;
+	width: 80%;
+}
+
+.stepout{
+	margin-bottom: 30px;
+}
+
+.container {
+	background-color: #ffffff;
+	border-radius: 10px;
+  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+			0 10px 10px rgba(0,0,0,0.22);
+	position: relative;
+	overflow: hidden;
+	width: 550px;
+	max-width: 100%;
+	min-height: 450px;
+}
+
+.form-container {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	transition: all 0.6s ease-in-out;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.sign-in-container {
+	left: 0;
+	width: 100%;
+	z-index: 3;
+}
+
+/* homescreencss */
+
+.patient-list-container {
+	background-color: #FFFFFF;
+	border-radius: 10px;
+  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+			0 10px 10px rgba(0,0,0,0.22);
+	position: relative;
+	overflow: hidden;
+	width: 1250px;
+	max-width: 100%;
+	min-height: 450px;
+}
+
+.home-logo-container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 10px;
+  }
+
+  .home-profile-icon-container {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 10px;
+  }
+
+  .home-search-bar-container {
+	position: absolute;
+	top: 0%;
+    left: 17%;
+	padding: 10px;
+  }
+
+  .circle {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 68px;
+	height: 68px;
+	border-radius: 50%;
+	background-color: #f8f9fa;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+	0 10px 10px rgba(0,0,0,0.22);
+  }
+
+  .d-flex{
+	background-color: transparent;
+	flex-direction: row;
+	
+  }
+
+
+  .form-control{
+	width: 500px;
+	height: 60px;
+
+  }
+
+  .search-button{
+	width: 150px;
+	height: 60px;
+  }
+
+  .add-new-patient-button{
+	width: 2110px;
+
+  }
