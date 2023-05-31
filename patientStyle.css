@@ -5,15 +5,32 @@
 	box-sizing: border-box;
 }
 
+
 body {
 	background: #ffffff;
 	font-family: 'Inter', sans-serif;
-    padding:0px 0px;
-    background-image:url("imgs/background.png");
+  margin:0px 0px;
+  padding:0px 0px;
+  background-image:url("imgs/background.png");
 	background-size:cover;
 	background-repeat:no-repeat;
-    line-height:1;
-    
+  line-height:1;
+  font-size:14px;
+  height:100vh;
+  width:100vw;
+}
+
+numbering{
+  color: white;
+  background-color:#1a5154;
+  border-radius:30px;
+  width:30px;
+  height:30px;
+  text-align:center;
+  font-size:20px;
+  padding-top:5px;
+  margin-left:5px;
+  margin-top:10px;
 }
 
 t {
@@ -49,7 +66,7 @@ tb{
   flex:3;
   border-color:#1a5154;
   border-style:none none solid none;
-  border-width:0.5px;
+  border-width:1px;
 }
 
 .column-text{
@@ -134,12 +151,12 @@ tb{
   
 .td {
   display: table-cell;
-  vertical-align: middle;
+  vertical-align:middle;
 }
   
 input,
 button {
-  color: #fff;
+  color: black;
   font-family: 'Inter';
   padding: 0;
   margin: 0;
@@ -156,16 +173,27 @@ button {
 }
   
 form {
-  height: 45px;
+  height: 100%;
 }
   
-input[type="text"] {
+.top-search {
   width: 100%;
   height: 70px;
   font-size: 30px;
   margin-left:8px;
   color:black;
 }
+input:focus{
+  outline:none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
   
 input[type="text"]::placeholder {
   color: #b3b3b3;
@@ -173,7 +201,7 @@ input[type="text"]::placeholder {
   
 #s-cover {
   width: 30px;
-  padding: 0px 35px;
+  padding: 0px;
 }
   
 button {
@@ -264,14 +292,18 @@ button span:after {
   border-style:solid;
   border-color:#1a5154;
   border-width:1px;
-
+  width:99%;
+  height:100%;
   display:flex;
   flex-direction:row;
+  margin-left:-4px;
+  margin-bottom:2px;
 }
 
 .document-container{
-  flex:1;
+  margin:2px 0px 0px 15px;
   justify-content:center;
+  flex-grow:1;
 }
 
 .document{
@@ -281,4 +313,188 @@ button span:after {
   width:250px;
   height:80px;
   margin-top:15px;
+  flex-grow:1;
+  font-size:17px;
+}
+
+.basic-details{
+  margin:20px 0px 0px 15px;
+  display:grid;
+  grid-template-rows:55px 20px 20px 1fr 1fr;
+}
+
+.details-title{
+  font-size:25px;
+  text-decoration: underline;
+  margin: 15px 0px 0px 0px;
+}
+
+.details-container{
+  display:grid;
+  grid-template-columns:350px 350px 350px;
+  font-size:17px;
+  margin-top:30px;
+}
+
+.details-form{
+  border:solid;
+  border-radius:15px;
+  border-width:2px;
+  border-color:#1a5154;
+  font-size:17px;
+  margin-right:30px;
+  height:60px;
+  margin-top:5px;
+}
+
+.details-input{
+  font-size:17px;
+  height:100%;
+  width:100%;
+  color:black;
+  margin-left: 10px;
+}
+.low-button{
+  display:flex;
+  justify-content:end;
+  margin-top:100px;
+}
+
+.categories{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width:100%;
+  height:100%;
+  padding-left:0px;
+}
+
+.categories-border{
+  border-right-style:solid;
+  border-width:1px;
+  border-color:#1a5154;
+  margin-right:20px;
+  display:flex;
+  flex-direction:column;
+}
+
+.container-header{
+  display:grid;
+  grid-template-columns:1fr 5fr;
+}
+
+.category-search{
+  font-size:20px;
+  height:20px;
+  height:100%;
+  width:100%;
+  margin-left:10px;
+  margin-top:10px;
+}
+
+.search-form{
+  border-color:#1a5154;
+  border-bottom-style:solid;
+  border-width:1px;
+  width:80%;
+  margin-left:10px;
+}
+
+.category{
+  display:flex;
+  flex-direction:row;
+  flex:1fr 5fr;
+  height:100%;
+  width:103%;
+  align-items: center;
+  border-bottom-style:solid;
+  border-color:#1a5154;
+  border-width:1px;
+  margin-left:-12px;
+}
+.category img{
+  height:40px;
+  width:40px;
+  margin:0px 15px;
+}
+
+.symptoms-container{
+  display:grid;
+  grid-template-rows:3fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
+}
+
+
+button:active {
+	transform: scale(0.95);
+}
+
+#toggle {
+    display: none;
+}
+
+  /* Style the toggle switch */
+.toggle-switch {
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    border-radius: 34px;
+    position: relative;
+    background-color:#1a5154;
+}
+
+  /* Style the toggle switch thumb */
+.toggle-switch::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 30px;
+    height: 30px;
+    background-color: #1a5154;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+  /* Style the toggle switch when it's checked */
+#toggle:checked + .toggle-switch::after {
+    transform: translateX(26px);
+}
+
+.form-check-input:checked {
+  background-color:#1a5154;
+  border-color:#1a5154;
+}
+
+.form-switch .form-check-input {
+  width:45px;
+  height: 22px;
+}
+
+.form-check-label {
+  font-size:18px;
+  margin: 6px 0px 0px 15px;
+}
+
+.form-check {
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+}
+
+.symptoms-buttons {
+  display:grid;
+  grid-template-rows:1fr 1fr;
+  justify-content:end;
+  margin:10px 10px 0px 0px;
+}
+
+.update {
+  width:230px;
+  height:70px;
+  margin-top:140px;
+}
+
+.add {
+  width:230px;
+  height:70px;
+  background-color:#FF7B1B;
 }
