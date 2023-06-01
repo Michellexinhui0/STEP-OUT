@@ -7,20 +7,28 @@ signInButton.addEventListener("click", () => {
 
 clickLogin = (e) => {
   e.preventDefault();
-  fetch("https=://www.stepout.com/login", {
+
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  fetch("http://127.0.0.1:5000", {
     method: "POST",
     body: JSON.stringify({
-      email: this.state.idValue,
-      password: this.state.pwValue,
+      email: email,
+      password: password,
     }),
+    headers: {
+      "Content-Type": "application/json",
+    },
   })
     .then((response) => response.json())
     .then((result) => {
       if (result.message === "SUCCESS") {
         alert("You are logged in.");
-        window.location.href = "http://www.stepout.com/search";
+        window.location.href = "http://127.0.0.1:5000/search/";
       } else {
         alert("Please check your login information.");
       }
     });
 };
+

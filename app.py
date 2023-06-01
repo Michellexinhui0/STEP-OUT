@@ -2,8 +2,9 @@ from flask import Flask, render_template, session, redirect
 from functools import wraps
 import pymongo
 
+#python -c 'import os; print(os.urandom(16))' to generate the secret key in terminal
 app = Flask(__name__)
-app.secret_key = b'\xe7\xb0\x87\x02\x83\x15n\x05x\xee\x1c)w\x12pE'
+app.secret_key = b'\xf6,\xcc\x88\x9e1\xbc\xa8\xd5?\x1a\xf8{q\x92\x9e'
 
 # Database
 client = pymongo.MongoClient('localhost', 27017)
@@ -27,7 +28,7 @@ from user import routes
 def home():
   return render_template('login.html')
 
-@app.route('/patient/')
+@app.route('/ml/')
 @login_required
 def dashboard():
-  return render_template('patient.html')
+  return render_template('ml.html')
