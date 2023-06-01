@@ -201,7 +201,7 @@ input[type="text"]::placeholder {
   
 #s-cover {
   width: 30px;
-  padding: 0px 35px;
+  padding: 0px;
 }
   
 button {
@@ -375,13 +375,11 @@ button span:after {
   margin-right:20px;
   display:flex;
   flex-direction:column;
-  flex:3fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
 }
 
 .container-header{
-  display:flex;
-  flex:1fr 5fr;
-  text-align:center;
+  display:grid;
+  grid-template-columns:1fr 5fr;
 }
 
 .category-search{
@@ -459,4 +457,44 @@ button:active {
   /* Style the toggle switch when it's checked */
 #toggle:checked + .toggle-switch::after {
     transform: translateX(26px);
+}
+
+.form-check-input:checked {
+  background-color:#1a5154;
+  border-color:#1a5154;
+}
+
+.form-switch .form-check-input {
+  width:45px;
+  height: 22px;
+}
+
+.form-check-label {
+  font-size:18px;
+  margin: 6px 0px 0px 15px;
+}
+
+.form-check {
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+}
+
+.symptoms-buttons {
+  display:grid;
+  grid-template-rows:1fr 1fr;
+  justify-content:end;
+  margin:10px 10px 0px 0px;
+}
+
+.update {
+  width:230px;
+  height:70px;
+  margin-top:140px;
+}
+
+.add {
+  width:230px;
+  height:70px;
+  background-color:#FF7B1B;
 }

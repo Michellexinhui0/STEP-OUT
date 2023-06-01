@@ -43,9 +43,8 @@
       <!--Left Section-->
       <div style="display:grid; grid-template-rows:310px 1fr; margin:0px 18px 0px 18px;">
         <!--Personal Information-->
-        <div style="display:grid; grid-template-rows:45px 60px 180px 10px;">
+        <div style="display:grid; grid-template-rows:65px 180px 10px;">
           <tb>Personal Information</tb>
-          <img class="circular--landscape" style="justify-self:center; height:70px; width:70px" src="imgs\pfp.png" />
           <div style="display:grid; grid-template-columns:1fr 1fr;">
             <div class="row">
               <t>Patient ID:</t>
@@ -202,31 +201,31 @@
                     </div>
                   </form>
                 </div>
-                <button class="category">
-                  <img src="imgs\generalSickness.png"/>
+                <button class="category" style="color:white; background-color:#1a5154" id="general">
+                  <img src="imgs\generalSicknessW.png"/>
                   General Sickness
                 </button>
-                <button class="category">
+                <button class="category" id="chest">
                   <img src="imgs\chest.png"/>
                   Chest
                 </button>
-                <button class="category">
+                <button class="category" id="hand">
                   <img src="imgs\hand.png"/>
                   Hand
                 </button>
-                <button class="category">
+                <button class="category" id="head">
                   <img src="imgs\head.png"/>
                   Head
                 </button>
-                <button class="category">
+                <button class="category" id="leg">
                   <img src="imgs\leg.png"/>
                   Leg
                 </button>
-                <button class="category">
-                  <img src="imgs\sensoryOrgans.png"/>
+                <button class="category" id="sensory">
+                  <img src="imgs\sensory.png"/>
                   Sensory Organs
                 </button>
-                <button class="category" style="border-style:none;">
+                <button class="category" id="stomach" style="border-style:none;">
                   <img src="imgs\stomach.png"/>
                   Stomach
                 </button>               
@@ -234,35 +233,48 @@
               <div class="symptoms-container">
                 <div class="container-header">
                   <numbering>2</numbering>
-                  <tb>General Sickness Symptoms</tb>
+                  <tb style="margin:15px 50px 0px 0px">General Sickness Symptoms</tb>
                 </div>
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" name="1" value="Allergies" checked/>
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="1" value="Allergies"/>
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Allergies</label>
                 </div>
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" name="2" value="Colds" checked/>
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="2" value="Colds"/>
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Colds</label>
                 </div>
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" name="3" value="Coughing" checked/>
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="3" value="Coughing"/>
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Coughing</label>
                 </div>
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" name="4" value="Flu" checked/>
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="4" value="Flu"/>
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Flu</label>
                 </div>
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" name="5" value="Diarrhea" checked/>
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="5" value="Diarrhea"/>
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Diarrhea</label>
                 </div>
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" name="6" value="Fatigue" checked/>
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="6" value="Fatigue"/>
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Fatigue</label>
                 </div>
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" name=7 value="Fever" checked/>
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name=7 value="Fever"/>
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Fever</label>
                 </div>
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" name="8" value="Muscle Aches" checked/>
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="8" value="Muscle Aches"/>
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Muscle Aches</label>
                 </div>
               </div>
-              <div>
-                3
+              <div class="symptoms-buttons">
+                <div>
+                  <button class="save add">+ Add Category</button>
+                </div>
+                <div>
+                  <button class="save update">Update Patient Status</button>
+                </div>
               </div>
             </div>
           </div>
