@@ -140,7 +140,7 @@ input[type=text] {
 
 /* testing again 30/5*/
 #myInput {
-  background-image: url('/css/searchicon.png');
+  background-image: url('../imgs/search.png');
   background-position: 10px 10px;
   background-repeat: no-repeat;
   width: 100%;
@@ -228,7 +228,7 @@ body {
   flex-direction: column;
   font-family: 'Montserrat', sans-serif;
   height: 100vh;
-  background-image: url("../../imgs/background.png");
+  background-image: url("../imgs/background.png");
   background-size: cover;
   background-repeat: no-repeat;
 }
