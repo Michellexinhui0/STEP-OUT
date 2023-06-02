@@ -28,3 +28,7 @@ from user import routes
 def home():
     return render_template('login.html')
 
+@app.route('/search/')
+@login_required
+def search():
+    return render_template('search.html')
