@@ -591,3 +591,32 @@ button span:after {
   z-index: 90;
   line-height: 1.8em;
 }
+
+.input[type="checkbox"] {
+  accent-color: #1a5154;
+}
+
+.statusContainer {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+.statusHeader {
+  width: 100%;
+  justify-content: center;
+}
+
+.exit {
+  position: absolute;
+  align-self: end;
+}
+
+.statusTitle {
+  background: red;
+  color: white;
+  height: 70px;
+  width: 700px;
+  font-size: 40px;
+  text-align: center;
+  padding-top: 13px;
+}

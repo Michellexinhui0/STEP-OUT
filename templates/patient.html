@@ -171,29 +171,46 @@
                     <div class="details">
                       <label for="Systolic Blood Pressure">Systolic Blood Pressure (mmHg)</label>
                       <div class="details-form">
-                        <input type="number" id="Systolic Blood Pressure" class="details-input" />
+                        <input type="number" id="systolic" class="details-input" />
                       </div>
                     </div>
                     <div>
                       <label for="Diastolic Blood Pressure"> Diastolic Blood Pressure (mmHg)</label>
                       <div class="details-form">
-                        <input type="number" id="Diastolic Blood Pressure" class="details-input" />
+                        <input type="number" id="diastolic" class="details-input" />
                       </div>
                     </div>
                     <div>
                       <label for="Oxygen Saturation">Oxygen Level (%)</label>
                       <div class="details-form">
-                        <input type="number" id="Oxygen Saturation" class="details-input" />
+                        <input type="number" id="oxygen" class="details-input" />
                       </div>
                     </div>
                   </div>
                 </form>
               </div>
               <div class="low-button">
-                <button class="save" id="Save">Next</button>
+                <button class="save" id="Next">Next</button>
               </div>
             </div>
 
+            <div class="statusContainer" style="display:none">
+              <div class="statusHeader">
+                <button class="exit">&#10006</button>
+                <div class="statusTitle">
+                  Manually Update Patient's Status
+                </div>
+              </div>
+              <div>
+                2
+              </div>
+              <div>
+                3
+              </div>
+              <div>
+                4
+              </div>
+            </div>
             <!--2nd Section, display is set to none by default and will be shown after clicking on 'next' button-->
             <div class="categories" id="conditions" style="display:none">
               <div class="categories-border">
@@ -246,47 +263,47 @@
                 <div>
                   <form id="generalForm" style="display:grid; grid-template-rows:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr">
                     <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="1"
+                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="general"
                         value="Allergies" />
                       <label class="form-check-label" for="flexSwitchCheckDefault">Allergies</label>
                     </div>
                     <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="2"
+                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="general"
                         value="Flu" />
                       <label class="form-check-label" for="flexSwitchCheckDefault">Flu</label>
                     </div>
                     <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="3"
+                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="general"
                         value="Coughing" />
                       <label class="form-check-label" for="flexSwitchCheckDefault">Coughing</label>
                     </div>
                     <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="4"
+                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="general"
                         value="Diarrhea" />
                       <label class="form-check-label" for="flexSwitchCheckDefault">Diarrhea</label>
                     </div>
                     <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="5"
+                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="general"
                         value="Fatigue" />
                       <label class="form-check-label" for="flexSwitchCheckDefault">Fatigue</label>
                     </div>
                     <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="6"
+                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="general"
                         value="Fever" />
                       <label class="form-check-label" for="flexSwitchCheckDefault">Fever</label>
                     </div>
                     <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="7"
+                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="general"
                         value="Muscle Aches" />
                       <label class="form-check-label" for="flexSwitchCheckDefault">Muscle Aches</label>
                     </div>
                     <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="8"
+                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="general"
                         value="Sore Throat" />
                       <label class="form-check-label" for="flexSwitchCheckDefault">Sore Throat</label>
                     </div>
                     <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="9"
+                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="general"
                         value="Cold" />
                       <label class="form-check-label" for="flexSwitchCheckDefault">Cold</label>
                     </div>
@@ -531,7 +548,6 @@
                       <t style="text-align:end; margin-right:12px;">Pain</t>
                     </div>
                   </form>
-
                   <form id="eyeForm" class="scale">
                     <div class="rating-scale">
                       <img src="../static/imgs/depressed.png" class="scale-pic" />
@@ -543,47 +559,47 @@
                     </div>
                     <div class="scale-numbers">
                       <div class="button">
-                        <input type="radio" name="head" value=0 checked />
+                        <input type="radio" name="eye" value=0 checked />
                         <label class="btn btn-default">0</label>
                       </div>
                       <div class="button">
-                        <input type="radio" name="head" value=1 />
+                        <input type="radio" name="eye" value=1 />
                         <label class="btn btn-default">1</label>
                       </div>
                       <div class="button">
-                        <input type="radio" name="head" value=2 />
+                        <input type="radio" name="eye" value=2 />
                         <label class="btn btn-default">2</label>
                       </div>
                       <div class="button">
-                        <input type="radio" name="head" value=3 />
+                        <input type="radio" name="eye" value=3 />
                         <label class="btn btn-default">3</label>
                       </div>
                       <div class="button">
-                        <input type="radio" name="head" value=4 />
+                        <input type="radio" name="eye" value=4 />
                         <label class="btn btn-default">4</label>
                       </div>
                       <div class="button">
-                        <input type="radio" name="head" value=5 />
+                        <input type="radio" name="eye" value=5 />
                         <label class="btn btn-default">5</label>
                       </div>
                       <div class="button">
-                        <input type="radio" name="head" value=6 />
+                        <input type="radio" name="eye" value=6 />
                         <label class="btn btn-default">6</label>
                       </div>
                       <div class="button">
-                        <input type="radio" name="head" value=7 />
+                        <input type="radio" name="eye" value=7 />
                         <label class="btn btn-default">7</label>
                       </div>
                       <div class="button">
-                        <input type="radio" name="head" value=8 />
+                        <input type="radio" name="eye" value=8 />
                         <label class="btn btn-default">8</label>
                       </div>
                       <div class="button">
-                        <input type="radio" name="head" value=9 />
+                        <input type="radio" name="eye" value=9 />
                         <label class="btn btn-default">9</label>
                       </div>
                       <div class="button">
-                        <input type="radio" name="head" value=10 />
+                        <input type="radio" name="eye" value=10 />
                         <label class="btn btn-default">10</label>
                       </div>
                     </div>
@@ -592,8 +608,6 @@
                       <t style="text-align:end; margin-right:12px;">Pain</t>
                     </div>
                   </form>
-
-
                 </div>
               </div>
               <div class="symptoms-buttons">
@@ -601,9 +615,14 @@
                   <button class="save add" id="back">Back</button>
                 </div>
                 <div>
-                  <button class="save update">Update Patient Status</button>
+                  <button class="save update" id="save">Update Patient Status</button>
                 </div>
               </div>
+            </div>
+
+            <!--3rd Section Review-->
+            <div class="review-container">
+
             </div>
           </div>
         </div>
