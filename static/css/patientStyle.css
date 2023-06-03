@@ -44,6 +44,12 @@ tb {
   margin-top: 20px
 }
 
+.dot {
+  border-top: 5px dashed #1a5154;
+  float: left;
+  width: 90%;
+}
+
 .stepout {
   margin: 5px 5px;
   width: 75px;
@@ -425,11 +431,10 @@ button span:after {
 
 .symptoms-container {
   display: grid;
-  grid-template-rows: 3fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
+  grid-template-rows: 3fr 17fr;
 }
 
-
-button:active {
+.button:active {
   transform: scale(0.95);
 }
 
@@ -503,4 +508,86 @@ button:active {
   width: 230px;
   height: 70px;
   background-color: #FF7B1B;
+}
+
+.scale {
+  position: absolute;
+  display: none;
+  height: 310px;
+  width: 770px;
+  align-content: center;
+  justify-content: center;
+}
+
+.scale-pic {
+  height: 130px;
+  width: auto;
+}
+
+.scale-numbers {
+  margin-top: 20px;
+}
+
+.point {
+  width: 0;
+  height: 0;
+  border-top: 17px solid transparent;
+  border-bottom: 17px solid transparent;
+  border-left: 25px solid #1a5154;
+  float: right;
+}
+
+.rating-scale {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  margin-top: -10px;
+}
+
+.arrow {
+  width: 80%;
+  margin: 50px 0px 0px 40px;
+}
+
+.scale-desc {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 7px;
+}
+
+.button {
+  float: left;
+  margin: 10px 10px;
+  width: 45px;
+  height: 45px;
+  position: relative;
+}
+
+.button label,
+.button input {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 30px;
+  border-color: black;
+}
+
+.button input[type="radio"] {
+  opacity: 0.011;
+  z-index: 100;
+}
+
+.button input[type="radio"]:checked+label {
+  background: #1a5154;
+  color: white;
+  border-radius: 30px;
+  transition: background-color 0.5s ease;
+}
+
+.button label {
+  cursor: pointer;
+  z-index: 90;
+  line-height: 1.8em;
 }
