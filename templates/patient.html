@@ -621,8 +621,36 @@
             </div>
 
             <!--3rd Section Review-->
-            <div class="review-container">
+            <div class="review-container" style="display:none">
+              <div class="review-table">
+                <tb>The below symptoms will be submitted:</tb>
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">Category</th>
+                      <th class="tableHeader" scope="col">Symptoms/Records</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr id="tableDetails">
+                      <td>Basic Details</td>
+                      <td id="tableDetailsValues"></td>
+                    </tr>
+                    <tr id="tableGeneral">
+                      <td>General Sickness</td>
+                      <td id="tableGeneralValues"></td>
+                    </tr>
+                    <tr id="tableCategories">
+                      <td>Pain Rating</td>
+                      <td id="tableCategoriesValues"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
 
+              <div class="review-buttons">
+                <button class="save submit">Confirm Submission</button>
+              </div>
             </div>
           </div>
         </div>

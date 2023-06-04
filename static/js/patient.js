@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const status = document.querySelector(".statusContainer");
   const detailsValue = document.querySelectorAll(".details-input");
   const save = document.getElementById("save");
-  const review = document.querySelector(".review-container")
+  const review = document.querySelector(".review-container");
 
   var previousSection = "details";
   var selectedCategoryNumber = 0;
@@ -81,7 +81,23 @@ document.addEventListener("DOMContentLoaded", function () {
     final.push(oxygen);
     final.push(checkboxesCheckedValue);
     final.push(painLevel);
-    console.log("Final: " + final)
+    console.log("Final: " + final);
+
+
+    const basicReview = "Blood Pressure: " + systolic + "/" + diastolic + " mmHg\n" + "Oxygen Level: " + oxygen + "%";
+    document.getElementById("tableDetailsValues").textContent = basicReview;
+    const generalReview = getGeneral(checkboxesChecked);
+    if (generalReview != "") {
+      document.getElementById("tableGeneralValues").textContent = generalReview;
+    } else {
+      document.getElementById("tableGeneral").style.display = "none";
+    };
+    const painReview = getPain(painLevel);
+    if (painReview != "") {
+      document.getElementById("tableCategoriesValues").textContent = painReview;
+    } else {
+      document.getElementById("tableCategories").style.display = "none";
+    };
   });
 
   categories[0].addEventListener("click", (e) => {
@@ -147,7 +163,37 @@ document.addEventListener("DOMContentLoaded", function () {
     return checkboxesChecked.length > 0 ? checkboxesChecked : null;
   }
 
+  const getGeneral = (arr) => {
+    var generalSymptoms = "";
+    for (let i=1; i<=arr.length; i++) {
+      generalSymptoms = generalSymptoms + i + ". " + arr[i-1] + "\n";
+    }
+    console.log(generalSymptoms);
+    return generalSymptoms;
+  };
 
-  
+  const getPain = (arr) => {
+    var painLevels = "";
+    if (arr[0] > 0) {
+      painLevels = painLevels + "Leg - " + arr[0] + "/10\n";
+    };
+    if (painLevel[1] > 0) {
+      painLevels = painLevels + "Hand - " + arr[1] + "/10\n";
+    };
+    if (painLevel[2] > 0) {
+      painLevels = painLevels + "Stomach - " + arr[2] + "/10\n";
+    };
+    if (painLevel[3] > 0) {
+      painLevels = painLevels + "Chest - " + arr[3] + "/10\n";
+    };
+    if (painLevel[4] > 0) {
+      painLevels = painLevels + "Eye - " + arr[4] + "/10\n";
+    };
+    console.log(painLevels);
+    return painLevels;
+  }
+
+
+
 });
 
