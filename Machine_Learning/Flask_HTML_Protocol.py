@@ -4,28 +4,30 @@ import numpy as np
 
 app = Flask(__name__, template_folder= './Machine_Learning/templates', static_folder='./Machine_Learning/static')
 
-@app.route('/')
+@app.route('/', methods = ['GET'])
 def greeting():
+    form_data = request.form
+    x = list(form_data.values())
+    print(x)
     return render_template('patient.html')
 
-@app.route("/result", methods=['POST'])
+@app.route("/result", methods=['GET'])
 def predict():
     form_data = request.form
     x = list(form_data.values())
-    raw_data = [str(x[0])]
+    raw_data = [str(x[0]),str(x[1]),str(x[2]),str(x[3])]
     print("This is the First Raw Data:", raw_data)
-    x.pop(0)
-    y = ['Age',
+    x.pop(0,1,2,3)
+    y = ['Allergies',
+         'Flu',
+         'Coughing',
          'Diarrhea',
-         'Difficulty in Breathing',
-         'Dry Cough',
+         'Fatigue',
          'Fever',
-         'Nasal',
-         'Pains',
-         'Runny Nose',
+         'Muscle_Ache',
          'Sore Throat',
-         'Tireness']
-    z = [int(x[0])]
+         'Cold']
+    z = [int(x[0]),int]
     for i in range(len(y)):
         if y[i] not in x:
             z.insert(i+1, 0)
