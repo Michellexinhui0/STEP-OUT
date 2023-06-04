@@ -20,10 +20,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   
   //Development only code, delete during deployment
-  //details.style.display = "none";
-  //conditions.style.display = "none";
-  //status.style.display = "none";
-  //review.style.display = "grid";
+  // details.style.display = "none";
+  // conditions.style.display = "none";
+  status.style.display = "none";
+  review.style.display = "grid";
 
   edit.addEventListener("click", (e) => {
     console.log("Edit button was clicked.");
