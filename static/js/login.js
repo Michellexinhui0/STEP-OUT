@@ -4,10 +4,10 @@ const container = document.getElementById("container");
 clickLogin = (e) => {
   e.preventDefault();
 
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+  const email = document.getElementsByName("email").value;
+  const password = document.getElementsByName("password").value;
 
-  fetch("/", {
+  fetch("/user/login", {
     method: "POST",
     body: JSON.stringify({
       email: email,
@@ -19,11 +19,11 @@ clickLogin = (e) => {
   })
     .then((response) => response.json())
     .then((result) => {
-      if (result.message === "SUCCESS") {
-        alert("You are logged in.");
-        window.location.href = "/search/";
-      } else {
+      if (result.error) {
         alert("Please check your login information.");
+      } else {
+        alert("You are logged in.");
+        windowlocation.replace("/search/");
       }
     });
 };
