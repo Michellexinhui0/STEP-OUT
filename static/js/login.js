@@ -23,7 +23,7 @@ clickLogin = (e) => {
         alert("Please check your login information.");
       } else {
         alert("You are logged in.");
-        window.location.replace("/search/");
+        windowlocation.replace("/search/");
       }
     });
 };

@@ -32,3 +32,4 @@ def home():
 @login_required
 def search():
     return render_template('search.html')
+
