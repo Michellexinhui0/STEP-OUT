@@ -10,6 +10,7 @@
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../static/css/loginStyle.css">
   <script src="../static/js/login.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
 
   <title> Step Out </title>
   <link rel="icon" type="image/icon" href="static/imgs/favicon.ico" />
@@ -20,11 +21,11 @@
   <div class="background">
     <div class="container" id="container">
       <div class="form-container sign-in-container">
-        <form name="login_form"> <!--action="/user/login" method="POST"--> <!-- Add this in first-->
+        <form name="login_form" action="/search/" method="POST" > <!----> <!-- Add this in first-->
           <img src="static/imgs/STEP OUT Logo.png" class="stepout" />
           <input type="email" name="email" placeholder="Email" />
           <input type="password" name="password" placeholder="Password" />
-          <button id="logIn">Log In</button>
+          <button id="logIn" type="submit">Log In</button>          
         </form>        
       </div>
     </div>

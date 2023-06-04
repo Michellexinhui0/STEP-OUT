@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, session, redirect, url_for
+from flask import Flask, jsonify, render_template, request, session, redirect, url_for
 from passlib.hash import pbkdf2_sha256
 from app import db
 import uuid
@@ -8,7 +8,7 @@ class User:
         del user['password']
         session['logged_in'] = True
         session['user'] = user
-        return jsonify(user), 200
+        return render_template("search.html"), 200
 
     def signup(self):
         print(request.form)

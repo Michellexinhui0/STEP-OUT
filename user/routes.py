@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, redirect, render_template, url_for
 from app import app
 from user.models import User
 
@@ -10,8 +10,9 @@ def signup():
 def signout():
     return User().signout()
 
-@app.route('/user/login', methods=['POST'])
-def login():
+@app.route('/search/', methods=['POST'])
+def login_post():
     return User().login()
+
 
 
