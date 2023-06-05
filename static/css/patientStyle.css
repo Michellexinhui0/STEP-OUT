@@ -631,13 +631,20 @@ button span:after {
 
 .review-container {
   display: grid;
-  grid-template-columns: 3fr 2fr;
+  grid-template-columns: 4fr 2fr;
   width: 100%;
+}
+
+.review-table {
+  text-align: center;
+  margin: 20px 0 0 50px;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 table {
   height: 80%;
-  margin: 30px 0 0 20px;
+  margin: 10px 0 0 0px;
   font: "inter";
 }
 
@@ -662,15 +669,57 @@ tbody {
 }
 
 .table>:not(caption)>*>* {
-  padding: 30px 20px;
+  padding: 25px 20px;
 }
 
 .review-buttons {
-  margin-left: 200px;
+  margin-left: 75px;
+  margin-top: 30px;
+}
+
+.review-img {
+  width: 265px;
+  height: 250px;
+  margin-left: -7px;
+  margin-bottom: -7px;
 }
 
 .submit {
-  height: 80px;
+  height: 70px;
   width: 250px;
-  margin-top: 350px;
+  margin-top: 10px;
+}
+
+.loading-container {
+  margin-top: 30px;
+  display: grid;
+  width: 100%;
+  justify-content: center;
+}
+
+.loading-line {
+  border-width: 3px;
+  margin: 0px;
+  padding: 0;
+  width: 100%
+}
+
+.updated-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr 5fr;
+  width: 100%;
+}
+
+.updated-header {
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.updated-status {
+  background: #FF7B1B;
+  width: 102%;
+  margin: 0px 0px 0px -12px;
+  padding-top: 17px;
+  color: white;
+  font-size: 30px;
 }

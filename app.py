@@ -1,5 +1,5 @@
-from flask import Flask, render_template, session, redirect
 from functools import wraps
+from flask import Flask, render_template, session, redirect, request
 import pymongo
 
 # Python -c 'import os; print(os.urandom(16))' to generate the secret key in terminal
@@ -28,3 +28,13 @@ from user import routes
 def home():
     return render_template('login.html')
 
+
+@app.route('/search/')
+@login_required
+def search():
+    return render_template('search.html')
+
+@app.route('/patient/')
+@login_required
+def search():
+    return render_template('patient.html')
