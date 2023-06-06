@@ -198,12 +198,42 @@
             <div class="statusContainer" style="display:none">
               <div class="statusHeader">
                 <button class="exit">&#10006</button>
-                <div class="statusTitle">
-                  Manually Update Patient's Status
-                </div>
+                <tb class="statusTitle">Manually Update Patient's Status</tb>
               </div>
-              <div>
-                2
+              <div class="statusTrio">
+                <div class="status big">
+                  <div class="status-name" style="background-color:#7b1bff">
+                    <tb>Hospitalized</tb>
+                  </div>
+                  <div class="status-desc" style="margin-top:50px;">
+                    <t>Patient still requires medical attention.</t>
+                  </div>
+                  <img class="status-img" src="../static/imgs/hospitalized.png" />
+                </div>
+                <div style="display:flex">
+                  <vl />
+                </div>
+
+                <!--Outlying-->
+                <div class="status big">
+                  <div class="status-name" style="background-color:#ff7b1b;">
+                    <tb style="margin-right:18px">Outlying </tb>
+                  </div>
+                  <div class="status-desc">
+                    <t>Patient can receive treatment from home by PCA.</t>
+                  </div>
+                  <img class="status-img" src="../static/imgs/outlying.png" />
+                </div>
+                <!--Recovered-->
+                <div class="status big">
+                  <div class="status-name" style="background-color:#00bf8f">
+                    <tb style="margin-right:5px">Recovered<tb>
+                  </div>
+                  <div class="status-desc">
+                    <t>Patient can check out from the hospital.</t>
+                  </div>
+                  <img class="status-img" src="../static/imgs/recovered.png" />
+                </div>
               </div>
               <div>
                 3
@@ -231,27 +261,27 @@
                     </div>
                   </form>
                 </div>
-                <button class="category" id="general">
-                  <img src="../static/imgs/general.png" />
+                <button class="category general" style="color:white; background:#1a5154" id="general">
+                  <img src="../static/imgs/generalW.png" />
                   General
                 </button>
-                <button class="category" id="leg">
+                <button class="category legs" id="leg">
                   <img src="../static/imgs/leg.png" />
                   Legs
                 </button>
-                <button class="category" id="hand">
+                <button class="category hands" id="hand">
                   <img src="../static/imgs/hand.png" />
                   Hands
                 </button>
-                <button class="category" id="stomach">
+                <button class="category stomach" id="stomach">
                   <img src="../static/imgs/stomach.png" />
                   Stomach
                 </button>
-                <button class="category" id="chest">
+                <button class="category chest" id="chest">
                   <img src="../static/imgs/chest.png" />
                   Chest
                 </button>
-                <button class="category" id="eye" style="border-style:none;">
+                <button class="category eyes" id="eye" style="border-bottom-style:none;">
                   <img src="../static/imgs/eye.png" />
                   Eyes
                 </button>
@@ -259,7 +289,7 @@
               <div class="symptoms-container">
                 <div class="container-header">
                   <numbering>2</numbering>
-                  <tb style="margin:15px 50px 0px 0px" id="symptoms-text">General Sickness Symptoms</tb>
+                  <tb style="margin:15px 50px 0px 0px" id="symptoms-text">General Symptoms</tb>
                 </div>
                 <div>
                   <form id="generalForm" style="display:grid; grid-template-rows:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr">
@@ -667,8 +697,14 @@
 
             <!--5th Section Updated-->
             <div class="updated-container" style="display:none">
-              <tb class="updated-header">Patient Status Updated!</tb>
+              <img class="updated-img" src="../static/imgs/outlying.png" />
+              <tb class="updated-header">Patient Status is Predicted to be:</tb>
               <tb class="updated-status">Outlying</tb>
+              <div class="updated-body">
+                <tb class="updated-status desc">Patient can receive treatment from home by PCA</tb>
+                <button class="save submit edit-status" id="Next">Click Here to Edit Status</button>
+              </div>
+
             </div>
           </div>
         </div>

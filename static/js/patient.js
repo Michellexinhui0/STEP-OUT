@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const loading = document.querySelector(".loading-container");
   const skip = document.getElementById("skip");
   const updated = document.querySelector(".updated-container");
+  const updateStatus = document.querySelector(".save.submit.edit-status");
 
   var previousSection = "details";
   var selectedCategoryNumber = 0;
@@ -27,10 +28,10 @@ document.addEventListener("DOMContentLoaded", function () {
   //Development only code, delete during deployment
   /*details.style.display = "none";
   conditions.style.display = "none";
-  status.style.display = "none";
+  status.style.display = "grid";
   review.style.display = "none";
   loading.style.display = "none";
-  updated.style.display = "grid";*/
+  updated.style.display = "none";*/
 
 
   edit.addEventListener("click", (e) => {
@@ -47,10 +48,6 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Next button was clicked.");
     details.style.display = "none";
     conditions.style.display = "grid";
-    categories[selectedCategoryNumber].style.transition = "background 0.5s ease";
-    categories[selectedCategoryNumber].style.background = "#1a5154";
-    categories[selectedCategoryNumber].style.color = "white";
-    categories[selectedCategoryNumber].querySelector("img").src = "../static/imgs/" + image[selectedCategoryNumber] + "W.png";
     previousSection = "conditions";
   });
 
@@ -58,9 +55,6 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Back button was clicked.");
     details.style.display = "grid";
     conditions.style.display = "none";
-    categories[selectedCategoryNumber].style.background = "white";
-    categories[selectedCategoryNumber].style.color = "black";
-    categories[selectedCategoryNumber].querySelector("img").src = "../static/imgs/" + image[selectedCategoryNumber] + ".png";
     previousSection = "details";
   });
 
@@ -128,6 +122,11 @@ document.addEventListener("DOMContentLoaded", function () {
   skip.addEventListener("click",(e) => {
     loading.style.display = "none";
     updated.style.display = "grid";
+  })
+
+  updateStatus.addEventListener("click",(e) => {
+    updated.style.display = "none";
+    status.style.display = "grid";
   })
 
   categories[0].addEventListener("click", (e) => {
