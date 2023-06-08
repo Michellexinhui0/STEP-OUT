@@ -20,7 +20,7 @@ def receiveData():
     # x = data['value']
     # y = list(x)
     # print(y)
-    return str(flat_list)
+    return "outlying"
 
 if __name__ == '__main__':
     app.run()

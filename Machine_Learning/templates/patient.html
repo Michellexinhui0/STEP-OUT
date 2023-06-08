@@ -651,32 +651,37 @@
               </div>
 
               <div class="review-buttons">
-                <button class="save submit" onclick="sendData()">Confirm Submission</button>
-                <!-- <script>
-                  function sendData(){
-                    var data = final;
-                      $.ajax({
-                      url: '/Result',
-                      type: 'POST',
-                      contentType: 'application/json',
-                      data: JSON.stringify({'data':data}),
-                      success: function(response) {
-                        document.getElementById('output').innerHTML = response;
-                    }, error : function(error) {
-                        console.log(error);
-                    }
-                      })
-                  }
-                </script> -->
+                <img src="../static/imgs/doctor.png" class="review-img" />
+                <button class="save submit" id="review-edit">Edit Conditions</button>
+                <button class="save submit" id="review-submit" style="margin-top:10px;" onclick="sendData()">Confirm Submission</button>
               </div>
-             
+            </div>
+
+            <!--4th Section Loading-->
+            <div class="loading-container" style="display:none">
+              <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_ztxhxdwa.json" background="transparent"
+                speed="1" style="width: 250px; height: 250px; margin-left:175px;" loop autoplay></lottie-player>
+              <hr class="loading-line">
+              <tb>STEP OUT AI is predicting patient's status.. It might take a while...</tb>
+              <button class="save" id="skip" style="position:absolute; margin:350px 0 0 1000px">Skip Loading</button>
+            </div>
+
+            <!--5th Section Updated-->
+            <div class="updated-container" style="display:none">
+              <img class="updated-img" src="../static/imgs/outlying.png" />
+              <tb class="updated-header">Patient Status is Predicted to be:</tb>
+              <tb class="updated-status">Outlying</tb>
+              <div class="updated-body">
+                <tb class="updated-status desc">Patient can receive treatment from home by PCA</tb>
+                <button class="save submit edit-status" id="Next">Click Here to Edit Status</button>
+              </div>
+
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div> 
-  <div id="output">Hello</div>
+  </div>
 </body>
 
 </html>
