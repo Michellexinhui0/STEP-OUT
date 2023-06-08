@@ -1,3 +1,27 @@
+function sendData(){
+  fetch('/result', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({data: final}),
+    success: function(response) {
+    console.log(response)
+    document.getElementById('output').innerHTML = response;
+    
+}, error : function(error) {
+    console.log(error);
+}
+  });
+//   console.log(data)
+//   $.ajax({
+//   url: '/result',
+//   type: 'POST',
+//   data: JSON.stringify(data),
+//   datatype:"json",
+  
+//   })
+}
 document.addEventListener("DOMContentLoaded", function () {
   console.log("DOM is loaded");
   const next = document.getElementById("Next");
@@ -10,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const status = document.querySelector(".statusContainer");
   const detailsValue = document.querySelectorAll(".details-input");
   const save = document.getElementById("save");
-  const review = document.querySelector(".review-container")
+  const review = document.querySelector(".review-container");
 
   var previousSection = "details";
   var selectedCategoryNumber = 0;
@@ -20,10 +44,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   
   //Development only code, delete during deployment
-  // details.style.display = "none";
-  // conditions.style.display = "none";
-  status.style.display = "none";
-  review.style.display = "grid";
+  //details.style.display = "none";
+  //conditions.style.display = "none";
+  //status.style.display = "none";
+  //review.style.display = "grid";
 
   edit.addEventListener("click", (e) => {
     console.log("Edit button was clicked.");
@@ -60,6 +84,10 @@ document.addEventListener("DOMContentLoaded", function () {
     diastolic = detailsValue[1].value;
     oxygen = detailsValue[2].value;
     console.log("Systolic: " + systolic + " Diastolic: " + diastolic + " Oxygen: " + oxygen);
+    BpnOL=[]
+    BpnOL.push(parseInt(systolic));
+    BpnOL.push(parseInt(diastolic));
+    BpnOL.push(parseInt(oxygen));
 
     checkboxesChecked = [];
     checkboxesCheckedValue = [];
@@ -68,31 +96,48 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Array for general conditions: " + checkboxesCheckedValue)
 
     painLevel = [];
-    painLevel.push(document.querySelector('input[name="leg"]:checked').value);
-    painLevel.push(document.querySelector('input[name="hand"]:checked').value);
-    painLevel.push(document.querySelector('input[name="stomach"]:checked').value);
-    painLevel.push(document.querySelector('input[name="chest"]:checked').value);
-    painLevel.push(document.querySelector('input[name="eye"]:checked').value);
+    painLevel.push(parseInt(document.querySelector('input[name="leg"]:checked').value));
+    painLevel.push(parseInt(document.querySelector('input[name="hand"]:checked').value));
+    painLevel.push(parseInt(document.querySelector('input[name="stomach"]:checked').value));
+    painLevel.push(parseInt(document.querySelector('input[name="chest"]:checked').value));
+    painLevel.push(parseInt(document.querySelector('input[name="eye"]:checked').value));
     console.log("Pain Levels: " + painLevel);
     
     final = [];
-    final.push(systolic);
-    final.push(diastolic);
-    final.push(oxygen);
+    final.push(BpnOL);
     final.push(checkboxesCheckedValue);
     final.push(painLevel);
-    console.log("Final: " + final)
-  });
+    console.log("Final: " + final);
+    // fetch('/result', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify({data: final})
+    // })
+    // .then(response => response.text())
+    // .then(result => {
+    //   console.log(result);
+    // })
+    // .catch(error => {
+    //   console.error('Error:', error);
+    // });
 
-  // function submitForms(){
-  //   document.getElementById("Bp_n_Ol").submit();
-  //   document.getElementById("generalForm").submit();
-  //   document.getElementById("legForm").submit();
-  //   document.getElementById("handForm").submit();
-  //   document.getElementById("stomachForm").submit();
-  //   document.getElementById("chestForm").submit();
-  //   document.getElementById("eyeForm").suubmit();
-  // }
+    const basicReview = "Blood Pressure: " + systolic + "/" + diastolic + " mmHg\n" + "Oxygen Level: " + oxygen + "%";
+    document.getElementById("tableDetailsValues").textContent = basicReview;
+    const generalReview = getGeneral(checkboxesChecked);
+    if (generalReview != "") {
+      document.getElementById("tableGeneralValues").textContent = generalReview;
+    } else {
+      document.getElementById("tableGeneral").style.display = "none";
+    };
+    const painReview = getPain(painLevel);
+    if (painReview != "") {
+      document.getElementById("tableCategoriesValues").textContent = painReview;
+    } else {
+      document.getElementById("tableCategories").style.display = "none";
+    };
+  });
 
   categories[0].addEventListener("click", (e) => {
     changeCategory(0);
@@ -150,14 +195,42 @@ document.addEventListener("DOMContentLoaded", function () {
        // And stick the checked ones onto an array...
        if (checkboxes[i].checked) {
           checkboxesChecked.push(checkboxes[i].value);
-          checkboxesCheckedValue.push("1");
-       } else {checkboxesCheckedValue.push("0")};
+          checkboxesCheckedValue.push(1);
+       } else {checkboxesCheckedValue.push(0)};
     };
     // Return the array if it is non-empty, or null
     return checkboxesChecked.length > 0 ? checkboxesChecked : null;
   }
 
+  const getGeneral = (arr) => {
+    var generalSymptoms = "";
+    for (let i=1; i<=arr.length; i++) {
+      generalSymptoms = generalSymptoms + i + ". " + arr[i-1] + "\n";
+    }
+    console.log(generalSymptoms);
+    return generalSymptoms;
+  };
 
-  
+  const getPain = (arr) => {
+    var painLevels = "";
+    if (arr[0] > 0) {
+      painLevels = painLevels + "Leg - " + arr[0] + "/10\n";
+    };
+    if (painLevel[1] > 0) {
+      painLevels = painLevels + "Hand - " + arr[1] + "/10\n";
+    };
+    if (painLevel[2] > 0) {
+      painLevels = painLevels + "Stomach - " + arr[2] + "/10\n";
+    };
+    if (painLevel[3] > 0) {
+      painLevels = painLevels + "Chest - " + arr[3] + "/10\n";
+    };
+    if (painLevel[4] > 0) {
+      painLevels = painLevels + "Eye - " + arr[4] + "/10\n";
+    };
+    console.log(painLevels);
+    return painLevels;
+  }
+
 });
 
