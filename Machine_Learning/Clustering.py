@@ -9,20 +9,16 @@ import tensorflow as tf
 dataset = pd.read_csv("./Machine_Learning/Final_Sample.csv")
 dataset = dataset.drop('Gender', axis = 1)
 
-Y = dataset['Result']
-X = dataset.drop('Result', axis = 1)
-
-cols = X.columns
-from sklearn.preprocessing import MinMaxScaler
-ms = MinMaxScaler()
-X = ms.fit_transform(X)
-X = pd.DataFrame(X, columns=[cols])
+Y = dataset.iloc[:,-1].values
+X = dataset.iloc[:,0:-1].values
 
 from sklearn.model_selection import train_test_split as tts
 Trained_X,Tested_X,Trained_Y,Tested_Y = tts(X,Y,test_size=0.2,random_state=5)
 
-Trained_X = np.asarray(Trained_X)
-Trained_Y = np.asarray(Trained_Y)
+from sklearn.preprocessing import StandardScaler as stdS
+stdscaler = stdS()
+Trained_X = stdscaler.fit_transform(Trained_X)
+Tested_X = stdscaler.transform(Tested_X)
 
 #Initialising ANN
 from keras.models import Sequential
@@ -30,22 +26,25 @@ ann = Sequential()
 
  #Adding First Hidden Layer
 from keras.layers import Dense
-ann.add(Dense(units=11,activation="relu", kernel_initializer='uniform', input_dim = 18))
+ann.add(Dense(units=60,activation="relu", kernel_initializer='uniform', input_dim = 18))
 
  #Adding Second Hidden Layer
-ann.add(Dense(units=11,activation="relu",kernel_initializer='uniform'))
+ann.add(Dense(units=60,activation="relu",kernel_initializer='uniform'))
 
 #Adding Third Hidden Layer
-ann.add(Dense(units=11,activation="relu",kernel_initializer='uniform'))
+ann.add(Dense(units=60,activation="relu",kernel_initializer='uniform'))
 
 #Adding Forth Hidden Layer
-ann.add(Dense(units=11,activation="relu",kernel_initializer='uniform'))
+ann.add(Dense(units=60,activation="relu",kernel_initializer='uniform'))
 
  #Adding Fifth Hidden Layer
-ann.add(Dense(units=11,activation="relu",kernel_initializer='uniform'))
+ann.add(Dense(units=60,activation="relu",kernel_initializer='uniform'))
 
  #Adding Sixth Hidden Layer
-ann.add(Dense(units=11,activation="relu", kernel_initializer='uniform'))
+ann.add(Dense(units=40,activation="relu", kernel_initializer='uniform'))
+
+ #Adding Seventh Hidden Layer
+ann.add(Dense(units=20,activation="relu", kernel_initializer='uniform'))
 
  #Adding Output Layer
 ann.add(Dense(units=1,kernel_initializer='uniform',activation="sigmoid"))
@@ -54,13 +53,13 @@ ann.add(Dense(units=1,kernel_initializer='uniform',activation="sigmoid"))
 ann.compile(optimizer="adam",loss="binary_crossentropy",metrics=['accuracy'])
 
 #Fitting ANN
-ann.fit(Trained_X,Trained_Y,batch_size=64,epochs = 200)
+ann.fit(Trained_X,Trained_Y,batch_size=64,epochs = 100)
 _, accuracy = ann.evaluate(Trained_X, Trained_Y)
 print('Accuracy : %.2f' % (accuracy*100))
 
 from sklearn.metrics import confusion_matrix
 y_pred_proba1 = ann.predict(Tested_X)
-y_pred_proba1 = (y_pred_proba1 > 0.65)
+y_pred_proba1 = (y_pred_proba1 > 0.5)
 
 from sklearn.metrics import confusion_matrix
 conf_mat = confusion_matrix(Tested_Y, y_pred_proba1)
@@ -75,6 +74,16 @@ from sklearn.metrics import accuracy_score
 acc = accuracy_score(Tested_Y, y_pred_proba1)
 print('Accuracy of ANN: ', acc*100, '%')
 
+from sklearn.preprocessing import StandardScaler
+stdscaler = StandardScaler()
+list1 = [56,124,56,99,1,0,1,1,0,0,0,0,0,0,0,0,0,0]
+list1 = np.asarray(list).reshape(1,-1)
+list1 = stdscaler.transform([[56,124,56,90,1,0,1,1,0,0,0,0,0,0,0,0,0,0]])
+list1
+print(ann.predict() > 0.5)
+list1
+print(ann.predict(stdscaler.fit_transform([[56,124,56,99,1,0,1,1,0,0,0,0,0,0,0,0,0,0]])) > 0.5)
+ann.predict(list)
 import pickle
 filename = 'ANN.sav'
 pickle.dump(ann,open(filename,'wb'))

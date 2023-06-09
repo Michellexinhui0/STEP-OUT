@@ -2,8 +2,9 @@ from flask import Flask, render_template, request, jsonify
 import json
 import pickle
 import numpy as np
-
+from sklearn.preprocessing import StandardScaler
 app = Flask(__name__, template_folder= './Machine_Learning/templates', static_folder='./Machine_Learning/static')
+model = pickle.load(open('./Machine_Learning/ANN.sav', 'rb'))
 
 @app.route('/')
 def greeting():
@@ -13,13 +14,13 @@ def greeting():
 def receiveData():
     data =  request.get_json()
     nested = list(data['data'])
+    print(nested)
     flat_list = [num for sublist in nested for num in sublist]
     print(flat_list)
-    # data = json.loads(request, strict = False)
-    # print(data)
-    # x = data['value']
-    # y = list(x)
-    # print(y)
+    flat_list.insert(0,45)
+    stdscaler = StandardScaler()
+    result = model.predict(stdscaler.fit_transform([flat_list]))> 0.5
+    print(result)
     return "outlying"
 
 if __name__ == '__main__':
