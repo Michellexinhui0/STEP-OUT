@@ -76,14 +76,8 @@ print('Accuracy of ANN: ', acc*100, '%')
 
 from sklearn.preprocessing import StandardScaler
 stdscaler = StandardScaler()
-list1 = [56,124,56,99,1,0,1,1,0,0,0,0,0,0,0,0,0,0]
-list1 = np.asarray(list).reshape(1,-1)
-list1 = stdscaler.transform([[56,124,56,90,1,0,1,1,0,0,0,0,0,0,0,0,0,0]])
-list1
-print(ann.predict() > 0.5)
-list1
-print(ann.predict(stdscaler.fit_transform([[56,124,56,99,1,0,1,1,0,0,0,0,0,0,0,0,0,0]])) > 0.5)
-ann.predict(list)
+print(ann.predict(stdscaler.fit_transform([[56,124,56,99,1,0,1,1,0,0,0,0,0,0,0,10,0,0]])) > 0.5)
+
 import pickle
 filename = 'ANN.sav'
 pickle.dump(ann,open(filename,'wb'))
