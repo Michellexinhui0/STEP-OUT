@@ -195,38 +195,49 @@
               </div>
             </div>
 
+            <!--Manually Update Status Section-->
             <div class="statusContainer" style="display:none">
               <div class="statusHeader">
                 <button class="exit">&#10006</button>
                 <tb class="statusTitle">Manually Update Patient's Status</tb>
               </div>
               <div class="statusTrio">
-                <div class="status big">
-                  <div class="status-name" style="background-color:#7b1bff">
-                    <tb>Hospitalized</tb>
+
+                <!--1st Current Status-->
+                <div>
+                  <tb style="margin-left:21px;">Current Status:</tb>
+                  <div class="status hospitalized">
+                    <div class="status-name" style="background-color:#7b1bff">
+                      <tb>Hospitalized</tb>
+                    </div>
+                    <div class="status-desc">
+                      <t>Patient still requires medical attention.</t>
+                    </div>
+                    <img class="status-img" src="../static/imgs/hospitalized.png" />
                   </div>
-                  <div class="status-desc" style="margin-top:50px;">
-                    <t>Patient still requires medical attention.</t>
-                  </div>
-                  <img class="status-img" src="../static/imgs/hospitalized.png" />
                 </div>
+
                 <div style="display:flex">
                   <vl />
                 </div>
 
-                <!--Outlying-->
-                <div class="status big">
-                  <div class="status-name" style="background-color:#ff7b1b;">
-                    <tb style="margin-right:18px">Outlying </tb>
+                <!--2nd Status-->
+                <div>
+                  <tb style="margin-left:-18px;">Available Status:</tb>
+                  <div class="status outlying" style="margin-left:-20px;">
+                    <div class="status-name">
+                      <tb>Outlying </tb>
+                    </div>
+                    <div class="status-desc">
+                      <t>Patient can receive treatment from home by PCA.</t>
+                    </div>
+                    <img class="status-img" src="../static/imgs/outlying.png" />
                   </div>
-                  <div class="status-desc">
-                    <t>Patient can receive treatment from home by PCA.</t>
-                  </div>
-                  <img class="status-img" src="../static/imgs/outlying.png" />
                 </div>
-                <!--Recovered-->
-                <div class="status big">
-                  <div class="status-name" style="background-color:#00bf8f">
+
+                <!--3rd Status-->
+                <div class="status" style="margin:30px 0 0 -50px;">
+                  <div class="status-name">
                     <tb style="margin-right:5px">Recovered<tb>
                   </div>
                   <div class="status-desc">
@@ -235,13 +246,23 @@
                   <img class="status-img" src="../static/imgs/recovered.png" />
                 </div>
               </div>
-              <div>
-                3
+              <div class="status-reason">
+                <t class="status-title">Notes on reason for status update:</t>
+                <textarea placeholder="Insert your reason for manually updating patient’s status here..."></textarea>
               </div>
               <div>
-                4
+                <button class="save update update-status">Confirm</button>
               </div>
             </div>
+
+            <!--Status Updated Section-->
+            <div class="statusUpdatedContainer" style="display:none">
+              <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_d19xdqkt.json" background="transparent"
+                speed="1" style="width: 300px; height: 300px; margin: 30px 0 0 40px" loop autoplay></lottie-player>
+              <t>You have successfully updated the patient's status! <br>
+                Patient's will be notified on preparation to check out in a day.</t>
+            </div>
+
             <!--2nd Section, display is set to none by default and will be shown after clicking on 'next' button-->
             <div class="categories" id="conditions" style="display:none">
               <div class="categories-border">
@@ -250,7 +271,7 @@
 
                   <form class="search-form" method="get" action="">
                     <div class="tb">
-                      <div class="td"><input type="text" class="category-search" placeholder="Search for a patient"
+                      <div class="td"><input type="text" class="category-search" placeholder="Search for a category"
                           required></div>
                       <div class="td" id="s-cover">
                         <button type="submit">

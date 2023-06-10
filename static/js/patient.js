@@ -17,6 +17,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const skip = document.getElementById("skip");
   const updated = document.querySelector(".updated-container");
   const updateStatus = document.querySelector(".save.submit.edit-status");
+  const confirmUpdateStatus = document.querySelector(".save.update.update-status");
+  const statusUpdated = document.querySelector(".statusUpdatedContainer");
+  const exit = document.querySelector(".exit");
 
   var previousSection = "details";
   var selectedCategoryNumber = 0;
@@ -36,12 +39,46 @@ document.addEventListener("DOMContentLoaded", function () {
 
   edit.addEventListener("click", (e) => {
     console.log("Edit button was clicked.");
-    if (previousSection == "details") {
-      details.style.display = "none";
-    } else if (previousSection == "conditions") {
-      conditions.style.display = "none";
-    } else (console.log("error"));
+    switch (previousSection) {
+      case "details":
+        details.style.display = "none";
+        break;
+      case "conditions":
+        conditions.style.display = "none";
+        break;
+      case "review":
+        review.style.display = "none";
+        break;
+      case "loading":
+        loading.style.display = "none";
+        break;
+      case "updated":
+        updated.style.display = "none";
+        break;
+    }
     status.style.display = "grid";
+  });
+
+  exit.addEventListener("click", (e) => {
+    console.log("Exit button was clicked.");
+    status.style.display = "none";
+    switch (previousSection) {
+      case "details":
+        details.style.display = "grid";
+        break;
+      case "conditions":
+        conditions.style.display = "grid";
+        break;
+      case "review":
+        review.style.display = "grid";
+        break;
+      case "loading":
+        loading.style.display = "grid";
+        break;
+      case "updated":
+        updated.style.display = "grid";
+        break;
+    }
   })
 
   next.addEventListener("click", (e) => {
@@ -112,22 +149,50 @@ document.addEventListener("DOMContentLoaded", function () {
   reviewEdit.addEventListener("click", (e) => {
     review.style.display = "none";
     conditions.style.display = "grid";
-  })
+    previousSection = "conditions";
+  });
 
   reviewSubmit.addEventListener("click", (e) => {
     review.style.display = "none";
     loading.style.display = "grid";
-  })
+    previousSection = "loading";
+  });
 
   skip.addEventListener("click",(e) => {
     loading.style.display = "none";
     updated.style.display = "grid";
-  })
+    previousSection = "updated";
+  });
 
   updateStatus.addEventListener("click",(e) => {
     updated.style.display = "none";
     status.style.display = "grid";
-  })
+  });
+  
+  confirmUpdateStatus.addEventListener("click",(e) => {
+    status.style.display = "none";
+    statusUpdated.style.display = "grid";
+    setTimeout(() => {
+      statusUpdated.style.display = "none";
+      switch (previousSection) {
+        case "details":
+          details.style.display = "grid";
+          break;
+        case "conditions":
+          conditions.style.display = "grid";
+          break;
+        case "review":
+          review.style.display = "grid";
+          break;
+        case "loading":
+          loading.style.display = "grid";
+          break;
+        case "updated":
+          details.style.display = "grid";
+          break;
+      }
+     }, 5000);      
+  });
 
   categories[0].addEventListener("click", (e) => {
     changeCategory(0);
@@ -221,8 +286,5 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(painLevels);
     return painLevels;
   }
-
-
-
 });
 
