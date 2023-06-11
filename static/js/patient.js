@@ -30,8 +30,8 @@ document.addEventListener("DOMContentLoaded", function () {
   
   //Development only code, delete during deployment
   /*details.style.display = "none";
-  conditions.style.display = "none";
-  status.style.display = "grid";
+  conditions.style.display = "grid";
+  status.style.display = "none";
   review.style.display = "none";
   loading.style.display = "none";
   updated.style.display = "none";*/

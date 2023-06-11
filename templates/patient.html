@@ -45,9 +45,10 @@
     </div>
 
     <!--Non-Top Section-->
-    <div style="display:grid; grid-template-columns:330px 1fr; background-color: white; margin-top:1px">
+    <div
+      style="display:grid; grid-template-columns:330px 1fr; background-color: white; margin-top:1px; padding-bottom:5px">
       <!--Left Section-->
-      <div style="display:grid; grid-template-rows:310px 1fr; margin:0px 18px 0px 18px;">
+      <div class="leftSection">
         <!--Personal Information-->
         <div style="display:grid; grid-template-rows:65px 180px 10px;">
           <tb>Personal Information</tb>
@@ -91,7 +92,7 @@
           </div>
           <!--Hopsitalized-->
           <div class="status">
-            <div class="status-name" style="background-color:#7b1bff">
+            <div class="status-name">
               <tb>Hospitalized</tb>
             </div>
             <div class="status-desc" style="margin-top:50px;">
@@ -101,7 +102,7 @@
           </div>
           <!--Outlying-->
           <div class="status">
-            <div class="status-name" style="background-color:#ff7b1b;">
+            <div class="status-name">
               <tb style="margin-right:18px">Outlying </tb>
             </div>
             <div class="status-desc">
@@ -111,7 +112,7 @@
           </div>
           <!--Recovered-->
           <div class="status">
-            <div class="status-name" style="background-color:#00bf8f">
+            <div class="status-name">
               <tb style="margin-right:5px">Recovered<tb>
             </div>
             <div class="status-desc">
@@ -269,14 +270,13 @@
                 <div class="container-header">
                   <numbering>1</numbering>
 
-                  <form class="search-form" method="get" action="">
+                  <form class="search-form">
                     <div class="tb">
                       <div class="td"><input type="text" class="category-search" placeholder="Search for a category"
                           required></div>
-                      <div class="td" id="s-cover">
-                        <button type="submit">
-                          <div id="s-circle"></div>
-                          <span></span>
+                      <div>
+                        <button>
+                          <img src="../static/imgs/search.png" class="search" />
                         </button>
                       </div>
                     </div>
@@ -302,7 +302,7 @@
                   <img src="../static/imgs/chest.png" />
                   Chest
                 </button>
-                <button class="category eyes" id="eye" style="border-bottom-style:none;">
+                <button class="category eyes" id="eye">
                   <img src="../static/imgs/eye.png" />
                   Eyes
                 </button>
@@ -310,7 +310,7 @@
               <div class="symptoms-container">
                 <div class="container-header">
                   <numbering>2</numbering>
-                  <tb style="margin:15px 50px 0px 0px" id="symptoms-text">General Symptoms</tb>
+                  <tb style="margin:15px 50px 0px 0px" id="symptoms-text" class="category-title">General Symptoms</tb>
                 </div>
                 <div>
                   <form id="generalForm" style="display:grid; grid-template-rows:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr">

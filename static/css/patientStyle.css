@@ -41,7 +41,7 @@ tb {
   font-size: 20px;
   font-weight: bold;
   text-align: center;
-  margin-top: 20px
+  margin-top: 20px;
 }
 
 
@@ -64,6 +64,18 @@ textarea {
   line-height: 26px;
   text-align: justify;
   border-radius: 10px;
+}
+
+.leftSection {
+  display: grid;
+  grid-template-rows: 280px 1fr;
+  margin: 0 18px;
+}
+
+.category-title {
+  font-size: 25px;
+  text-align: left;
+  padding-left: 4px;
 }
 
 .dot {
@@ -451,7 +463,8 @@ button span:after {
 
 .container-header {
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: 1fr 6fr;
+  margin-bottom: 5px;
   animation-name: appear;
   animation-duration: 0.5s;
   animation-fill-mode: both;
@@ -462,16 +475,18 @@ button span:after {
   height: 20px;
   height: 100%;
   width: 100%;
-  margin-left: 10px;
   margin-top: 10px;
 }
 
 .search-form {
-  border-color: #1a5154;
-  border-bottom-style: solid;
-  border-width: 1px;
-  width: 80%;
-  margin-left: 10px;
+  width: 85%;
+  margin-left: 20px;
+}
+
+.search {
+  width: 28px;
+  height: 28px;
+  margin: 9px 0 0 0px;
 }
 
 .category {
@@ -481,7 +496,7 @@ button span:after {
   height: 100%;
   width: 383px;
   align-items: center;
-  border-bottom-style: solid;
+  border-top-style: solid;
   border-color: #1a5154;
   border-width: 0.8px;
   margin-left: -12px;
