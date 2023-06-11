@@ -10,9 +10,10 @@
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../static/css/loginStyle.css">
   <script src="../static/js/login.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
   <title> Step Out </title>
-  <link rel="icon" type="image/icon" href="static/imgs/favicon.ico" />
+  <link rel="icon" type="image/icon" href="../static/imgs/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -20,12 +21,12 @@
   <div class="background">
     <div class="container" id="container">
       <div class="form-container sign-in-container">
-        <form action="/" method="POST">
-          <img src="static/imgs/STEP OUT Logo.png" class="stepout" />
-          <input type="email" id="email" name="email" placeholder="Email" />
-          <input type="password" id="password" name="password" placeholder="Password" />
-          <button id="logIn">Log In</button>
-        </form>        
+        <form name="login_form">
+          <img src="../static/imgs/STEP OUT Logo.png" class="stepout" />
+          <input type="email" id="email" name="email" placeholder="Email" required />
+          <input type="password" id="password" name="password" placeholder="Password" required />
+          <button type="submit" value="Log In">Log In</button>
+        </form>
       </div>
     </div>
   </div>

@@ -10,6 +10,7 @@
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../static/css/patientStyle.css">
   <script src="../static/js/patient.js"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
   <title> Step Out </title>
   <link rel="icon" type="image/icon" href="../static/imgs/favicon.ico" />
@@ -44,9 +45,10 @@
     </div>
 
     <!--Non-Top Section-->
-    <div style="display:grid; grid-template-columns:330px 1fr; background-color: white; margin-top:1px">
+    <div
+      style="display:grid; grid-template-columns:330px 1fr; background-color: white; margin-top:1px; padding-bottom:5px">
       <!--Left Section-->
-      <div style="display:grid; grid-template-rows:310px 1fr; margin:0px 18px 0px 18px;">
+      <div class="leftSection">
         <!--Personal Information-->
         <div style="display:grid; grid-template-rows:65px 180px 10px;">
           <tb>Personal Information</tb>
@@ -90,7 +92,7 @@
           </div>
           <!--Hopsitalized-->
           <div class="status">
-            <div class="status-name" style="background-color:#7b1bff">
+            <div class="status-name">
               <tb>Hospitalized</tb>
             </div>
             <div class="status-desc" style="margin-top:50px;">
@@ -100,7 +102,7 @@
           </div>
           <!--Outlying-->
           <div class="status">
-            <div class="status-name" style="background-color:#ff7b1b;">
+            <div class="status-name">
               <tb style="margin-right:18px">Outlying </tb>
             </div>
             <div class="status-desc">
@@ -110,7 +112,7 @@
           </div>
           <!--Recovered-->
           <div class="status">
-            <div class="status-name" style="background-color:#00bf8f">
+            <div class="status-name">
               <tb style="margin-right:5px">Recovered<tb>
             </div>
             <div class="status-desc">
@@ -171,27 +173,95 @@
                     <div class="details">
                       <label for="Systolic Blood Pressure">Systolic Blood Pressure (mmHg)</label>
                       <div class="details-form">
-                        <input type="number" id="Systolic Blood Pressure" class="details-input" />
+                        <input type="number" id="systolic" class="details-input" />
                       </div>
                     </div>
                     <div>
                       <label for="Diastolic Blood Pressure"> Diastolic Blood Pressure (mmHg)</label>
                       <div class="details-form">
-                        <input type="number" id="Diastolic Blood Pressure" class="details-input" />
+                        <input type="number" id="diastolic" class="details-input" />
                       </div>
                     </div>
                     <div>
                       <label for="Oxygen Saturation">Oxygen Level (%)</label>
                       <div class="details-form">
-                        <input type="number" id="Oxygen Saturation" class="details-input" />
+                        <input type="number" id="oxygen" class="details-input" />
                       </div>
                     </div>
                   </div>
                 </form>
               </div>
               <div class="low-button">
-                <button class="save" id="Save">Next</button>
+                <button class="save" id="Next">Next</button>
               </div>
+            </div>
+
+            <!--Manually Update Status Section-->
+            <div class="statusContainer" style="display:none">
+              <div class="statusHeader">
+                <button class="exit">&#10006</button>
+                <tb class="statusTitle">Manually Update Patient's Status</tb>
+              </div>
+              <div class="statusTrio">
+
+                <!--1st Current Status-->
+                <div>
+                  <tb style="margin-left:21px;">Current Status:</tb>
+                  <div class="status hospitalized">
+                    <div class="status-name" style="background-color:#7b1bff">
+                      <tb>Hospitalized</tb>
+                    </div>
+                    <div class="status-desc">
+                      <t>Patient still requires medical attention.</t>
+                    </div>
+                    <img class="status-img" src="../static/imgs/hospitalized.png" />
+                  </div>
+                </div>
+
+                <div style="display:flex">
+                  <vl />
+                </div>
+
+                <!--2nd Status-->
+                <div>
+                  <tb style="margin-left:-18px;">Available Status:</tb>
+                  <div class="status outlying" style="margin-left:-20px;">
+                    <div class="status-name">
+                      <tb>Outlying </tb>
+                    </div>
+                    <div class="status-desc">
+                      <t>Patient can receive treatment from home by PCA.</t>
+                    </div>
+                    <img class="status-img" src="../static/imgs/outlying.png" />
+                  </div>
+                </div>
+
+                <!--3rd Status-->
+                <div class="status" style="margin:30px 0 0 -50px;">
+                  <div class="status-name">
+                    <tb style="margin-right:5px">Recovered<tb>
+                  </div>
+                  <div class="status-desc">
+                    <t>Patient can check out from the hospital.</t>
+                  </div>
+                  <img class="status-img" src="../static/imgs/recovered.png" />
+                </div>
+              </div>
+              <div class="status-reason">
+                <t class="status-title">Notes on reason for status update:</t>
+                <textarea placeholder="Insert your reason for manually updating patient’s status here..."></textarea>
+              </div>
+              <div>
+                <button class="save update update-status">Confirm</button>
+              </div>
+            </div>
+
+            <!--Status Updated Section-->
+            <div class="statusUpdatedContainer" style="display:none">
+              <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_d19xdqkt.json" background="transparent"
+                speed="1" style="width: 300px; height: 300px; margin: 30px 0 0 40px" loop autoplay></lottie-player>
+              <t>You have successfully updated the patient's status! <br>
+                Patient's will be notified on preparation to check out in a day.</t>
             </div>
 
             <!--2nd Section, display is set to none by default and will be shown after clicking on 'next' button-->
@@ -200,40 +270,39 @@
                 <div class="container-header">
                   <numbering>1</numbering>
 
-                  <form class="search-form" method="get" action="">
+                  <form class="search-form">
                     <div class="tb">
-                      <div class="td"><input type="text" class="category-search" placeholder="Search for a patient"
+                      <div class="td"><input type="text" class="category-search" placeholder="Search for a category"
                           required></div>
-                      <div class="td" id="s-cover">
-                        <button type="submit">
-                          <div id="s-circle"></div>
-                          <span></span>
+                      <div>
+                        <button>
+                          <img src="../static/imgs/search.png" class="search" />
                         </button>
                       </div>
                     </div>
                   </form>
                 </div>
-                <button class="category" style="color:white; background-color:#1a5154" id="general">
+                <button class="category general" style="color:white; background:#1a5154" id="general">
                   <img src="../static/imgs/generalW.png" />
-                  General Sickness
+                  General
                 </button>
-                <button class="category" id="leg">
+                <button class="category legs" id="leg">
                   <img src="../static/imgs/leg.png" />
                   Legs
                 </button>
-                <button class="category" id="hand">
+                <button class="category hands" id="hand">
                   <img src="../static/imgs/hand.png" />
                   Hands
                 </button>
-                <button class="category" id="stomach">
+                <button class="category stomach" id="stomach">
                   <img src="../static/imgs/stomach.png" />
                   Stomach
                 </button>
-                <button class="category" id="chest">
+                <button class="category chest" id="chest">
                   <img src="../static/imgs/chest.png" />
                   Chest
                 </button>
-                <button class="category" id="eye" style="border-style:none;">
+                <button class="category eyes" id="eye">
                   <img src="../static/imgs/eye.png" />
                   Eyes
                 </button>
@@ -241,52 +310,52 @@
               <div class="symptoms-container">
                 <div class="container-header">
                   <numbering>2</numbering>
-                  <tb style="margin:15px 50px 0px 0px" id="symptoms-text">General Sickness Symptoms</tb>
+                  <tb style="margin:15px 50px 0px 0px" id="symptoms-text" class="category-title">General Symptoms</tb>
                 </div>
                 <div>
                   <form id="generalForm" style="display:grid; grid-template-rows:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr">
                     <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="1"
+                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="general"
                         value="Allergies" />
                       <label class="form-check-label" for="flexSwitchCheckDefault">Allergies</label>
                     </div>
                     <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="2"
+                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="general"
                         value="Flu" />
                       <label class="form-check-label" for="flexSwitchCheckDefault">Flu</label>
                     </div>
                     <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="3"
+                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="general"
                         value="Coughing" />
                       <label class="form-check-label" for="flexSwitchCheckDefault">Coughing</label>
                     </div>
                     <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="4"
+                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="general"
                         value="Diarrhea" />
                       <label class="form-check-label" for="flexSwitchCheckDefault">Diarrhea</label>
                     </div>
                     <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="5"
+                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="general"
                         value="Fatigue" />
                       <label class="form-check-label" for="flexSwitchCheckDefault">Fatigue</label>
                     </div>
                     <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="6"
+                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="general"
                         value="Fever" />
                       <label class="form-check-label" for="flexSwitchCheckDefault">Fever</label>
                     </div>
                     <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="7"
+                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="general"
                         value="Muscle Aches" />
                       <label class="form-check-label" for="flexSwitchCheckDefault">Muscle Aches</label>
                     </div>
                     <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="8"
+                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="general"
                         value="Sore Throat" />
                       <label class="form-check-label" for="flexSwitchCheckDefault">Sore Throat</label>
                     </div>
                     <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="9"
+                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="general"
                         value="Cold" />
                       <label class="form-check-label" for="flexSwitchCheckDefault">Cold</label>
                     </div>
@@ -531,7 +600,6 @@
                       <t style="text-align:end; margin-right:12px;">Pain</t>
                     </div>
                   </form>
-
                   <form id="eyeForm" class="scale">
                     <div class="rating-scale">
                       <img src="../static/imgs/depressed.png" class="scale-pic" />
@@ -543,47 +611,47 @@
                     </div>
                     <div class="scale-numbers">
                       <div class="button">
-                        <input type="radio" name="head" value=0 checked />
+                        <input type="radio" name="eye" value=0 checked />
                         <label class="btn btn-default">0</label>
                       </div>
                       <div class="button">
-                        <input type="radio" name="head" value=1 />
+                        <input type="radio" name="eye" value=1 />
                         <label class="btn btn-default">1</label>
                       </div>
                       <div class="button">
-                        <input type="radio" name="head" value=2 />
+                        <input type="radio" name="eye" value=2 />
                         <label class="btn btn-default">2</label>
                       </div>
                       <div class="button">
-                        <input type="radio" name="head" value=3 />
+                        <input type="radio" name="eye" value=3 />
                         <label class="btn btn-default">3</label>
                       </div>
                       <div class="button">
-                        <input type="radio" name="head" value=4 />
+                        <input type="radio" name="eye" value=4 />
                         <label class="btn btn-default">4</label>
                       </div>
                       <div class="button">
-                        <input type="radio" name="head" value=5 />
+                        <input type="radio" name="eye" value=5 />
                         <label class="btn btn-default">5</label>
                       </div>
                       <div class="button">
-                        <input type="radio" name="head" value=6 />
+                        <input type="radio" name="eye" value=6 />
                         <label class="btn btn-default">6</label>
                       </div>
                       <div class="button">
-                        <input type="radio" name="head" value=7 />
+                        <input type="radio" name="eye" value=7 />
                         <label class="btn btn-default">7</label>
                       </div>
                       <div class="button">
-                        <input type="radio" name="head" value=8 />
+                        <input type="radio" name="eye" value=8 />
                         <label class="btn btn-default">8</label>
                       </div>
                       <div class="button">
-                        <input type="radio" name="head" value=9 />
+                        <input type="radio" name="eye" value=9 />
                         <label class="btn btn-default">9</label>
                       </div>
                       <div class="button">
-                        <input type="radio" name="head" value=10 />
+                        <input type="radio" name="eye" value=10 />
                         <label class="btn btn-default">10</label>
                       </div>
                     </div>
@@ -592,8 +660,6 @@
                       <t style="text-align:end; margin-right:12px;">Pain</t>
                     </div>
                   </form>
-
-
                 </div>
               </div>
               <div class="symptoms-buttons">
@@ -601,9 +667,65 @@
                   <button class="save add" id="back">Back</button>
                 </div>
                 <div>
-                  <button class="save update">Update Patient Status</button>
+                  <button class="save update" id="save">Update Patient Status</button>
                 </div>
               </div>
+            </div>
+
+            <!--3rd Section Review-->
+            <div class="review-container" style="display:none">
+              <div class="review-table">
+                The below symptoms will be submitted:
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">Category</th>
+                      <th class="tableHeader" scope="col">Symptoms/Records</th>
+                    </tr>
+                  </thead>
+                  <tbody style="text-align:left">
+                    <tr id="tableDetails">
+                      <td>Basic Details</td>
+                      <td id="tableDetailsValues"></td>
+                    </tr>
+                    <tr id="tableGeneral">
+                      <td>General Sickness</td>
+                      <td id="tableGeneralValues"></td>
+                    </tr>
+                    <tr id="tableCategories">
+                      <td>Pain Rating</td>
+                      <td id="tableCategoriesValues"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="review-buttons">
+                <img src="../static/imgs/doctor.png" class="review-img" />
+                <button class="save submit" id="review-edit">Edit Conditions</button>
+                <button class="save submit" id="review-submit" style="margin-top:10px;">Confirm Submission</button>
+              </div>
+            </div>
+
+            <!--4th Section Loading-->
+            <div class="loading-container" style="display:none">
+              <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_ztxhxdwa.json" background="transparent"
+                speed="1" style="width: 250px; height: 250px; margin-left:175px;" loop autoplay></lottie-player>
+              <hr class="loading-line">
+              <tb>STEP OUT AI is predicting patient's status.. It might take a while...</tb>
+              <button class="save" id="skip" style="position:absolute; margin:350px 0 0 1000px">Skip Loading</button>
+            </div>
+
+            <!--5th Section Updated-->
+            <div class="updated-container" style="display:none">
+              <img class="updated-img" src="../static/imgs/outlying.png" />
+              <tb class="updated-header">Patient Status is Predicted to be:</tb>
+              <tb class="updated-status">Outlying</tb>
+              <div class="updated-body">
+                <tb class="updated-status desc">Patient can receive treatment from home by PCA</tb>
+                <button class="save submit edit-status" id="Next">Click Here to Edit Status</button>
+              </div>
+
             </div>
           </div>
         </div>
