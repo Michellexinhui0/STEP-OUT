@@ -7,13 +7,13 @@ function sendData(){
     body: JSON.stringify({data: final}),
     success: function(response) {
     console.log(response)
-    document.getElementById('output').innerHTML = response;
-    
+    document.getElementById('ResultStatus').innerHTML = response.result;
 }, error : function(error) {
     console.log(error);
 }
   });
 }
+
 document.addEventListener("DOMContentLoaded", function () {
   console.log("DOM is loaded");
   const next = document.getElementById("Next");
@@ -27,6 +27,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const detailsValue = document.querySelectorAll(".details-input");
   const save = document.getElementById("save");
   const review = document.querySelector(".review-container");
+  const reviewEdit = document.getElementById("review-edit");
+  const reviewSubmit = document.getElementById("review-submit");
+  const loading = document.querySelector(".loading-container");
+  const skip = document.getElementById("skip");
+  const updated = document.querySelector(".updated-container");
+  const updateStatus = document.querySelector(".save.submit.edit-status");
 
   var previousSection = "details";
   var selectedCategoryNumber = 0;
@@ -36,10 +42,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   
   //Development only code, delete during deployment
-  //details.style.display = "none";
-  //conditions.style.display = "none";
-  //status.style.display = "none";
-  //review.style.display = "grid";
+  /*details.style.display = "none";
+  conditions.style.display = "none";
+  status.style.display = "grid";
+  review.style.display = "none";
+  loading.style.display = "none";
+  updated.style.display = "none";*/
+
 
   edit.addEventListener("click", (e) => {
     console.log("Edit button was clicked.");
@@ -100,20 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
     final.push(checkboxesCheckedValue);
     final.push(painLevel);
     console.log("Final: " + final);
-    // fetch('/result', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify({data: final})
-    // })
-    // .then(response => response.text())
-    // .then(result => {
-    //   console.log(result);
-    // })
-    // .catch(error => {
-    //   console.error('Error:', error);
-    // });
+
 
     const basicReview = "Blood Pressure: " + systolic + "/" + diastolic + " mmHg\n" + "Oxygen Level: " + oxygen + "%";
     document.getElementById("tableDetailsValues").textContent = basicReview;
@@ -130,6 +126,26 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("tableCategories").style.display = "none";
     };
   });
+
+  reviewEdit.addEventListener("click", (e) => {
+    review.style.display = "none";
+    conditions.style.display = "grid";
+  })
+
+  reviewSubmit.addEventListener("click", (e) => {
+    review.style.display = "none";
+    loading.style.display = "grid";
+  })
+
+  skip.addEventListener("click",(e) => {
+    loading.style.display = "none";
+    updated.style.display = "grid";
+  })
+
+  updateStatus.addEventListener("click",(e) => {
+    updated.style.display = "none";
+    status.style.display = "grid";
+  })
 
   categories[0].addEventListener("click", (e) => {
     changeCategory(0);
@@ -187,8 +203,8 @@ document.addEventListener("DOMContentLoaded", function () {
        // And stick the checked ones onto an array...
        if (checkboxes[i].checked) {
           checkboxesChecked.push(checkboxes[i].value);
-          checkboxesCheckedValue.push(1);
-       } else {checkboxesCheckedValue.push(0)};
+          checkboxesCheckedValue.push("1");
+       } else {checkboxesCheckedValue.push("0")};
     };
     // Return the array if it is non-empty, or null
     return checkboxesChecked.length > 0 ? checkboxesChecked : null;
@@ -223,6 +239,8 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(painLevels);
     return painLevels;
   }
+
+
 
 });
 

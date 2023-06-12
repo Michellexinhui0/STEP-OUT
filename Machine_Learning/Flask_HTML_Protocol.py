@@ -5,6 +5,7 @@ import numpy as np
 from sklearn.preprocessing import StandardScaler
 app = Flask(__name__, template_folder= './Machine_Learning/templates', static_folder='./Machine_Learning/static')
 model = pickle.load(open('./Machine_Learning/ANN.sav', 'rb'))
+status =""
 
 @app.route('/')
 def greeting():
@@ -20,8 +21,13 @@ def receiveData():
     flat_list.insert(0,45)
     stdscaler = StandardScaler()
     result = model.predict(stdscaler.fit_transform([flat_list]))> 0.5
-    print(result)
-    return "outlying"
+    if str(result) == "[[False]]":
+        status = "Outlying"
+        print(status)
+    elif str(result) == "[[True]]":
+        status = "Hospitalized"
+        print(status)
+    return status
 
 if __name__ == '__main__':
     app.run()

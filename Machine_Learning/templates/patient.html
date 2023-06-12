@@ -9,10 +9,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../static/css/patientStyle.css"> 
- 
+  <link rel="stylesheet" href="../static/css/patientStyle.css">
   <script src="../static/js/patient.js"></script>
-
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <title> Step Out </title>
   <link rel="icon" type="image/icon" href="../static/imgs/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -199,12 +198,42 @@
             <div class="statusContainer" style="display:none">
               <div class="statusHeader">
                 <button class="exit">&#10006</button>
-                <div class="statusTitle">
-                  Manually Update Patient's Status
-                </div>
+                <tb class="statusTitle">Manually Update Patient's Status</tb>
               </div>
-              <div>
-                2
+              <div class="statusTrio">
+                <div class="status big">
+                  <div class="status-name" style="background-color:#7b1bff">
+                    <tb>Hospitalized</tb>
+                  </div>
+                  <div class="status-desc" style="margin-top:50px;">
+                    <t>Patient still requires medical attention.</t>
+                  </div>
+                  <img class="status-img" src="../static/imgs/hospitalized.png" />
+                </div>
+                <div style="display:flex">
+                  <vl />
+                </div>
+
+                <!--Outlying-->
+                <div class="status big">
+                  <div class="status-name" style="background-color:#ff7b1b;">
+                    <tb style="margin-right:18px">Outlying </tb>
+                  </div>
+                  <div class="status-desc">
+                    <t>Patient can receive treatment from home by PCA.</t>
+                  </div>
+                  <img class="status-img" src="../static/imgs/outlying.png" />
+                </div>
+                <!--Recovered-->
+                <div class="status big">
+                  <div class="status-name" style="background-color:#00bf8f">
+                    <tb style="margin-right:5px">Recovered<tb>
+                  </div>
+                  <div class="status-desc">
+                    <t>Patient can check out from the hospital.</t>
+                  </div>
+                  <img class="status-img" src="../static/imgs/recovered.png" />
+                </div>
               </div>
               <div>
                 3
@@ -232,27 +261,27 @@
                     </div>
                   </form>
                 </div>
-                <button class="category" style="color:white; background-color:#1a5154" id="general">
+                <button class="category general" style="color:white; background:#1a5154" id="general">
                   <img src="../static/imgs/generalW.png" />
-                  General Sickness
+                  General
                 </button>
-                <button class="category" id="leg">
+                <button class="category legs" id="leg">
                   <img src="../static/imgs/leg.png" />
                   Legs
                 </button>
-                <button class="category" id="hand">
+                <button class="category hands" id="hand">
                   <img src="../static/imgs/hand.png" />
                   Hands
                 </button>
-                <button class="category" id="stomach">
+                <button class="category stomach" id="stomach">
                   <img src="../static/imgs/stomach.png" />
                   Stomach
                 </button>
-                <button class="category" id="chest">
+                <button class="category chest" id="chest">
                   <img src="../static/imgs/chest.png" />
                   Chest
                 </button>
-                <button class="category" id="eye" style="border-style:none;">
+                <button class="category eyes" id="eye" style="border-bottom-style:none;">
                   <img src="../static/imgs/eye.png" />
                   Eyes
                 </button>
@@ -260,7 +289,7 @@
               <div class="symptoms-container">
                 <div class="container-header">
                   <numbering>2</numbering>
-                  <tb style="margin:15px 50px 0px 0px" id="symptoms-text">General Sickness Symptoms</tb>
+                  <tb style="margin:15px 50px 0px 0px" id="symptoms-text">General Symptoms</tb>
                 </div>
                 <div>
                   <form id="generalForm" style="display:grid; grid-template-rows:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr">
@@ -625,7 +654,7 @@
             <!--3rd Section Review-->
             <div class="review-container" style="display:none">
               <div class="review-table">
-                <tb>The below symptoms will be submitted:</tb>
+                The below symptoms will be submitted:
                 <table class="table table-bordered">
                   <thead>
                     <tr>
@@ -633,7 +662,7 @@
                       <th class="tableHeader" scope="col">Symptoms/Records</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody style="text-align:left">
                     <tr id="tableDetails">
                       <td>Basic Details</td>
                       <td id="tableDetailsValues"></td>
@@ -670,7 +699,7 @@
             <div class="updated-container" style="display:none">
               <img class="updated-img" src="../static/imgs/outlying.png" />
               <tb class="updated-header">Patient Status is Predicted to be:</tb>
-              <tb class="updated-status">Outlying</tb>
+              <tb class="updated-status" id ="ResultStatus"></tb>
               <div class="updated-body">
                 <tb class="updated-status desc">Patient can receive treatment from home by PCA</tb>
                 <button class="save submit edit-status" id="Next">Click Here to Edit Status</button>
@@ -683,5 +712,3 @@
     </div>
   </div>
 </body>
-
-</html>
