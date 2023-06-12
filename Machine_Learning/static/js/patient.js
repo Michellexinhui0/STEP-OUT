@@ -13,14 +13,6 @@ function sendData(){
     console.log(error);
 }
   });
-//   console.log(data)
-//   $.ajax({
-//   url: '/result',
-//   type: 'POST',
-//   data: JSON.stringify(data),
-//   datatype:"json",
-  
-//   })
 }
 document.addEventListener("DOMContentLoaded", function () {
   console.log("DOM is loaded");

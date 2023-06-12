@@ -44,6 +44,25 @@ tb {
   margin-top: 20px
 }
 
+
+vl {
+  border-left: 1px solid black;
+  height: 100%;
+}
+
+form {
+  animation-name: appear;
+  animation-duration: 0.5s;
+  animation-delay: 0.1s;
+  animation-fill-mode: both;
+}
+
+.dot {
+  border-top: 5px dashed #1a5154;
+  float: left;
+  width: 90%;
+}
+
 .stepout {
   margin: 5px 5px;
   width: 75px;
@@ -107,6 +126,12 @@ tb {
   border-radius: 15px;
 }
 
+.big {
+  height: 110px;
+  width: 300px;
+  margin-top: 10px;
+}
+
 .status-name {
   width: 280px;
   height: 40px;
@@ -133,6 +158,13 @@ tb {
   height: 100px;
   width: 100px;
   margin-left: 5px;
+  filter: grayscale(100%);
+}
+
+.statusTrio {
+  display: grid;
+  grid-template-columns: 4fr 1fr 4fr 4fr;
+  margin-top: 20px;
 }
 
 .save {
@@ -302,6 +334,7 @@ button span:after {
   flex-direction: row;
   margin-left: -4px;
   margin-bottom: 2px;
+  overflow: hidden;
 }
 
 .document-container {
@@ -385,6 +418,9 @@ button span:after {
 .container-header {
   display: grid;
   grid-template-columns: 1fr 5fr;
+  animation-name: appear;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
 }
 
 .category-search {
@@ -409,12 +445,50 @@ button span:after {
   flex-direction: row;
   flex: 1fr 5fr;
   height: 100%;
-  width: 103%;
+  width: 383px;
   align-items: center;
   border-bottom-style: solid;
   border-color: #1a5154;
-  border-width: 1px;
+  border-width: 0.8px;
   margin-left: -12px;
+  animation-name: appear;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+
+.general {
+  animation-delay: 0.1s;
+}
+
+.legs {
+  animation-delay: 0.2s;
+}
+
+.hands {
+  animation-delay: 0.3s;
+}
+
+.stomach {
+  animation-delay: 0.4s;
+}
+
+.chest {
+  animation-delay: 0.5s;
+}
+
+.eyes {
+  animation-delay: 0.6s;
+}
+
+
+@keyframes categorySlide {
+  from {
+    margin-left: -395px;
+  }
+
+  to {
+    margin-left: -12px;
+  }
 }
 
 .category img {
@@ -425,11 +499,10 @@ button span:after {
 
 .symptoms-container {
   display: grid;
-  grid-template-rows: 3fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
+  grid-template-rows: 3fr 17fr;
 }
 
-
-button:active {
+.button:active {
   transform: scale(0.95);
 }
 
@@ -503,4 +576,305 @@ button:active {
   width: 230px;
   height: 70px;
   background-color: #FF7B1B;
+}
+
+.scale {
+  position: absolute;
+  display: none;
+  height: 310px;
+  width: 770px;
+  align-content: center;
+  justify-content: center;
+}
+
+.scale-pic {
+  height: 130px;
+  width: auto;
+}
+
+.scale-numbers {
+  margin-top: 20px;
+}
+
+.point {
+  width: 0;
+  height: 0;
+  border-top: 17px solid transparent;
+  border-bottom: 17px solid transparent;
+  border-left: 25px solid #1a5154;
+  float: right;
+}
+
+.rating-scale {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  margin-top: -10px;
+}
+
+.arrow {
+  width: 80%;
+  margin: 50px 0px 0px 40px;
+}
+
+.scale-desc {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 7px;
+}
+
+.button {
+  float: left;
+  margin: 10px 10px;
+  width: 45px;
+  height: 45px;
+  position: relative;
+}
+
+.button label,
+.button input {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 30px;
+  border-color: black;
+}
+
+.button input[type="radio"] {
+  opacity: 0.011;
+  z-index: 100;
+}
+
+.button input[type="radio"]:checked+label {
+  background: #1a5154;
+  color: white;
+  border-radius: 30px;
+  transition: background-color 0.5s ease;
+}
+
+.button label {
+  cursor: pointer;
+  z-index: 90;
+  line-height: 1.8em;
+}
+
+.input[type="checkbox"] {
+  accent-color: #1a5154;
+}
+
+.statusContainer {
+  display: grid;
+  grid-template-rows: 2fr 3fr 3fr 2fr;
+  width: 100%;
+}
+
+.statusHeader {
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.exit {
+  position: absolute;
+  right: 0;
+  font-size: 30px;
+  color: white;
+  background: red;
+  border-radius: 5px;
+  width: 35px;
+  height: 35px;
+  margin: 20px 50px 0 0;
+}
+
+.statusTitle {
+  background: red;
+  color: white;
+  font-size: 30px;
+  padding: 15px;
+}
+
+.review-container {
+  display: grid;
+  grid-template-columns: 4fr 2fr;
+  width: 100%;
+}
+
+.review-table {
+  text-align: center;
+  margin: 20px 0 0 50px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+table {
+  height: 80%;
+  margin: 10px 0 0 0px;
+  font: "inter";
+  animation-name: appear;
+  animation-duration: 0.5s;
+  animation-delay: 0.1s;
+  animation-fill-mode: both;
+}
+
+td {
+  white-space: pre-wrap;
+}
+
+thead {
+  background: #1a5154;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+}
+
+tbody {
+  font-size: 15px;
+  background: fff;
+}
+
+.tableHeader {
+  width: 400px;
+}
+
+.table>:not(caption)>*>* {
+  padding: 25px 20px;
+}
+
+.review-buttons {
+  position: relative;
+  width: 95%;
+  padding-top: 25px;
+  padding-left: 55px;
+  background: #1a5154;
+  animation-name: slideleft;
+  animation-duration: 0.6s;
+  animation-delay: 0.3s;
+  animation-fill-mode: both;
+}
+
+.review-img {
+  width: 250px;
+  height: 250px;
+}
+
+@keyframes slideleft {
+  from {
+    right: -410px;
+  }
+
+  to {
+    right: -52px;
+  }
+}
+
+.submit {
+  height: 70px;
+  width: 250px;
+  margin-top: 10px;
+  color: black;
+  background: white;
+}
+
+.loading-container {
+  margin-top: 30px;
+  display: grid;
+  width: 100%;
+  justify-content: center;
+}
+
+.loading-line {
+  border-width: 3px;
+  margin: 0px;
+  padding: 0;
+  width: 100%
+}
+
+.updated-container {
+  display: grid;
+  grid-template-rows: 1fr 3fr 4fr;
+  width: 100%;
+}
+
+.updated-header {
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.updated-status {
+  background: #FF7B1B;
+  margin: 0px 0px 0px -12px;
+  width: 102%;
+  padding-top: 45px;
+  padding-left: 400px;
+  color: white;
+  font-size: 80px;
+  animation-name: slideIn;
+  animation-duration: 0.8s;
+  animation-fill-mode: both;
+}
+
+.updated-img {
+  position: absolute;
+  margin: 80px 0 0 80px;
+  height: 350px;
+  width: 350px;
+  animation-name: appear;
+  animation-duration: 0.3s;
+  animation-delay: 0.8s;
+  animation-fill-mode: both;
+}
+
+.updated-body {
+  margin: 40px 0 0 420px;
+  display: grid;
+  justify-content: center;
+}
+
+.desc {
+  font-size: 20px;
+  color: black;
+  background: white;
+  padding: 0;
+  width: 462px;
+  margin-bottom: -30px;
+}
+
+.edit-status {
+  font-size: 30px;
+  width: 100%;
+  height: 90px;
+  background: white;
+  color: black;
+  animation-name: appear;
+  animation-duration: 0.3s;
+  animation-delay: 0.8s;
+  animation-fill-mode: both;
+}
+
+.edit-status:hover {
+  transition: 0.3s;
+  background: #FF7B1B;
+  color: white;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 100;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    margin-left: -1204px;
+  }
+
+  to {
+    margin-left: -12px;
+  }
 }
