@@ -22,7 +22,7 @@
 
     <header>
         <div class="home-logo-container">
-            <img src="static/imgs/STEP OUT Logo.png" width="80" height="68" />
+            <img src="../static/imgs/STEP OUT Logo.png" width="80" height="68" />
 
             <div class="container-component">
                 <div class="component">
@@ -86,96 +86,18 @@
                     <th scope="col">Last Updated</th>
                 </tr>
             </thead>
+            {%for patient in nPatient%} <!--Jinja for loop template to add each patient info into the table row. Refer to models.py, patient_table func -->
             <tr>
-                <td>P12345</td>
-                <td>Na</td>
-                <td>Jae Min</td>
-                <td>31/3/2023</td>
-                <td>Outlying</td>
-                <td>10/5/2023, 8.14am</td>
+                <td>patient[1]</td>
+                <td>patient[2]</td>
+                <td>patient[3]</td>
+                <td>patient[4]</td>
+                <td>patient[5]</td>
+                <td>patient[6]</td>
                 <td> <i class="fa-solid fa-chevron-right"></i></td>
             </tr>
-            <tr>
-                <td>P42142</td>
-                <td>Natasha</td>
-                <td>Syasha Ismail Khandar</td>
-                <td>15/5/2023</td>
-                <td>Hospitalized</td>
-                <td>11/5/2023, 8.56am</td>
-                <td> <i class="fa-solid fa-chevron-right"></i></td>
-            </tr>
-            <tr>
-                <td>P88163</td>
-                <td>Lee</td>
-                <td>Mark Min Hung</td>
-                <td>15/5/2023</td>
-                <td>Hospitalized</td>
-                <td>10/5/2023, 8.14am</td>
-                <td> <i class="fa-solid fa-chevron-right"></i></td>
-            </tr>
-            <tr>
-                <td>P76163</td>
-                <td>Kwon</td>
-                <td>Hoshi Soon Yong</td>
-                <td>11/5/2023</td>
-                <td>Outlying</td>
-                <td>110/5/2023, 8.41am</td>
-                <td> <i class="fa-solid fa-chevron-right"></i></td>
-            </tr>
-            <tr>
-                <td>P12653</td>
-                <td>Paik</td>
-                <td>Jung Wong</td>
-                <td>14/4/2023</td>
-                <td>Hospitalized</td>
-                <td>10/5/2023, 10.09am</td>
-                <td> <i class="fa-solid fa-chevron-right"></i></td>
-            </tr>
-            <tr>
-                <td>P137477</td>
-                <td>Thaskuketa</td>
-                <td>Phravita Kuberan</td>
-                <td>9/5/2023</td>
-                <td>Hospitalized</td>
-                <td>10/5/2023, 11.14am</td>
-                <td> <i class="fa-solid fa-chevron-right"></i></td>
-            </tr>
-            <tr>
-                <td>P42832</td>
-                <td>Lee</td>
-                <td>Tenchittaponkoren</td>
-                <td>9/5/2023</td>
-                <td>Hospitalized</td>
-                <td>10/5/2023, 11.44am</td>
-                <td> <i class="fa-solid fa-chevron-right"></i></td>
-            </tr>
-            <tr>
-                <td>P19088</td>
-                <td>Jade</td>
-                <td>Jacinta Julie Joseph</td>
-                <td>8/5/2023</td>
-                <td>Hospitalized</td>
-                <td>11/5/2023, 8.14am</td>
-                <td> <i class="fa-solid fa-chevron-right"></i></td>
-            </tr>
-            <tr>
-                <td>P13845</td>
-                <td>Khazhin</td>
-                <td>Afiz Khalid </td>
-                <td>10/5/2023</td>
-                <td>Outlying</td>
-                <td>11/5/2023, 8.14am</td>
-                <td> <i class="fa-solid fa-chevron-right"></i></td>
-            </tr>
-            <tr>
-                <td>P11001</td>
-                <td>Lee</td>
-                <td>Hyeri Haien </td>
-                <td>15/5/2023</td>
-                <td>Outlying</td>
-                <td>10/5/2023, 8.33am</td>
-                <td> <i class="fa-solid fa-chevron-right"></i></td>
-            </tr>
+            {%endfor%}
+
         </table>
     </div>
 </body>
