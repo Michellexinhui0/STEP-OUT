@@ -5,7 +5,7 @@ df = pd.DataFrame(np.random.randint(0,101,size=(316800, 1)),columns=['Result'])
 a = df.Result.tolist()
 ColdList =[]
 for x in a:
-    if a[x] < 61:
+    if a[x] < 81:
         ColdList.append(0)
     else:
         ColdList.append(1)
@@ -15,81 +15,81 @@ FeverList = []
 for x in ColdList:
     if ColdList[x] == 1:
         rand = np.random.randint(0, 101)
-        if rand > 40:
+        if rand > 68:
             FeverList.append(1)
         else: 
             FeverList.append(0)
     if ColdList[x]==0:
         rand = np.random.randint(0,101)
-        if rand > 65:
+        if rand > 85:
             FeverList.append(1)
         else:
             FeverList.append(0)
 
 Fever = pd.DataFrame(data = FeverList, columns =['Fever'])
-
+Fever.value_counts()
 FluList = []
 for x in ColdList:
     if ColdList[x] == 1:
         rand = np.random.randint(0, 101)
-        if rand > 30:
+        if rand > 65:
             FluList.append(1)
         else: 
             FluList.append(0)
     if ColdList[x]==0:
         rand = np.random.randint(0,101)
-        if rand > 65:
+        if rand > 75:
             FluList.append(1)
         else:
             FluList.append(0)
 
 Flu = pd.DataFrame(data = FluList, columns = ['Flu'])
-
+Flu.value_counts()
 CoughingList= []
 for x in FluList:
     if FluList[x] == 1:
         rand = np.random.randint(0, 101)
-        if rand > 41:
+        if rand > 67:
             CoughingList.append(1)
         else: 
             CoughingList.append(0)
     if FluList[x]==0:
         rand = np.random.randint(0,101)
-        if rand > 65:
+        if rand > 85:
             CoughingList.append(1)
         else:
             CoughingList.append(0)
 
 Coughing = pd.DataFrame(data = CoughingList, columns = ['Coughing'])
-
+Coughing.value_counts()
 SoreList = []
 for x in FluList:
-    if (FluList[x] == 1) & (CoughingList[x] == 1):
+    if (CoughingList[x] + FluList[x] == 2):
         rand = np.random.randint(0,101)
-        if rand > 41:
+        if rand > 58:
             SoreList.append(1)
         else:
             SoreList.append(0)
-    if (FluList[x] == 1)| (CoughingList[x] == 1):
+    elif (CoughingList[x] + FluList[x] == 1):
         rand = np.random.randint(0,101)
-        if rand >51:
+        if rand >65:
             SoreList.append(1)
         else:
             SoreList.append(0)
-    if (FluList[x] == 0) & (CoughingList == 0):
+    elif (CoughingList[x] + FluList[x] == 0):
         rand = np.random.randint(0,101)
-        if rand > 61:
+        if rand > 81:
             SoreList.append(1)
         else :
             SoreList.append(0)
 
 Sore_Throat = pd.DataFrame(data = SoreList, columns = ['Sore_Throat'])
-
+Sore_Throat.value_counts()
 df = pd.DataFrame(np.random.randint(0,101,size=(316800, 1)),columns=['Result'])
 a = df.Result.tolist()
 DiarrheaList =[]
 for x in a:
-    if a[x] < 71:
+    if a[x] < 81:
         DiarrheaList.append(0)
     else:
         DiarrheaList.append(1)
@@ -99,31 +99,38 @@ Diarrhea.value_counts()
 
 FatigueList = []
 for x in FeverList:
-    if (FeverList[x] == 1) & (CoughingList[x] == 1) & (FluList[x] == 1) & (DiarrheaList[x] == 1):
+    if (FeverList[x] + CoughingList[x] + FluList[x] + DiarrheaList[x] == 4):
         rand = np.random.randint(0,101)
-        if rand > 27:
+        if rand > 54:
             FatigueList.append(1)
         else:
             FatigueList.append(0)
-    if (FeverList[x] == 1)| (DiarrheaList[x] == 1):
+    elif (FeverList[x] + CoughingList[x] + FluList[x] + DiarrheaList[x] == 3):
         rand = np.random.randint(0,101)
-        if rand > 41:
+        if rand > 59:
             FatigueList.append(1)
         else:
             FatigueList.append(0)
-    if (CoughingList[x] == 1) |(FluList[x] == 1):
+    elif (FeverList[x] + CoughingList[x] + FluList[x] + DiarrheaList[x] == 2):
         rand = np.random.randint(0,101)
-        if rand > 61:
+        if rand > 59:
             FatigueList.append(1)
         else:
             FatigueList.append(0)
-    if (FeverList[x] == 0) & (CoughingList == 0) & (FluList[x] == 0) & (DiarrheaList[x] == 0):
+    elif (FeverList[x] + CoughingList[x] + FluList[x] + DiarrheaList[x] == 1):
         rand = np.random.randint(0,101)
-        if rand > 71:
+        if rand > 59:
+            FatigueList.append(1)
+        else:
+            FatigueList.append(0)
+    elif (FeverList[x] + CoughingList[x] + FluList[x] + DiarrheaList[x] == 0):
+        rand = np.random.randint(0,101)
+        if rand > 81:
             FatigueList.append(1)
         else :
             FatigueList.append(0)
 
+FeverList[3]+FluList[2000]
 Fatigue = pd.DataFrame(data= FatigueList, columns= ['Fatigue'])
 Fatigue.value_counts()
 
@@ -131,7 +138,7 @@ df1 = pd.DataFrame(np.random.randint(0,101,size=(316800, 1)),columns=['Result'])
 a = df1.Result.tolist()
 MuscleList =[]
 for x in a:
-    if a[x] < 71:
+    if a[x] < 85:
         MuscleList.append(0)
     else:
         MuscleList.append(1)
@@ -143,7 +150,7 @@ df = pd.DataFrame(np.random.randint(0,101,size=(316800, 1)),columns=['Result'])
 a = df.Result.tolist()
 AllergiesList =[]
 for x in a:
-    if a[x] < 71:
+    if a[x] < 85:
         AllergiesList.append(0)
     else:
         AllergiesList.append(1)

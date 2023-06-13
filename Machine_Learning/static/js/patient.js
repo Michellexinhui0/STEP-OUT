@@ -1,19 +1,18 @@
-function sendData(){
-  fetch('/result', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({data: final}),
-    success: function(response) {
-    console.log(response)
-    document.getElementById('ResultStatus').innerHTML = response.result;
-}, error : function(error) {
-    console.log(error);
-}
-  });
-}
-
+// function sendData(){
+//   fetch('/result', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify({data: final}),
+//       success: function(response) {
+//       console.log(response)
+//       document.getElementById('ResultStatus').innerHTML = response.result;
+//   }, error : function(error) {
+//       console.log(error);
+//   }
+//     });
+// }
 document.addEventListener("DOMContentLoaded", function () {
   console.log("DOM is loaded");
   const next = document.getElementById("Next");
@@ -109,6 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
     final.push(checkboxesCheckedValue);
     final.push(painLevel);
     console.log("Final: " + final);
+    
 
 
     const basicReview = "Blood Pressure: " + systolic + "/" + diastolic + " mmHg\n" + "Oxygen Level: " + oxygen + "%";
@@ -134,6 +134,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
   reviewSubmit.addEventListener("click", (e) => {
     review.style.display = "none";
+    $.ajax({
+      type: "POST",
+      url: "/result",
+      contentType: "application/json",
+      data: JSON.stringify({data: final}),
+      dataType: "String",
+      // success: function(response) {
+      //     console.log(response);
+      //     console.log(response.status);
+      // },
+      // error: function(err) {
+      //     console.log(err);
+      // }
+  });
+    // document.getElementById("ResultStatus").innerHTML = {{value}};
+    let result = JSON.parse(xhr.responseText);
+    document.getElementById('ResultStatus').innerHTML = `Prediction: EUR ${result.prediction}`;
+    // document.getElementById('RMSE').innerHTML = `RMSE: ${result.RMSE}`;
     loading.style.display = "grid";
   })
 
@@ -203,8 +221,8 @@ document.addEventListener("DOMContentLoaded", function () {
        // And stick the checked ones onto an array...
        if (checkboxes[i].checked) {
           checkboxesChecked.push(checkboxes[i].value);
-          checkboxesCheckedValue.push("1");
-       } else {checkboxesCheckedValue.push("0")};
+          checkboxesCheckedValue.push(1);
+       } else {checkboxesCheckedValue.push(0)};
     };
     // Return the array if it is non-empty, or null
     return checkboxesChecked.length > 0 ? checkboxesChecked : null;

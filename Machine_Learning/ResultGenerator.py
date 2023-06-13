@@ -2,6 +2,17 @@ import numpy as np
 import pandas as pd
 
 data = pd.read_csv('./Machine_Learning/Sample.csv')
+data = data [['Gender', 'Age', 
+                    'Systolic_bp', 'Diastolic_Bp', 
+                    'Oxygen Level', 'Allergies', 
+                    'Flu', 'Coughing', 
+                    'Diarrhea', 'Fatigue', 
+                    'Fever', 'Muscle_Ache', 
+                    'Sore_Throat', 'Cold', 
+                    'Legs_Pains', 'Hands_Pains', 
+                    'Stomach_Pains', 'Chest_Pains'
+                    , 'Eye_Pains']]
+data.to_csv('./Machine_Learning/Sample.csv', index=False)
 data.head()
 data.describe()
 
