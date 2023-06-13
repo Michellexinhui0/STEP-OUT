@@ -27,8 +27,9 @@ def receiveData():
     elif str(result) == "[[ True]]":
         status = "Hospitalized"
         print(status)
+    package = {"status" : status}
 
-    return status
+    return jsonify(package)
 
 if __name__ == '__main__':
     app.run()
