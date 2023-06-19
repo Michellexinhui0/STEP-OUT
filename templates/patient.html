@@ -18,8 +18,13 @@
 </head>
 
 <body>
-  <div style="display:grid; grid-template-rows:70px 1fr; min-height:0; height:100vh;">
-
+  <div class="chartBackground">
+    <div class="chartContainer">
+      <img src="../static/imgs/OChart.png" class="chart"/>
+      <img src="../static/imgs/PChart.png" class="chart"/>
+    </div>
+  </div>
+  <div style="display:grid; grid-template-rows:70px 1fr; min-height:0; height:100vh; z-index:1">
     <!--Top Section-->
     <div class="top-section">
       <div style="flex:1">
@@ -65,15 +70,15 @@
               <t>Previous Updates:</t>
             </div>
             <div class="row" style="text-align:right;">
-              <t>P12348</t>
-              <t>Lee</t>
-              <t>Mark Ming Hung</t>
-              <t>M</t>
-              <t>1/4/1999</t>
-              <t>13/4/2023</t>
-              <t>ED-A</t>
-              <t>Dr. Alexandra Anne</t>
-              <t>15/4/2023, 1.35pm</t>
+              <t class="info">P12348</t>
+              <t class="info">Lee</t>
+              <t class="info">Mark Ming Hung</t>
+              <t class="info">M</t>
+              <t class="info">1/4/1999</t>
+              <t class="info">13/4/2023</t>
+              <t class="info">ED-A</t>
+              <t class="info">Dr. Alexandra Anne</t>
+              <t class="info">15/4/2023, 1.35pm</t>
             </div>
           </div>
           <div style="text-align:right;">
@@ -92,13 +97,13 @@
           </div>
           <!--Hopsitalized-->
           <div class="status">
-            <div class="status-name">
+            <div class="status-name"  style="background-color:#7b1bff">
               <tb>Hospitalized</tb>
             </div>
             <div class="status-desc" style="margin-top:50px;">
               <t>Patient still requires medical attention.</t>
             </div>
-            <img class="status-img" src="../static/imgs/hospitalized.png" />
+            <img style="filter:grayscale(0)" class="status-img" src="../static/imgs/hospitalized.png" />
           </div>
           <!--Outlying-->
           <div class="status">
@@ -207,7 +212,7 @@
                 <!--1st Current Status-->
                 <div>
                   <tb style="margin-left:21px;">Current Status:</tb>
-                  <div class="status hospitalized">
+                  <div class="status s1" id="s1">
                     <div class="status-name" style="background-color:#7b1bff">
                       <tb>Hospitalized</tb>
                     </div>
@@ -219,15 +224,15 @@
                 </div>
 
                 <div style="display:flex">
-                  <vl />
+                  <vl/>
                 </div>
 
                 <!--2nd Status-->
                 <div>
                   <tb style="margin-left:-18px;">Available Status:</tb>
-                  <div class="status outlying" style="margin-left:-20px;">
+                  <div class="status s2" id="s2" style="margin-left:-20px;">
                     <div class="status-name">
-                      <tb>Outlying </tb>
+                      <tb>Outlying</tb>
                     </div>
                     <div class="status-desc">
                       <t>Patient can receive treatment from home by PCA.</t>
@@ -237,9 +242,9 @@
                 </div>
 
                 <!--3rd Status-->
-                <div class="status" style="margin:30px 0 0 -50px;">
+                <div class="status s" id="s3" style="margin:30px 0 0 -50px;">
                   <div class="status-name">
-                    <tb style="margin-right:5px">Recovered<tb>
+                    <tb style="margin-right:5px">Recovered</tb>
                   </div>
                   <div class="status-desc">
                     <t>Patient can check out from the hospital.</t>

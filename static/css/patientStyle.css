@@ -202,11 +202,11 @@ textarea {
   animation-fill-mode: both;
 }
 
-.hospitalized {
+.s1 {
   margin-left: 20px;
 }
 
-.outying {
+.s2 {
   margin-left: 20px;
 }
 
@@ -395,6 +395,12 @@ button span:after {
   margin-top: 15px;
   flex-grow: 1;
   font-size: 17px;
+}
+
+.document:hover {
+  background-color:#1a5154;
+  color:white;
+  transition: all 0.3s ease;
 }
 
 .basic-details {
@@ -708,7 +714,7 @@ button span:after {
   background: #1a5154;
   color: white;
   border-radius: 30px;
-  transition: background-color 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .button label {
@@ -946,4 +952,27 @@ tbody {
   text-align: center;
   font-size: 16px;
   line-height: 18px;
+}
+
+.chartBackground {
+  position: absolute;
+  display:none;
+  background-color:#000000AA;
+  padding:5% 25%;
+  width:100%;
+  height:100%;
+  z-index:2;
+}
+
+.chartContainer {
+  background-color:white;
+  height:100%;
+  width:100%;
+  overflow:scroll;
+}
+
+.chart {
+  display:none;
+  max-width:100%;
+  min-width:100%;
 }
