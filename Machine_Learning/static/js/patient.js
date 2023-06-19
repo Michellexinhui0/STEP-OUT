@@ -10,7 +10,9 @@
 
 //     });
 // }
-function sendData(){
+
+
+function sendData(){ //Send patient condition without ML
   fetch('/result', {
     method: 'POST',
     headers: {

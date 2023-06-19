@@ -6,7 +6,7 @@ from sklearn.preprocessing import StandardScaler
 app = Flask(__name__, template_folder= './Machine_Learning/templates', static_folder='./Machine_Learning/static')
 model = pickle.load(open('./Machine_Learning/ANN.sav', 'rb'))
 status = ""
-doc = {}
+doc = {} #dictionary for features, probably without R1
 
 def to_json(list_x):
     features = [
@@ -42,14 +42,17 @@ def receiveData():
     flat_list.insert(0,45) #hard-coding age
     result = model.predict([flat_list])> 0.5
    
-    to_json(flat_list)
+    to_json(flat_list) # convert the list to dic, but without the result
     if str(result) == "[[False]]":
         status = "Outlying"
         print(status)
+        #flat_list.append(0) # Insert the R1 value
     elif str(result) == "[[ True]]":
         status = "Hospitalized"
         print(status)
+        #flat_list.append(1) # Insert the R1 value
     package = {"status" : status}
+    #to_json(flat_list)
     return jsonify(package)
 
 
