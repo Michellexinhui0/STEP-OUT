@@ -86,17 +86,20 @@
                     <th scope="col">Last Updated</th>
                 </tr>
             </thead>
-            {%for patient in nPatient%} <!--Jinja for loop template to add each patient info into the table row. Refer to models.py, patient_table func -->
-            <tr>
-                <td>patient[1]</td>
-                <td>patient[2]</td>
-                <td>patient[3]</td>
-                <td>patient[4]</td>
-                <td>patient[5]</td>
-                <td>patient[6]</td>
-                <td> <i class="fa-solid fa-chevron-right"></i></td>
-            </tr>
-            {%endfor%}
+            <tbody>
+                {% for user in users %}
+                <tr>
+                  <td>{{ user["patient_id"] }}</td>
+                  <td>{{ user["surname"] }}</td>
+                  <td>{{ user["given_name"] }}</td>
+                  <td>{{ user["admission_date"] }}</td>
+                  <td>{{ user["status"] }}</td>
+                  <td>{{ user["last_update"] }}</td>
+                  <td> <i class="fa-solid fa-chevron-right"></i></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            
 
         </table>
     </div>

@@ -1,5 +1,5 @@
 from flask import Flask, redirect, render_template, url_for
-from app import app
+from app import app, login_required
 from user.models import User, functions
 
 @app.route('/user/signup', methods=['POST'])
@@ -18,9 +18,11 @@ def login_post():
 def add_patient():
     return functions.addPatient()
 
-@app.route('/search/', methods=['GET'])
+@app.route('/test/', methods=['GET'])
+@login_required
 def test_func():
-    return functions.patient_table(10)
+    dict_patient = functions.patient_table(10)  # assuming n is defined in your code
+    return render_template('search.html', users=dict_patient)
 
 
 
