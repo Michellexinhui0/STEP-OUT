@@ -9,8 +9,8 @@
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../static/css/loginStyle.css">
+  <script src="../static/js/jquery.js"></script>
   <script src="../static/js/login.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
 
   <title> Step Out </title>
   <link rel="icon" type="image/icon" href="static/imgs/favicon.ico" />
@@ -21,11 +21,13 @@
   <div class="background">
     <div class="container" id="container">
       <div class="form-container sign-in-container">
-        <form name="login_form" action="/search/" method="POST" >
+        <form name="login_form">
           <img src="static/imgs/STEP OUT Logo.png" class="stepout" />
-          <input type="email" name="email" placeholder="Email" />
-          <input type="password" name="password" placeholder="Password" />
-          <button id="logIn" type="submit">Log In</button>          
+          <input type="email" name="email" class="field"  placeholder="Email" required/>
+          <input type="password" name="password" class="field"  placeholder="Password" required/>
+
+          <button type="submit" value="Log In">Log In</button>
+                 
         </form>        
       </div>
     </div>

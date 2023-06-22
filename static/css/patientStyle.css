@@ -41,7 +41,47 @@ tb {
   font-size: 20px;
   font-weight: bold;
   text-align: center;
-  margin-top: 20px
+  margin-top: 20px;
+}
+
+
+vl {
+  border-left: 1px solid black;
+  height: 100%;
+}
+
+form {
+  animation-name: appear;
+  animation-duration: 0.5s;
+  animation-delay: 0.1s;
+  animation-fill-mode: both;
+}
+
+textarea {
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 18px;
+  line-height: 26px;
+  text-align: justify;
+  border-radius: 10px;
+}
+
+.leftSection {
+  display: grid;
+  grid-template-rows: 280px 1fr;
+  margin: 0 18px;
+}
+
+.category-title {
+  font-size: 25px;
+  text-align: left;
+  padding-left: 4px;
+}
+
+.dot {
+  border-top: 5px dashed #1a5154;
+  float: left;
+  width: 90%;
 }
 
 .stepout {
@@ -99,6 +139,11 @@ tb {
   width: 30px;
 }
 
+.edit-img:active{
+  height: 27px;
+  width: 27px;
+}
+
 .status {
   box-shadow: 0px 3px 3px;
   height: 98px;
@@ -117,6 +162,7 @@ tb {
   padding-right: 30px;
   padding-top: 10px;
   position: absolute;
+  transition: background-color 0.3s;
 }
 
 .status-desc {
@@ -128,11 +174,55 @@ tb {
   margin: 44px 122px;
 }
 
+.status-reason {
+  display: grid;
+  grid-template-rows: 30px 1fr;
+  margin: 20px 0px 0px 20px;
+  width: 95%;
+  animation-name: appear;
+  animation-duration: 0.5s;
+  animation-delay: 0.2s;
+  animation-fill-mode: both;
+}
+
+.status-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
 .status-img {
   position: absolute;
   height: 100px;
   width: 100px;
   margin-left: 5px;
+  filter: grayscale(100%);
+  transition:filter 0.5s;
+}
+
+.color {
+  filter:grayscale(0%);
+}
+
+.statusTrio {
+  display: grid;
+  grid-template-columns: 4fr 1fr 4fr 4fr;
+  margin-top: 5px;
+  animation-name: appear;
+  animation-duration: 0.5s;
+  animation-delay: 0.1s;
+  animation-fill-mode: both;
+}
+
+.status-select:hover{
+  cursor:pointer;
+}
+
+.s1 {
+  margin-left: 20px;
+}
+
+.s2 {
+  margin-left: 20px;
 }
 
 .save {
@@ -302,6 +392,7 @@ button span:after {
   flex-direction: row;
   margin-left: -4px;
   margin-bottom: 2px;
+  overflow: hidden;
 }
 
 .document-container {
@@ -321,10 +412,19 @@ button span:after {
   font-size: 17px;
 }
 
+.document:hover {
+  background-color:#1a5154;
+  color:white;
+  transition: all 0.3s ease;
+}
+
 .basic-details {
   margin: 20px 0px 0px 15px;
   display: grid;
   grid-template-rows: 55px 20px 20px 1fr 1fr;
+  animation-name: appear;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
 }
 
 .details-title {
@@ -384,7 +484,11 @@ button span:after {
 
 .container-header {
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: 1fr 6fr;
+  margin-bottom: 5px;
+  animation-name: appear;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
 }
 
 .category-search {
@@ -392,16 +496,18 @@ button span:after {
   height: 20px;
   height: 100%;
   width: 100%;
-  margin-left: 10px;
   margin-top: 10px;
 }
 
 .search-form {
-  border-color: #1a5154;
-  border-bottom-style: solid;
-  border-width: 1px;
-  width: 80%;
-  margin-left: 10px;
+  width: 85%;
+  margin-left: 20px;
+}
+
+.search {
+  width: 28px;
+  height: 28px;
+  margin: 9px 0 0 0px;
 }
 
 .category {
@@ -409,12 +515,50 @@ button span:after {
   flex-direction: row;
   flex: 1fr 5fr;
   height: 100%;
-  width: 103%;
+  width: 383px;
   align-items: center;
-  border-bottom-style: solid;
+  border-top-style: solid;
   border-color: #1a5154;
-  border-width: 1px;
+  border-width: 0.8px;
   margin-left: -12px;
+  animation-name: appear;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+
+.general {
+  animation-delay: 0.1s;
+}
+
+.legs {
+  animation-delay: 0.2s;
+}
+
+.hands {
+  animation-delay: 0.3s;
+}
+
+.stomach {
+  animation-delay: 0.4s;
+}
+
+.chest {
+  animation-delay: 0.5s;
+}
+
+.eyes {
+  animation-delay: 0.6s;
+}
+
+
+@keyframes categorySlide {
+  from {
+    margin-left: -395px;
+  }
+
+  to {
+    margin-left: -12px;
+  }
 }
 
 .category img {
@@ -425,11 +569,10 @@ button span:after {
 
 .symptoms-container {
   display: grid;
-  grid-template-rows: 3fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
+  grid-template-rows: 3fr 17fr;
 }
 
-
-button:active {
+.button:active {
   transform: scale(0.95);
 }
 
@@ -499,8 +642,385 @@ button:active {
   margin-top: 140px;
 }
 
+.update-status {
+  margin: 10px 0 0 900px;
+  animation-name: appear;
+  animation-duration: 0.5s;
+  animation-delay: 0.3s;
+  animation-fill-mode: both;
+}
+
 .add {
   width: 230px;
   height: 70px;
   background-color: #FF7B1B;
+}
+
+.scale {
+  position: absolute;
+  display: none;
+  height: 310px;
+  width: 770px;
+  align-content: center;
+  justify-content: center;
+}
+
+.scale-pic {
+  height: 130px;
+  width: auto;
+}
+
+.scale-numbers {
+  margin-top: 20px;
+}
+
+.point {
+  width: 0;
+  height: 0;
+  border-top: 17px solid transparent;
+  border-bottom: 17px solid transparent;
+  border-left: 25px solid #1a5154;
+  float: right;
+}
+
+.rating-scale {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  margin-top: -10px;
+}
+
+.arrow {
+  width: 80%;
+  margin: 50px 0px 0px 40px;
+}
+
+.scale-desc {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 7px;
+}
+
+.button {
+  float: left;
+  margin: 10px 10px;
+  width: 45px;
+  height: 45px;
+  position: relative;
+}
+
+.button label,
+.button input {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 30px;
+  border-color: black;
+}
+
+.button input[type="radio"] {
+  opacity: 0.011;
+  z-index: 100;
+}
+
+.button input[type="radio"]:checked+label {
+  background: #1a5154;
+  color: white;
+  border-radius: 30px;
+  transition: all 0.5s ease;
+}
+
+.button label {
+  cursor: pointer;
+  z-index: 90;
+  line-height: 1.8em;
+}
+
+.input[type="checkbox"] {
+  accent-color: #1a5154;
+}
+
+.statusContainer {
+  display: grid;
+  grid-template-rows: 2fr 3fr 3fr 2fr;
+  width: 100%;
+}
+
+.statusHeader {
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+  animation-name: appear;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+
+.exit {
+  position: absolute;
+  right: 0;
+  font-size: 30px;
+  color: white;
+  background: red;
+  border-radius: 5px;
+  width: 35px;
+  height: 35px;
+  margin: 20px 50px 0 0;
+}
+
+.statusTitle {
+  background: red;
+  color: white;
+  font-size: 30px;
+  padding: 15px;
+}
+
+.review-container {
+  display: grid;
+  grid-template-columns: 4fr 2fr;
+  width: 100%;
+}
+
+.review-table {
+  text-align: center;
+  margin: 20px 0 0 50px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  line-height: 70px;
+  font-weight: bold;
+  animation-name: appear;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+}
+
+.error-img {
+  width: 250px;
+  height: 250px;
+  margin-left: 30px;
+}
+
+table {
+  height: 80%;
+  margin: 10px 0 0 0px;
+  font: "inter";
+  animation-name: appear;
+  animation-duration: 0.5s;
+  animation-delay: 0.1s;
+  animation-fill-mode: both;
+}
+
+td {
+  white-space: pre-wrap;
+}
+
+thead {
+  background: #1a5154;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+}
+
+tbody {
+  font-size: 15px;
+  background: fff;
+}
+
+.tableHeader {
+  width: 400px;
+}
+
+.table>:not(caption)>*>* {
+  padding: 25px 20px;
+}
+
+.review-buttons {
+  position: relative;
+  width: 95%;
+  padding-top: 25px;
+  padding-left: 55px;
+  background: #1a5154;
+  animation-name: slideleft;
+  animation-duration: 0.6s;
+  animation-delay: 0.3s;
+  animation-fill-mode: both;
+}
+
+.review-img {
+  width: 250px;
+  height: 250px;
+}
+
+@keyframes slideleft {
+  from {
+    right: -410px;
+  }
+
+  to {
+    right: -52px;
+  }
+}
+
+.submit {
+  height: 70px;
+  width: 250px;
+  margin-top: 10px;
+  color: black;
+  background: white;
+}
+
+.loading-container {
+  margin-top: 30px;
+  display: grid;
+  width: 100%;
+  justify-content: center;
+}
+
+.loading-line {
+  border-width: 3px;
+  margin: 0px;
+  padding: 0;
+  width: 100%
+}
+
+.updated-container {
+  display: grid;
+  grid-template-rows: 1fr 3fr 4fr;
+  width: 100%;
+}
+
+.updated-header {
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.updated-status {
+  background: #FF7B1B;
+  margin: 0px 0px 0px -12px;
+  width: 102%;
+  padding-top: 45px;
+  padding-left: 400px;
+  color: white;
+  font-size: 80px;
+  animation-name: slideIn;
+  animation-duration: 0.8s;
+  animation-fill-mode: both;
+}
+
+.updated-img {
+  position: absolute;
+  margin: 80px 0 0 80px;
+  height: 350px;
+  width: 350px;
+  animation-name: appear;
+  animation-duration: 0.3s;
+  animation-delay: 0.8s;
+  animation-fill-mode: both;
+}
+
+.updated-body {
+  margin: 40px 0 0 420px;
+  display: grid;
+  justify-content: center;
+}
+
+.desc {
+  font-size: 20px;
+  color: black;
+  background: white;
+  padding: 0;
+  width: 462px;
+  margin-bottom: -30px;
+}
+
+.edit-status {
+  font-size: 30px;
+  width: 100%;
+  height: 90px;
+  background: white;
+  color: black;
+  animation-name: appear;
+  animation-duration: 0.3s;
+  animation-delay: 0.8s;
+  animation-fill-mode: both;
+}
+
+.edit-status:hover {
+  transition: 0.3s;
+  background: #FF7B1B;
+  color: white;
+}
+
+.outlying:hover {
+  background: #FF7B1B;
+}
+
+.hospitalized:hover {
+  background: #7B1BFF;
+}
+
+.recovered:hover {
+  background: #00BF8F;
+}
+
+
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 100;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    margin-left: -1204px;
+  }
+
+  to {
+    margin-left: -12px;
+  }
+}
+
+.statusUpdatedContainer {
+  grid-template-rows: 300px 1fr;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.chartBackground {
+  position: absolute;
+  display:none;
+  background-color:#000000AA;
+  padding:5% 25%;
+  width:100%;
+  height:100%;
+  z-index:2;
+}
+
+.chartContainer {
+  background-color:white;
+  height:100%;
+  width:100%;
+  overflow:scroll;
+}
+
+.chart {
+  display:none;
+  max-width:100%;
+  min-width:100%;
 }

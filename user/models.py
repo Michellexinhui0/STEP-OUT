@@ -8,7 +8,8 @@ class User:
         del user['password']
         session['logged_in'] = True
         session['user'] = user
-        return render_template("search.html"), 200
+        dict_patient = functions.patient_table(10)
+        return jsonify(user), 200
 
     def signup(self):
         from app import db
@@ -68,11 +69,49 @@ class functions:
         patient={
             "_id": uuid.uuid4().hex,
             "patient_id": request.form.get('patient_id'),
-            "surname": request.form.get('surname'),
-            "given_name": request.form.get('given_name'),
-            "admission_date": request.form.get('admission_date'),
+            "name": {
+                "surname": request.form.get('surname'), 
+                "given_name": request.form.get('given_name')
+                },
+            "gender": request.form.get('gender'),
+            "DOB": {
+                "day": request.form.get('day'), 
+                "month": request.form.get('month'), 
+                "year": request.form.get('year')
+                },
+            "hospital_visit": {
+                "admission_date": request.form.get('admission_date'),
+                "ward": request.form.get('ward'),
+                "doctor": request.form.get('doctor'),
+                "prev_upd": request.form.get('prev_upd'),
+                "condition": {
+                    "age": request.form.get('age'),
+                    "blood_pres": request.form.get('blood_pres'),
+                    "oxy_flow_rate": request.form.get('oxy_flow_rate'),
+                    "oxy_sat": request.form.get('oxy_sat'),
+                    "gen_sickness": {
+                        "allergies": request.form.get('allergies'),
+                        "colds": request.form.get('colds'),
+                        "coughing": request.form.get('coughing'),
+                        "flu": request.form.get('flu'),
+                        "diarrhea": request.form.get('diarrhea'),
+                        "fatigue": request.form.get('fatigue'),
+                        "fever": request.form.get('fever'),
+                        "muscle_ache": request.form.get('muscle_ache'),
+                    },
+                    "chest": request.form.get('chest'),
+                    "hand": request.form.get('hand'),
+                    "head": request.form.get('head'),
+                    "leg": request.form.get('leg'),
+                    "sen_organ": request.form.get('sen_organ'),
+                    "stomach": request.form.get('stomach'),
+                    },
+                "cur_stat": request.form.get('cur_stat'),
+                "final_output": request.form.get('final_output'),
+                },
+            
             "status": request.form.get('status'),
-            "last_update": request.form.get('last_update'),
+            "last_update": request.form.get('last_update')
         }
         
         if db.patient.find_one({"patient_id": patient['patient_id']}):
