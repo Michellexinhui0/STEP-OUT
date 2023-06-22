@@ -182,13 +182,6 @@ input[type=text] {
   height: 60px;
 }
 
-.container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  /* Two columns with equal width */
-  grid-gap: 10px;
-  /* Gap between grid items */
-}
 
 
 h3 {
@@ -198,7 +191,9 @@ h3 {
 
 .container-component {
   display: flex;
-  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  padding: 15px;
 }
 
 * {
@@ -238,15 +233,8 @@ button:active {
 }
 
 form {
-  background-color: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 0 50px;
   height: 100%;
-  width: 370px;
-  text-align: center;
+  width: 250px;
 }
 
 input {
@@ -287,7 +275,7 @@ select {
   position: absolute;
   width: 250px;
   top: 10px; /* Adjust this value to move the button down */
-  right: 0;
+  left: 1350px;
   padding: 10px;
 }
 
@@ -325,7 +313,7 @@ select {
 select {
   width: 170px;
   font-size: 16px;
-  height: 60px;
+  height: 50px;
 
 }
 
@@ -335,18 +323,38 @@ option{
 }
 
 
-.container-bottom {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.sticky-div {
+/* .container-bottom {
   position: fixed;
   bottom: 25px;
   width: 100%;
   padding: 10px;
   justify-content: center;
+} */
+
+.container-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px; 
+}
+
+.sticky-div {
+  display: flex; 
+  justify-content: center;
+  position: fixed;
+  bottom: 25px;
+  width: 100%;
+  padding: 0px;
+  text-align: center;
+}
+
+.page-button {
+  width: 40px;
+  background-color: #194d4f;  
+  outline: none;
+  height: 30px;
+  display: flex; /* Add this line to enable flexbox layout */
+  align-items: center; /* Align text vertically in the middle */
+  justify-content: center; /* Align text horizontally in the middle */
+  margin: 0 5px;
 }
