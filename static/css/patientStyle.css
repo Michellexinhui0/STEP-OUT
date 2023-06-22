@@ -139,6 +139,11 @@ textarea {
   width: 30px;
 }
 
+.edit-img:active{
+  height: 27px;
+  width: 27px;
+}
+
 .status {
   box-shadow: 0px 3px 3px;
   height: 98px;
@@ -157,6 +162,7 @@ textarea {
   padding-right: 30px;
   padding-top: 10px;
   position: absolute;
+  transition: background-color 0.3s;
 }
 
 .status-desc {
@@ -190,6 +196,11 @@ textarea {
   width: 100px;
   margin-left: 5px;
   filter: grayscale(100%);
+  transition:filter 0.5s;
+}
+
+.color {
+  filter:grayscale(0%);
 }
 
 .statusTrio {
@@ -200,6 +211,10 @@ textarea {
   animation-duration: 0.5s;
   animation-delay: 0.1s;
   animation-fill-mode: both;
+}
+
+.status-select:hover{
+  cursor:pointer;
 }
 
 .s1 {
@@ -774,6 +789,25 @@ button span:after {
   font-weight: bold;
 }
 
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  line-height: 70px;
+  font-weight: bold;
+  animation-name: appear;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+}
+
+.error-img {
+  width: 250px;
+  height: 250px;
+  margin-left: 30px;
+}
+
 table {
   height: 80%;
   margin: 10px 0 0 0px;
@@ -924,6 +958,20 @@ tbody {
   background: #FF7B1B;
   color: white;
 }
+
+.outlying:hover {
+  background: #FF7B1B;
+}
+
+.hospitalized:hover {
+  background: #7B1BFF;
+}
+
+.recovered:hover {
+  background: #00BF8F;
+}
+
+
 
 @keyframes appear {
   from {

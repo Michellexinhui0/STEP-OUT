@@ -9,6 +9,7 @@
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../static/css/patientStyle.css">
+  <script src="../static/js/search.js"></script>
   <script src="../static/js/patient.js"></script>
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
@@ -70,15 +71,15 @@
               <t>Previous Updates:</t>
             </div>
             <div class="row" style="text-align:right;">
-              <t class="info">P12348</t>
-              <t class="info">Lee</t>
-              <t class="info">Mark Ming Hung</t>
-              <t class="info">M</t>
-              <t class="info">1/4/1999</t>
-              <t class="info">13/4/2023</t>
-              <t class="info">ED-A</t>
-              <t class="info">Dr. Alexandra Anne</t>
-              <t class="info">15/4/2023, 1.35pm</t>
+              <t class="info"></t>
+              <t class="info"></t>
+              <t class="info"></t>
+              <t class="info"></t>
+              <t class="info"></t>
+              <t class="info"></t>
+              <t class="info"></t>
+              <t class="info"></t>
+              <t class="info"></t>
             </div>
           </div>
           <div style="text-align:right;">
@@ -97,13 +98,13 @@
           </div>
           <!--Hopsitalized-->
           <div class="status">
-            <div class="status-name"  style="background-color:#7b1bff">
+            <div class="status-name">
               <tb>Hospitalized</tb>
             </div>
             <div class="status-desc" style="margin-top:50px;">
               <t>Patient still requires medical attention.</t>
             </div>
-            <img style="filter:grayscale(0)" class="status-img" src="../static/imgs/hospitalized.png" />
+            <img class="status-img" src="../static/imgs/hospitalized.png" />
           </div>
           <!--Outlying-->
           <div class="status">
@@ -211,15 +212,15 @@
 
                 <!--1st Current Status-->
                 <div>
-                  <tb style="margin-left:21px;">Current Status:</tb>
-                  <div class="status s1" id="s1">
-                    <div class="status-name" style="background-color:#7b1bff">
-                      <tb>Hospitalized</tb>
+                  <tb id="status-direction" style="margin-left:21px;">Current Status:</tb>
+                  <div class="status status-select s1" id="s1">
+                    <div class="status-name">
+                      <tb class="status-name-text">Hospitalized</tb>
                     </div>
                     <div class="status-desc">
                       <t>Patient still requires medical attention.</t>
                     </div>
-                    <img class="status-img" src="../static/imgs/hospitalized.png" />
+                    <img class="status-img color" src="../static/imgs/hospitalized.png" />
                   </div>
                 </div>
 
@@ -230,9 +231,9 @@
                 <!--2nd Status-->
                 <div>
                   <tb style="margin-left:-18px;">Available Status:</tb>
-                  <div class="status s2" id="s2" style="margin-left:-20px;">
+                  <div class="status status-select s2" id="s2" style="margin-left:-20px;">
                     <div class="status-name">
-                      <tb>Outlying</tb>
+                      <tb class="status-name-text">Outlying</tb>
                     </div>
                     <div class="status-desc">
                       <t>Patient can receive treatment from home by PCA.</t>
@@ -242,9 +243,9 @@
                 </div>
 
                 <!--3rd Status-->
-                <div class="status s" id="s3" style="margin:30px 0 0 -50px;">
+                <div class="status status-select s" id="s3" style="margin:30px 0 0 -50px;">
                   <div class="status-name">
-                    <tb style="margin-right:5px">Recovered</tb>
+                    <tb class="status-name-text">Recovered</tb>
                   </div>
                   <div class="status-desc">
                     <t>Patient can check out from the hospital.</t>
@@ -704,6 +705,10 @@
                   </tbody>
                 </table>
               </div>
+              <div class="errorContainer" style="display:none">
+                <img src="../static/imgs/error.png" class="error-img" />
+                Condition updates are incomplete.
+              </div>
 
               <div class="review-buttons">
                 <img src="../static/imgs/doctor.png" class="review-img" />
@@ -728,7 +733,7 @@
               <tb class="updated-status">Outlying</tb>
               <div class="updated-body">
                 <tb class="updated-status desc">Patient can receive treatment from home by PCA</tb>
-                <button class="save submit edit-status" id="Next">Click Here to Edit Status</button>
+                <button class="save submit edit-status" id="updateStatus">Click Here to Edit Status</button>
               </div>
 
             </div>
