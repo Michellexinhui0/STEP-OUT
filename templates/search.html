@@ -68,7 +68,7 @@
             </div>
             
             <div class="log-out-button">
-                <button type="submit" value="Log Out">Log Out</button>
+                <button type="submit" value="Log Out" onclick="location.href='/user/signout'">Log Out</button>
             </div>
             
             
@@ -90,10 +90,10 @@
                     {% for user in users %}
                     <tr class="abdyullah">
                       <td class="patient">{{ user["patient_id"] }}</td>
-                      <td>{{ user["surname"] }}</td>
-                      <td>{{ user["given_name"] }}</td>
-                      <td>{{ user["admission_date"] }}</td>
-                      <td>{{ user["status"] }}</td>
+                      <td>{{ user["name"]["surname"] }}</td>
+                      <td>{{ user["name"]["given_name"] }}</td>
+                      <td>{{ user["hospital_visit"]["admission_date"] }}</td>
+                      <td>{{ user["hospital_visit"]["cur_stat"] }}</td>
                       <td>{{ user["last_update"] }}</td>
                       <td> <i class="fa-solid fa-chevron-right"></i></td>
                     </tr>
