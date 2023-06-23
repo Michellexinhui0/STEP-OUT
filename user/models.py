@@ -51,6 +51,16 @@ class User:
 
 class functions:
     
+    def calc_age():
+        age = 0
+        return age
+    
+    #def patient_info(p_id):
+    #    from app import db
+    #    select_patient = db.patient.find_one({'patient_id': p_id})
+    #    return jsonify(select_patient)
+        
+    
     #Function to query db to display on the search page table 10 patient's info
     #refer to search.html for the jinja for loop
     def patient_table(n):

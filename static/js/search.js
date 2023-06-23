@@ -28,8 +28,8 @@ for (let n = 0; n < rows.length; n++) {
     })
       .then((response) => response.json())
       .then((json) => {
-        console.log(json);
-        patientDetails = JSON.parse(json);
+        console.log(json.patient_id);
+        document.cookie = "gender=" + json.gender + "; path=/patient";;
         window.location.href = "/patient";
       });
   });
