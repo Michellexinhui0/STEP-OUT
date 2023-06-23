@@ -56,7 +56,7 @@ class functions:
     def patient_table(n):
         from app import db #import database connection info
         dict_patient = []
-        nPatient= db.patient.find({'status':{"$in":["Hospitalized","Outlying"]} } ).limit(n) #find patient that are outlying or hospitalised to display on search page
+        nPatient= db.patient.find({'hospital_visit.cur_stat':{"$in":["Hospitalized","Outlying"]} } ).limit(n) #find patient that are outlying or hospitalised to display on search page
         for patient in nPatient:
             dict_patient.append(patient)
         return dict_patient
