@@ -38,7 +38,7 @@ def home():
 @app.route('/search/')
 @login_required
 def search():
-    dict_patient = functions.patient_table(13)
+    dict_patient = functions.patient_table(7)
     return render_template('search.html', users=dict_patient)
 
 @app.route('/patient', methods = ["GET"])
