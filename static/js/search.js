@@ -1,4 +1,5 @@
 // JavaScript code
+document.addEventListener("DOMContentLoaded", function () {
 var rows = document.querySelectorAll(".abdyullah");
 var ids = document.querySelectorAll(".patient");
 var patientDetails = {
@@ -74,3 +75,4 @@ for (let n = 0; n < rows.length; n++) {
     }
   }
 }
+})

@@ -4,8 +4,6 @@
   box-sizing: border-box;
 }
 
-
-
 h1 {
   font-weight: bold;
   text-align: center;
@@ -93,15 +91,6 @@ button:active {
   height: 320px;
 }
 
-.form-container {
-  position: relative;
-  transition: all 0.6s ease-in-out;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 .row {
   display: flex;
   flex-direction: row;
@@ -130,6 +119,13 @@ button:active {
   border-radius: 10px;
 }
 
+.search-icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+}
+
+
 input[type=text] {
   width: 30%;
   -webkit-transition: width 0.15s ease-in-out;
@@ -137,18 +133,20 @@ input[type=text] {
 }
 
 
-
 /* testing again 30/5*/
 #myInput {
-  background-image: url('../imgs/search.png');
-  background-position: 10px 10px;
+  background-image: url('../imgs/search.png'); 
+  background-position: 10px center;
   background-repeat: no-repeat;
+  background-size: 20px;
   width: 100%;
+  height: 50px;
   font-size: 16px;
   padding: 12px 20px 12px 40px;
   border: 1px solid #ddd;
   margin-bottom: 12px;
 }
+
 
 #myTable {
   border-collapse: collapse;
@@ -181,6 +179,7 @@ input[type=text] {
   top: 20px;
   right: 450px;
   width: 650px;
+  height: 60px;
 }
 
 .container {
@@ -197,21 +196,7 @@ h3 {
   padding: 15px;
 }
 
-.component {
-  flex: 1;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  padding: 1px;
-}
-
 .container-component {
-  display: flex;
-  flex-direction: row;
-}
-
-.date-form-container {
-  background-color: none;
   display: flex;
   flex-direction: row;
 }
@@ -252,7 +237,6 @@ button:active {
   transform: scale(0.95);
 }
 
-
 form {
   background-color: none;
   display: flex;
@@ -266,6 +250,15 @@ form {
 }
 
 input {
+  background-color: #ffffff;
+  border: 1px solid #1a5154;
+  border-radius: 10px;
+  padding: 12px 15px;
+  margin: 4px 0;
+  width: 80%;
+}
+
+select {
   background-color: #ffffff;
   border: 1px solid #1a5154;
   border-radius: 10px;
@@ -290,31 +283,21 @@ input {
   padding: 10px;
 }
 
-.home-profile-icon-container {
+.log-out-button{
   position: absolute;
-  top: 0;
+  width: 250px;
+  top: 10px; /* Adjust this value to move the button down */
   right: 0;
   padding: 10px;
 }
 
 .home-search-bar-container {
   position: absolute;
-  top: 0%;
-  left: 17%;
+  top: 0;
+  left: 17;
   padding: 10px;
 }
 
-.circle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 68px;
-  height: 68px;
-  border-radius: 50%;
-  background-color: #f8f9fa;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-    0 10px 10px rgba(0, 0, 0, 0.22);
-}
 
 .d-flex {
   background-color: transparent;
@@ -340,13 +323,30 @@ input {
 }
 
 select {
-  background-color: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 0 50px;
-  height: 100%;
   width: 170px;
-  text-align: center;
+  font-size: 16px;
+  height: 60px;
+
+}
+
+option{
+  height: 60px;
+
+}
+
+
+.container-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.sticky-div {
+  position: fixed;
+  bottom: 25px;
+  width: 100%;
+  padding: 10px;
+  justify-content: center;
 }
