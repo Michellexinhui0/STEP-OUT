@@ -62,10 +62,22 @@
             
             <div id="mysearchbar">
                 <div>
-                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="   Search for a patient..."
+                    <form action="/test/searchP" method="GET"> 
+                        <input type="text" id="myInput" name="searchTerm" placeholder="Search for a patient..." title="Search for a patient...">
+                        <button type="submit">Search</button> 
+                    </form>
+                </div>
+            </div>
+        
+            <!--
+            <div id="mysearchbar">
+                <div>
+                    <input type="text" id="myInput" formaction="/test/searchP" formmethod="GET" placeholder="   Search for a patient..."
                     title="Search for a patient...">
                 </div>
             </div>
+            -->
+            
             
             <div class="log-out-button">
                 <button type="submit" value="Log Out" onclick="location.href='/user/signout'">Log Out</button>

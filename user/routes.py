@@ -21,6 +21,11 @@ def login():
 def add_patient():
     return functions.addPatient()
 
+@app.route('/test/searchP', methods=['GET'])
+def search_document():
+    search_term = request.args.get('searchTerm', '')
+    return functions.search_patient(search_term)
+
 #return personal info + current status return jsonify
 @app.route('/patientdetails/', methods=['POST'])
 def patientDetails():

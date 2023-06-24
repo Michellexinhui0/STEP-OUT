@@ -59,7 +59,23 @@ class functions:
     #    from app import db
     #    select_patient = db.patient.find_one({'patient_id': p_id})
     #    return jsonify(select_patient)
+    
+    #Function to query db to display on the search page table 10 patient's info
+    #refer to search.html for the jinja for loop
+    def search_patient(searchTerm):
+        from app import db #import database connection info
         
+        condition = {'$or': [
+        {'patient_id': searchTerm},
+        {'name.surname': searchTerm},
+        {'name.given_name': searchTerm}
+        ]}
+        
+        dict_patient = []
+        nPatient= db.patient.find(condition)
+        for patient in nPatient:
+            dict_patient.append(patient)
+        return dict_patient
     
     #Function to query db to display on the search page table 10 patient's info
     #refer to search.html for the jinja for loop
