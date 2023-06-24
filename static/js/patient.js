@@ -1,5 +1,28 @@
+
+console.log(document.cookie);
 document.addEventListener("DOMContentLoaded", function () {
   console.log("DOM is loaded");
+  function getCookie(name) {
+    // Split cookie string and get all individual name=value pairs in an array
+    var cookieArr = document.cookie.split(";");
+
+    // Loop through the array elements
+    for(var i = 0; i < cookieArr.length; i++) {
+        var cookiePair = cookieArr[i].split("=");
+
+        /* Removing whitespace at the beginning of the cookie name
+        and compare it with the given string */
+        if(name == cookiePair[0].trim()) {
+            // Decode the cookie value and return
+            return decodeURIComponent(cookiePair[1]);
+        }
+    }
+
+    // Return null if not found
+    return null;
+}
+  console.log(getCookie('id'));
+
   const info = document.querySelectorAll(".info");
   const next = document.getElementById("Next");
   const details = document.getElementById("basic-details");
@@ -83,6 +106,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     status.style.display = "grid";
   });
+
+  //info[0].textContent = patientDetails.id;
+  //info[1].textContent = patientDetails.surname;
+  //info[2].textContent = patientDetails.givenName;
+  //info[3].textContent = patientDetails.gender;
+  //info[4].textContent = patientDetails.dob;
+  //info[5].textContent = patientDetails.admission;
+  //info[6].textContent = patientDetails.ward;
+  //info[7].textContent = patientDetails.dr;
+  //info[8].textContent = patientDetails.prev;
 
   exit.addEventListener("click", (e) => {
     console.log("Exit button was clicked.");
@@ -308,6 +341,8 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((response) => response.json())
       .then((json) => console.log(json));
   }
+
+  
 
   function getCheckedBoxes(chkboxName) {
     var checkboxes = document.getElementsByName(chkboxName);

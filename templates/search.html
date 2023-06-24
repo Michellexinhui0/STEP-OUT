@@ -18,11 +18,11 @@
     </head>
     
     <body>
-        
+
         <header>
             <div class="home-logo-container">
                 <img src="../static/imgs/STEP OUT Logo.png" width="80" height="68" />
-                
+
                 <div class="container-component">
                         <h3>Filter</h3>
                         <h3>Date:</h3>
@@ -43,21 +43,23 @@
                             <option value="1">Outlying</option>
                             <option value="2">Hospitalized</option>
                         </select>
-                        
+
                 </div>
-            
-            <div id="mysearchbar">
-                <div>
-                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="   Search for a patient..."
-                    title="Search for a patient...">
+
+                <div id="mysearchbar">
+                    <div>
+                        <form action="/test/searchP" method="GET"> 
+                            <input type="text" id="myInput" name="searchTerm" placeholder="Search for a patient..." title="Search for a patient...">
+                            <button id = "search-Button" type="submit">Search</button> 
+                        </form>
+                    </div>
                 </div>
-            </div>
-            
+
             <div class="log-out-button">
                 <button type="submit" value="Log Out" onclick="location.href='/user/signout'">Log Out</button>
             </div>
-            
-            
+
+
         </header>
         
         <div class="container-fluid">
@@ -95,6 +97,6 @@
             <button type="page-button" value="Log Out" onclick="location.href='xx'">2</button>
             <button type="page-button" value="Log Out" onclick="location.href='xx'">3</button>
         </div>
-    </div>        
+    </div>   
     </html>
             

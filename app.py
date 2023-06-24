@@ -31,7 +31,7 @@ from user import routes
 
 @app.route('/')
 def home():
-    return render_template('patient.html')
+    return render_template('login.html')
 
 
 
@@ -54,24 +54,6 @@ model = pickle.load(open('./ANN.sav', 'rb'))
 status = ""
 doc = {} #dictionary for features, probably without R1
 
-def to_json(list_x):
-    features = [
-        'Age', 
-        'Systolic bp', 'Diastolic bp', 
-        'Oxygen Level', 'Allergies', 
-        'Flu', 'Coughing', 
-        'Diarrhea', 'Fatigue', 
-        'Fever', 'Muscle Ache', 
-        'Sore Throat', 'Cold', 
-        'Legs Pains', 'Hands Pains', 
-        'Stomach Pains', 'Chest Pains',
-        'Eye Pains', 'R1'
-    ]
-    
-    for key in features:
-        for value in list_x:
-            doc[key] = value
-            list_x.remove(value)
-            break
-    print(str(doc))
-    return doc
+if __name__ == "__main__":
+    context = ('local.crt', 'local.key')#certificate and key files
+    app.run(debug=True, ssl_context=context)

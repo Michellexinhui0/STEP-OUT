@@ -21,10 +21,19 @@ def login():
 def add_patient():
     return functions.addPatient()
 
+@app.route('/test/searchP', methods=['GET'])
+def search_document():
+    search_term = request.args.get('searchTerm', '')
+    return functions.search_patient(search_term)
+
 #return personal info + current status return jsonify
 @app.route('/patientdetails/', methods=['POST'])
-def patientdetails():
-    return jsonify(200)
+def patientDetails():
+    data = request.get_json()
+    p_id = data['data']
+    from app import db
+    select_patient = db.patient.find_one({'patient_id': p_id})
+    return jsonify(select_patient)
 
 model = pickle.load(open('./ANN.sav', 'rb'))
 status = ""
