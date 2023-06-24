@@ -335,18 +335,35 @@ option{
 }
 
 
+
 .container-bottom {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100px; 
 }
 
 .sticky-div {
+  display: flex; 
+  justify-content: center;
   position: fixed;
   bottom: 25px;
-  width: 100%;
-  padding: 10px;
-  justify-content: center;
+  width: 6%;
+  padding: 0px;
+  text-align: center;
+}
+
+.page-button {
+  width: 40px;
+  background-color: #194d4f;
+  outline: none;
+  height: 30px;
+  display: flex; /* Add this line to enable flexbox layout /
+  align-items: center; / Align text vertically in the middle /
+  justify-content: center; / Align text horizontally in the middle */
+  margin: 0 5px;
+}
+
+.search-Button{
+  align: 
 }
