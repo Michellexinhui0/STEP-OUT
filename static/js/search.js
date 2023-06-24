@@ -1,4 +1,35 @@
 // JavaScript code
+
+const page1 = document.getElementById("patient_page1");
+const page2 = document.getElementById("patient_page2");
+const page3 = document.getElementById("patient_page3");
+
+const patient_page1_button = document.getElementById("patient_page1_button");
+const patient_page2_button = document.getElementById("patient_page2_button");
+const patient_page3_button = document.getElementById("patient_page3_button");
+
+
+patient_page1_button.addEventListener("click", (e) => {
+  console.log("1st patient page was clicked.");
+  page1.style.display = "grid";
+  page2.style.display = "none";
+  page3.style.display = "none";
+});
+
+patient_page2_button.addEventListener("click", (e) => {
+  console.log("2nd patient page was clicked.");
+  page1.style.display = "none";
+  page2.style.display = "grid";
+  page3.style.display = "none";
+});
+
+patient_page3_button.addEventListener("click", (e) => {
+  console.log("3rd patient page was clicked.");
+  page1.style.display = "none";
+  page2.style.display = "none";
+  page3.style.display = "grid";
+});
+
 document.addEventListener("DOMContentLoaded", function () {
 var rows = document.querySelectorAll(".abdyullah");
 var ids = document.querySelectorAll(".patient");
