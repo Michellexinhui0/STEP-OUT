@@ -27,7 +27,7 @@
                     <h3>Filter</h3>
                     <h3>Date:</h3>
                     
-                    <form action="#">
+                    <form action="#" class="date-form">
                         <input type="date" id="date" name="date">
                     </form>
                     
@@ -45,19 +45,19 @@
                     </select>
                     
                 </div>
-                
-                <div id="mysearchbar">
-                    <form action="/test/searchP" method="GET"> 
-                        <input type="text" id="myInput" name="searchTerm" placeholder="Search for a patient..." title="Search for a patient...">
-                        <div class="search-green-button">
-                            <button type="submit">Search</button> 
-                        </div>
-                        
-                    </form>
-                </div>
-                
+              
+                    <div class="my-search-bar">
+                        <form action="/test/searchP" method="GET"> 
+                            <input type="text" id="myInput" name="searchTerm" placeholder="Search for a patient..." title="Search for a patient...">
+                            <div>
+                                <button type="submit"  class="my-search-button">Search</button> 
+                            </div>    
+                            
+                        </form>
+                    </div>         
+            
                 <div class="log-out-button">
-                    <button type="submit" value="Log Out" onclick="location.href='/user/signout'">Log Out</button>
+                    <button type="submit" class="red-logout-button" value="Log Out" onclick="location.href='/user/signout'">Log Out</button>
                 </div>
                 
             </div>
