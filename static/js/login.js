@@ -1,30 +1,27 @@
-const logInButton = document.getElementById("logIn");
-const container = document.getElementById("container");
+document.addEventListener("DOMContentLoaded", function () {
 
-clickLogin = (e) => {
-  e.preventDefault();
+$("form[name=login_form").submit(function (e) {
 
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+  var $form = $(this);
+  var $error = $form.find(".error");
+  var data = $form.serialize();
 
-  fetch("/", {
-    method: "POST",
-    body: JSON.stringify({
-      email: email,
-      password: password,
-    }),
-    headers: {
-      "Content-Type": "application/json",
+  $.ajax({
+    url: "/user/login",
+    type: "POST",
+    data: data,
+    dataType: "json",
+    success: function (resp) {
+      console.log(resp);
+      window.location.href = "/search/";
     },
-  })
-    .then((response) => response.json())
-    .then((result) => {
-      if (result.message === "SUCCESS") {
-        alert("You are logged in.");
-        window.location.href = "/search/";
-      } else {
-        alert("Please check your login information.");
-      }
-    });
-};
+    error: function (resp) {
+      console.log(resp);
+      $error.text(resp.responseJSON.error).removeClass("error--hidden");
+    }
+  });
 
+  e.preventDefault();
+});
+
+})

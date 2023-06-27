@@ -1,10 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
-
+body {
+	background: #ffffff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-family: 'Montserrat', sans-serif;
+	height: 100vh;
+	background-image: url("../imgs/background.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+  
+}
 
 h1 {
   font-weight: bold;
@@ -14,25 +26,6 @@ h1 {
 
 t {
   margin-bottom: 2px;
-}
-
-button {
-  border-radius: 10px;
-  border: 1px solid #1a5154;
-  background-color: #1a5154;
-  color: #FFFFFF;
-  font-size: 18px;
-  font-weight: bold;
-  width: 80%;
-  padding: 12px;
-  margin: 4px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  transition: transform 80ms ease-in;
-}
-
-button:active {
-  transform: scale(0.95);
 }
 
 #toggle {
@@ -93,15 +86,6 @@ button:active {
   height: 320px;
 }
 
-.form-container {
-  position: relative;
-  transition: all 0.6s ease-in-out;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 .row {
   display: flex;
   flex-direction: row;
@@ -117,18 +101,10 @@ button:active {
   flex: 5;
 }
 
-
 .table-hover tbody tr:hover {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
-/* hii */
-
-#searchbar {
-  margin-left: 15%;
-  padding: 15px;
-  border-radius: 10px;
-}
 
 input[type=text] {
   width: 30%;
@@ -136,14 +112,13 @@ input[type=text] {
   transition: width 0.15s ease-in-out;
 }
 
-
-
-/* testing again 30/5*/
 #myInput {
-  background-image: url('../imgs/search.png');
-  background-position: 10px 10px;
+  background-image: url('../imgs/search.png'); 
+  background-position: 10px center;
   background-repeat: no-repeat;
+  background-size: 20px;
   width: 100%;
+  height: 50px;
   font-size: 16px;
   padding: 12px 20px 12px 40px;
   border: 1px solid #ddd;
@@ -176,61 +151,36 @@ input[type=text] {
   background-color: #f1f1f1;
 }
 
-#mysearchbar {
+.my-search-bar {
   position: fixed;
   top: 20px;
-  right: 450px;
-  width: 650px;
+  width: 2000px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  flex-direction: row;
+  flex:1;
 }
 
 .container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  /* Two columns with equal width */
-  grid-gap: 10px;
-  /* Gap between grid items */
+  display: flex;
+  align-items: center;
 }
-
 
 h3 {
   font-size: 20px;
   padding: 15px;
 }
 
-.component {
-  flex: 1;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  padding: 1px;
-}
-
 .container-component {
   display: flex;
-  flex-direction: row;
-}
-
-.date-form-container {
-  background-color: none;
-  display: flex;
-  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  padding: 15px;
 }
 
 * {
   box-sizing: border-box;
-}
-
-body {
-  background: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  font-family: 'Montserrat', sans-serif;
-  height: 100vh;
-  background-image: url("../imgs/background.png");
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
 button {
@@ -252,20 +202,32 @@ button:active {
   transform: scale(0.95);
 }
 
-
 form {
-  background-color: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 0 50px;
   height: 100%;
-  width: 370px;
-  text-align: center;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+}
+
+.date-form{
+  width: 250px;
+}
+.my-search-button{
+  width: 140px;
 }
 
 input {
+  background-color: #ffffff;
+  border: 1px solid #1a5154;
+  border-radius: 10px;
+  padding: 12px 15px;
+  margin: 4px 0;
+  width: 70%;
+}
+
+select {
   background-color: #ffffff;
   border: 1px solid #1a5154;
   border-radius: 10px;
@@ -278,11 +240,7 @@ input {
   margin-bottom: 30px;
 }
 
-
-
 /* homescreencss */
-
-
 .home-logo-container {
   position: absolute;
   top: 0;
@@ -290,63 +248,60 @@ input {
   padding: 10px;
 }
 
-.home-profile-icon-container {
-  position: absolute;
-  top: 0;
-  right: 0;
+.log-out-button{
+  position: fixed;
+  width: 250px;
+  top: 10px; /* Adjust this value to move the button down */
+  left: 1470px;
   padding: 10px;
 }
-
-.home-search-bar-container {
-  position: absolute;
-  top: 0%;
-  left: 17%;
-  padding: 10px;
+.red-logout-button{
+  background-color: rgb(193, 48, 37);
+  border-color: rgb(193, 48, 37);
 }
 
-.circle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 68px;
-  height: 68px;
-  border-radius: 50%;
-  background-color: #f8f9fa;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-    0 10px 10px rgba(0, 0, 0, 0.22);
-}
+
 
 .d-flex {
   background-color: transparent;
   flex-direction: row;
-
-}
-
-
-.form-control {
-  width: 500px;
-  height: 60px;
-
-}
-
-.search-button {
-  width: 150px;
-  height: 60px;
-}
-
-.add-new-patient-button {
-  width: 2110px;
-
 }
 
 select {
-  background-color: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 0 50px;
-  height: 100%;
   width: 170px;
+  font-size: 16px;
+  height: 50px;
+}
+
+option{
+  height: 60px;
+
+}
+
+.container-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px; 
+}
+
+.sticky-div {
+  display: flex; 
+  justify-content: center;
+  position: fixed;
+  bottom: 25px;
+  width: 6%;
+  padding: 0px;
   text-align: center;
+}
+
+.page-button {
+  width: 40px;
+  background-color: #194d4f;  
+  outline: none;
+  height: 30px;
+  display: flex; /* Add this line to enable flexbox layout */
+  align-items: center; /* Align text vertically in the middle */
+  justify-content: center; /* Align text horizontally in the middle */
+  margin: 0 5px;
 }

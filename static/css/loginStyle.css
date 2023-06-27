@@ -158,3 +158,17 @@ input {
 	width: 2110px;
 
 }
+
+.error {
+	--red: #EF4836;
+	margin: 0;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 16px;
+	line-height: 26px;
+	text-align: center;
+	color: var(--red);
+}
+  
+.error--hidden {
+	display: none;
+}
