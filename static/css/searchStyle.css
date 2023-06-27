@@ -1,7 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	background: #ffffff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-family: 'Montserrat', sans-serif;
+	height: 100vh;
+	background-image: url("../imgs/background.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+  
 }
 
 h1 {
@@ -12,25 +26,6 @@ h1 {
 
 t {
   margin-bottom: 2px;
-}
-
-button {
-  border-radius: 10px;
-  border: 1px solid #1a5154;
-  background-color: #1a5154;
-  color: #FFFFFF;
-  font-size: 18px;
-  font-weight: bold;
-  width: 80%;
-  padding: 12px;
-  margin: 4px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  transition: transform 80ms ease-in;
-}
-
-button:active {
-  transform: scale(0.95);
 }
 
 #toggle {
@@ -106,23 +101,8 @@ button:active {
   flex: 5;
 }
 
-
 .table-hover tbody tr:hover {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-}
-
-/* hii */
-
-#searchbar {
-  margin-left: 15%;
-  padding: 15px;
-  border-radius: 10px;
-}
-
-.search-icon {
-  width: 20px;
-  height: 20px;
-  margin-left: 5px;
 }
 
 
@@ -132,8 +112,6 @@ input[type=text] {
   transition: width 0.15s ease-in-out;
 }
 
-
-/* testing again 30/5*/
 #myInput {
   background-image: url('../imgs/search.png'); 
   background-position: 10px center;
@@ -146,7 +124,6 @@ input[type=text] {
   border: 1px solid #ddd;
   margin-bottom: 12px;
 }
-
 
 #myTable {
   border-collapse: collapse;
@@ -174,22 +151,21 @@ input[type=text] {
   background-color: #f1f1f1;
 }
 
-#mysearchbar {
+.my-search-bar {
   position: fixed;
   top: 20px;
-  right: 450px;
-  width: 650px;
-  height: 60px;
+  width: 2000px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  flex-direction: row;
+  flex:1;
 }
 
 .container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  /* Two columns with equal width */
-  grid-gap: 10px;
-  /* Gap between grid items */
+  display: flex;
+  align-items: center;
 }
-
 
 h3 {
   font-size: 20px;
@@ -198,24 +174,13 @@ h3 {
 
 .container-component {
   display: flex;
-  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  padding: 15px;
 }
 
 * {
   box-sizing: border-box;
-}
-
-body {
-  background: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  font-family: 'Montserrat', sans-serif;
-  height: 100vh;
-  background-image: url("../imgs/background.png");
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
 button {
@@ -238,15 +203,19 @@ button:active {
 }
 
 form {
-  background-color: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 0 50px;
   height: 100%;
-  width: 370px;
-  text-align: center;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+}
+
+.date-form{
+  width: 250px;
+}
+.my-search-button{
+  width: 140px;
 }
 
 input {
@@ -255,7 +224,7 @@ input {
   border-radius: 10px;
   padding: 12px 15px;
   margin: 4px 0;
-  width: 80%;
+  width: 70%;
 }
 
 select {
@@ -271,11 +240,7 @@ select {
   margin-bottom: 30px;
 }
 
-
-
 /* homescreencss */
-
-
 .home-logo-container {
   position: absolute;
   top: 0;
@@ -284,57 +249,34 @@ select {
 }
 
 .log-out-button{
-  position: absolute;
+  position: fixed;
   width: 250px;
   top: 10px; /* Adjust this value to move the button down */
-  right: 0;
+  left: 1470px;
   padding: 10px;
+}
+.red-logout-button{
+  background-color: rgb(193, 48, 37);
+  border-color: rgb(193, 48, 37);
 }
 
-.home-search-bar-container {
-  position: absolute;
-  top: 0;
-  left: 17;
-  padding: 10px;
-}
 
 
 .d-flex {
   background-color: transparent;
   flex-direction: row;
-
-}
-
-
-.form-control {
-  width: 500px;
-  height: 60px;
-
-}
-
-.search-button {
-  width: 150px;
-  height: 60px;
-}
-
-.add-new-patient-button {
-  width: 2110px;
-
 }
 
 select {
   width: 170px;
   font-size: 16px;
-  height: 60px;
-
+  height: 50px;
 }
 
 option{
   height: 60px;
 
 }
-
-
 
 .container-bottom {
   display: flex;
@@ -355,15 +297,11 @@ option{
 
 .page-button {
   width: 40px;
-  background-color: #194d4f;
+  background-color: #194d4f;  
   outline: none;
   height: 30px;
-  display: flex; /* Add this line to enable flexbox layout /
-  align-items: center; / Align text vertically in the middle /
-  justify-content: center; / Align text horizontally in the middle */
+  display: flex; /* Add this line to enable flexbox layout */
+  align-items: center; /* Align text vertically in the middle */
+  justify-content: center; /* Align text horizontally in the middle */
   margin: 0 5px;
-}
-
-.search-Button{
-  align: 
 }

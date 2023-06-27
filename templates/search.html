@@ -18,86 +18,142 @@
     </head>
     
     <body>
-
+        
         <header>
             <div class="home-logo-container">
                 <img src="../static/imgs/STEP OUT Logo.png" width="80" height="68" />
-
+                
                 <div class="container-component">
-                        <h3>Filter</h3>
-                        <h3>Date:</h3>
-
-                        <form action="#">
-                            <input type="date" id="date" name="date">
-                        </form>
-
-                        <h3>Admission Date:</h3>
-                        <select>
-                            <option value="1">Oldest </option>
-                            <option value="2">Latest </option>
-                        </select>
-
-                        <h3>Status:</h3>
-
-                        <select>
-                            <option value="1">Outlying</option>
-                            <option value="2">Hospitalized</option>
-                        </select>
-
+                    <h3>Filter</h3>
+                    <h3>Date:</h3>
+                    
+                    <form action="#" class="date-form">
+                        <input type="date" id="date" name="date">
+                    </form>
+                    
+                    <h3>Admission Date:</h3>
+                    <select>
+                        <option value="1">Oldest </option>
+                        <option value="2">Latest </option>
+                    </select>
+                    
+                    <h3>Status:</h3>
+                    
+                    <select>
+                        <option value="1">Outlying</option>
+                        <option value="2">Hospitalized</option>
+                    </select>
+                    
                 </div>
-
-                <div id="mysearchbar">
-                    <div>
-                        <form action="/test/searchP" method="GET"> 
+              
+                    <div class="my-search-bar">
+                        <form action="/searchPatient" method="GET"> 
                             <input type="text" id="myInput" name="searchTerm" placeholder="Search for a patient..." title="Search for a patient...">
-                            <button id = "search-Button" type="submit">Search</button> 
+                            <div>
+                                <button type="submit"  class="my-search-button">Search</button> 
+                            </div>    
+                            
                         </form>
-                    </div>
+                    </div>         
+            
+                <div class="log-out-button">
+                    <button type="submit" class="red-logout-button" value="Log Out" onclick="location.href='/user/signout'">Log Out</button>
                 </div>
-
-            <div class="log-out-button">
-                <button type="submit" value="Log Out" onclick="location.href='/user/signout'">Log Out</button>
+                
+            </div>
+            </header>
+            
+            <div class="container-fluid" id="page1" style="display:grid">
+                <table id="myTable">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Surname</th>
+                            <th scope="col">Given Name</th>
+                            <th scope="col">Admission Date</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Last Updated</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in users %}
+                        <tr class="abdyullah">
+                            <td class="patient">{{ user["patient_id"] }}</td>
+                            <td>{{ user["name"]["surname"] }}</td>
+                            <td>{{ user["name"]["given_name"] }}</td>
+                            <td>{{ user["hospital_visit"]["admission_date"] }}</td>
+                            <td>{{ user["hospital_visit"]["cur_stat"] }}</td>
+                            <td>{{ user["last_update"] }}</td>
+                            <td> <i class="fa-solid fa-chevron-right"></i></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
             </div>
 
+            <div class="container-fluid" id="page2"  style="display:none">
+                <table id="myTable">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Surname</th>
+                            <th scope="col">Given Name</th>
+                            <th scope="col">Admission Date</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Last Updated</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in users %}
+                        <tr class="abdyullah">
+                            <td class="patient">{{ user["patient_id"] }}</td>
+                            <td>{{ user["name"]["surname"] }}</td>
+                            <td>{{ user["name"]["given_name"] }}</td>
+                            <td>{{ user["hospital_visit"]["admission_date"] }}</td>
+                            <td>{{ user["hospital_visit"]["cur_stat"] }}</td>
+                            <td>{{ user["last_update"] }}</td>
+                            <td> <i class="fa-solid fa-chevron-right"></i></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
 
-        </header>
-        
-        <div class="container-fluid">
-            <table id="myTable">
-                <thead>
-                    <tr>
-                        <th scope="col">Patient ID</th>
-                        <th scope="col">Surname</th>
-                        <th scope="col">Given Name</th>
-                        <th scope="col">Admission Date</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Last Updated</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for user in users %}
-                    <tr class="abdyullah">
-                      <td class="patient">{{ user["patient_id"] }}</td>
-                      <td>{{ user["name"]["surname"] }}</td>
-                      <td>{{ user["name"]["given_name"] }}</td>
-                      <td>{{ user["hospital_visit"]["admission_date"] }}</td>
-                      <td>{{ user["hospital_visit"]["cur_stat"] }}</td>
-                      <td>{{ user["last_update"] }}</td>
-                      <td> <i class="fa-solid fa-chevron-right"></i></td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+            <div class="container-fluid" id="page3" style="display:none">
+                <table id="myTable">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Surname</th>
+                            <th scope="col">Given Name</th>
+                            <th scope="col">Admission Date</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Last Updated</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in users %}
+                        <tr class="abdyullah">
+                            <td class="patient">{{ user["patient_id"] }}</td>
+                            <td>{{ user["name"]["surname"] }}</td>
+                            <td>{{ user["name"]["given_name"] }}</td>
+                            <td>{{ user["hospital_visit"]["admission_date"] }}</td>
+                            <td>{{ user["hospital_visit"]["cur_stat"] }}</td>
+                            <td>{{ user["last_update"] }}</td>
+                            <td> <i class="fa-solid fa-chevron-right"></i></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
             
-        </div>
+        </body>
+        <div class="container-bottom">
+            <div class="sticky-div">  
+                <button id ="patient_page1_button" type="button">1</button>
+                <button id ="patient_page2_button" type="button">2</button>
+                <button id ="patient_page3_button" type="button">3</button>
+            </div>
+        </div>   
+        </html>
         
-    </body>
-    <div class="container-bottom">
-        <div class="sticky-div">
-            <button type="page-button" value="Log Out" onclick="location.href='xx'">1</button>
-            <button type="page-button" value="Log Out" onclick="location.href='xx'">2</button>
-            <button type="page-button" value="Log Out" onclick="location.href='xx'">3</button>
-        </div>
-    </div>   
-    </html>
-            

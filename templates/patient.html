@@ -9,7 +9,6 @@
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../static/css/patientStyle.css">
-  <script src="../static/js/search.js"></script>
   <script src="../static/js/patient.js"></script>
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
@@ -31,28 +30,19 @@
       <div style="flex:1">
         <img src="../static/imgs/STEP OUT Logo.png" class="stepout" />
       </div>
-      <div id="cover">
-        <form method="get" action="">
-          <div class="tb">
-            <div class="td" style="margin: 10px 10px"><input type="text" class="top-search"
-                placeholder="Search for a patient" required></div>
-            <div class="td" id="s-cover">
-              <button type="submit">
-                <div id="s-circle"></div>
-                <span></span>
-              </button>
-            </div>
-          </div>
-        </form>
+      <div id="mysearchbar">
+        <div>
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="   Search for a patient..."
+            title="Search for a patient...">
+        </div>
       </div>
       <div style="display:flex; flex:1; justify-content:flex-end">
-        <img class="circular--landscape" src="../static/imgs/STEP OUT Logo.png" />
+        <button class="save" id="signOut" style="margin: 20px 20px 0 0" >Sign Out</button>
       </div>
     </div>
 
     <!--Non-Top Section-->
-    <div
-      style="display:grid; grid-template-columns:330px 1fr; background-color: white; margin-top:1px; padding-bottom:5px">
+    <div style="display:grid; grid-template-columns:330px 1fr; background-color: white; margin-top:1px; padding-bottom:5px">
       <!--Left Section-->
       <div class="leftSection">
         <!--Personal Information-->
@@ -138,7 +128,7 @@
               <tb>Related Charts and Documents</tb>
             </div>
             <div style="display:grid; justify-content:flex-end; margin:15px 15px 0 0">
-              <button class="save">Save and Exit</button>
+              <button class="save" id = "backSearch">Save and Exit</button>
             </div>
           </div>
           <div class="container">
@@ -206,7 +196,7 @@
             <div class="statusContainer" style="display:none">
               <div class="statusHeader">
                 <button class="exit">&#10006</button>
-                <tb class="statusTitle">Manually Update Patient's Status</tb>
+                <tb class="statusTitle">Update Patient's Status</tb>
               </div>
               <div class="statusTrio">
 
@@ -723,7 +713,6 @@
                 speed="1" style="width: 250px; height: 250px; margin-left:175px;" loop autoplay></lottie-player>
               <hr class="loading-line">
               <tb>STEP OUT AI is predicting patient's status.. It might take a while...</tb>
-              <button class="save" id="skip" style="position:absolute; margin:350px 0 0 1000px">Skip Loading</button>
             </div>
 
             <!--5th Section Updated-->
