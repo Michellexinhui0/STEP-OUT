@@ -72,6 +72,31 @@ textarea {
   margin: 0 18px;
 }
 
+.my-search-bar {
+  width: 500px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  flex-direction: row;
+  flex:1;
+  align-items:center;
+}
+
+.my-search-button{
+  width: 100px;
+  background-color:#1a5154;
+  border-radius:10px;
+  color:white;
+  border-radius:0 10px 10px 0;
+}
+
+.my-search-input {
+  background-color:white;
+  border-radius:10px 0 0 10px;
+  padding:2% 0 2% 15px;
+  width:300px;
+}
+
 .category-title {
   font-size: 25px;
   text-align: left;
