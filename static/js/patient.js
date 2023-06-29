@@ -64,7 +64,9 @@ document.addEventListener("DOMContentLoaded", function () {
   info[7].textContent = getCookie("doctor");
   info[8].textContent = getCookie("last_update");
 
-  currentStatus = getCookie("status");
+
+  patient_id = getCookie('patient_id')    
+  currentStatus = getCookie('status');
 
   switch (currentStatus) {
     case "Hospitalized":
@@ -266,6 +268,8 @@ document.addEventListener("DOMContentLoaded", function () {
     final.push(BpnOL);
     final.push(checkboxesCheckedValue);
     final.push(painLevel);
+    final.push(patient_id)
+    console.log(patient_id)
     console.log("Final: " + final);
 
     const generalReview = getGeneral(checkboxesChecked);
@@ -553,6 +557,7 @@ document.addEventListener("DOMContentLoaded", function () {
         data: final,
         status: selectedStatus,
         reason: statusReason.value,
+        patient_id: patient_id,
       }),
     });
     statusName[3].style.background = "#a7a7a7";

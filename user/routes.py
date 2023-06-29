@@ -1,5 +1,5 @@
 from flask import Flask, redirect, render_template, url_for, jsonify, request
-from app import app, login_required
+from app import app, login_required, db
 from user.models import User, functions
 import numpy as np
 import pickle
@@ -41,6 +41,21 @@ def patientDetails():
 @app.route('/update', methods=['POST'])
 def patientUpdate():
     data = request.get_json()
+    patient_id = data['patient_id']
+    status = data['status']
+    reason = data['reason']
+    
+    query = {"patient_id": patient_id}
+    doc = db.patient.find_one(query)
+    if doc:
+        doc["status"] = status
+        doc["reason"] = reason
+        db.patient.replace_one(query, doc)
+        print("Status update success")
+            
+    else:
+        print("no document found, failed")
+        
     print(data['status'])
     print(data['reason'])
     return jsonify(200)
@@ -74,9 +89,23 @@ def to_json(list_x):
 @app.route('/result', methods = ['POST'])
 def receiveData():
     data =  request.get_json()
+    print(data)
     nested = list(data['data'])
+    p_id = nested[-1]
+    print(p_id)
+    query = {"patient_id": p_id}
+    doc = db.patient.find_one(query)
+    if doc:
+        age = doc.get("hospital_visit", {}).get("condition", {}).get("age")
+        if age is not None:
+            return age
+        else:
+            print("No 'age' field found from the document")
+    else:
+        print("No document found with the given patient id")
+    
     flat_list = [num for sublist in nested for num in sublist]
-    flat_list.insert(0,45) #hard-coding age
+    flat_list.insert(0,age) #hard-coding age
     result = model.predict([flat_list])> 0.5
    
     to_json(flat_list) # convert the list to dic, but without the result
