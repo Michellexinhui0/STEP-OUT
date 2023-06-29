@@ -76,7 +76,7 @@ class functions:
         for patient in nPatient:
             dict_patient.append(patient)
         return dict_patient
-    
+     
     #Function to query db to display on the search page table 10 patient's info
     #refer to search.html for the jinja for loop
     def patient_table(n):
