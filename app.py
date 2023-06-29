@@ -9,24 +9,24 @@ from sklearn.preprocessing import StandardScaler
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 
-uri = "mongodb+srv://c_jq:stepout@stepout.hf5esdg.mongodb.net/?retryWrites=true&w=majority"
-
-# Create a new client and connect to the server
-client = MongoClient(uri, server_api=ServerApi('1'))
-
-# Send a ping to confirm a successful connection
-try:
-    client.admin.command('ping')
-    print("Pinged your deployment. You successfully connected to MongoDB!")
-except Exception as e:
-    print(e)
+#uri = "mongodb+srv://c_jq:stepout@stepout.hf5esdg.mongodb.net/?retryWrites=true&w=majority"
+#
+## Create a new client and connect to the server
+#client = MongoClient(uri, server_api=ServerApi('1'))
+#
+## Send a ping to confirm a successful connection
+#try:
+#    client.admin.command('ping')
+#    print("Pinged your deployment. You successfully connected to MongoDB!")
+#except Exception as e:
+#    print(e)
 
 # Python -c 'import os; print(os.urandom(16))' to generate the secret key in terminal
 app = Flask(__name__)
 app.secret_key = b'\xf6,\xcc\x88\x9e1\xbc\xa8\xd5?\x1a\xf8{q\x92\x9e'
 
 # Database
-#client = pymongo.MongoClient('localhost', 27017)
+client = pymongo.MongoClient('localhost', 27017)
 db = client.user_login_system
 
 
