@@ -31,10 +31,12 @@
         <img src="../static/imgs/STEP OUT Logo.png" class="stepout" />
       </div>
       <div id="mysearchbar">
-        <div>
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="   Search for a patient..."
-            title="Search for a patient...">
-        </div>
+        <form action="/searchPatient" method="GET" class="my-search-bar"> 
+          <input class="my-search-input" type="text" id="myInput" name="searchTerm" placeholder="Search for a patient..." title="Search for a patient...">
+          <div>
+              <button type="submit"  class="my-search-button">Search</button> 
+          </div>     
+      </form>
       </div>
       <div style="display:flex; flex:1; justify-content:flex-end">
         <button class="save" id="signOut" style="margin: 20px 20px 0 0" >Sign Out</button>
@@ -158,10 +160,8 @@
             <div class="basic-details" id="basic-details">
               <div class="details-title">Patient Personal Details Confirmation and Vital Signs</div>
               <div>
-                <t>Age: 24 years old</t>
               </div>
               <div>
-                <t>Gender: M</t>
               </div>
               <div>
                 <form>

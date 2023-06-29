@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   console.log("DOM is loaded");
-  
+
   const info = document.querySelectorAll(".info");
   const next = document.getElementById("Next");
   const details = document.getElementById("basic-details");
@@ -37,8 +37,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const statusDirection = document.getElementById("status-direction");
   const backSearch = document.getElementById("backSearch");
   const signout = document.getElementById("signOut");
-  const search = document.querySelector(".top-search-button");
-  const searchResult = document.querySelector(".top-search");
   const statusReason = document.querySelector("textarea");
 
   var previousSection = "details";
@@ -50,17 +48,18 @@ document.addEventListener("DOMContentLoaded", function () {
   var currentStatus = "Hospitalized";
   var predOrCurrent, selectedStatus;
 
-  info[0].textContent = getCookie('patient_id');
-  info[1].textContent = getCookie('surname');
-  info[2].textContent = getCookie('given_name');
-  info[3].textContent = getCookie('gender');
-  info[4].textContent = getCookie('day') + "/" + getCookie('month') + "/" + getCookie('year');
-  info[5].textContent = getCookie('admission_date');
-  info[6].textContent = getCookie('ward');
-  info[7].textContent = getCookie('doctor');
-  info[8].textContent = getCookie('last_update');
+  info[0].textContent = getCookie("patient_id");
+  info[1].textContent = getCookie("surname");
+  info[2].textContent = getCookie("given_name");
+  info[3].textContent = getCookie("gender");
+  info[4].textContent =
+    getCookie("day") + "/" + getCookie("month") + "/" + getCookie("year");
+  info[5].textContent = getCookie("admission_date");
+  info[6].textContent = getCookie("ward");
+  info[7].textContent = getCookie("doctor");
+  info[8].textContent = getCookie("last_update");
 
-  currentStatus = getCookie('status');
+  currentStatus = getCookie("status");
 
   switch (currentStatus) {
     case "Hospitalized":
@@ -76,10 +75,6 @@ document.addEventListener("DOMContentLoaded", function () {
       statusImg[2].style.filter = "grayscale(0%)";
       break;
   }
-
-  //search.addEventListener("click", (e) => {
-  //  window.location.href = "/search/";
-  //});
 
   signout.addEventListener("click", (e) => {
     window.location.href = "/user/signout";
@@ -696,21 +691,21 @@ document.addEventListener("DOMContentLoaded", function () {
     var cookieArr = document.cookie.split(";");
 
     // Loop through the array elements
-    for(var i = 0; i < cookieArr.length; i++) {
-        var cookiePair = cookieArr[i].split("=");
+    for (var i = 0; i < cookieArr.length; i++) {
+      var cookiePair = cookieArr[i].split("=");
 
-        /* Removing whitespace at the beginning of the cookie name
+      /* Removing whitespace at the beginning of the cookie name
         and compare it with the given string */
-        if(name == cookiePair[0].trim()) {
-            // Decode the cookie value and return
-            return decodeURIComponent(cookiePair[1]);
-        }
+      if (name == cookiePair[0].trim()) {
+        // Decode the cookie value and return
+        return decodeURIComponent(cookiePair[1]);
+      }
     }
 
     // Return null if not found
     return null;
-}
-  console.log(getCookie('id'));
+  }
+  console.log(getCookie("id"));
 
   const getGeneral = (arr) => {
     var generalSymptoms = "";
