@@ -49,6 +49,7 @@ def patientUpdate():
     doc = db.patient.find_one(query)
     if doc:
         doc["status"] = status
+        doc["reason"] = reason
         db.patient.replace_one(query, doc)
         print("Status update success")
             

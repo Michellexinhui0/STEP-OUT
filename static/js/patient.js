@@ -562,6 +562,7 @@ document.addEventListener("DOMContentLoaded", function () {
         data: final,
         status: selectedStatus,
         reason: statusReason.value,
+        patient_id: patient_id,
       }),
     });
     statusName[3].style.background = "#a7a7a7";
