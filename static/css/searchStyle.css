@@ -50,7 +50,7 @@ t {
   left: 2px;
   width: 30px;
   height: 30px;
-  background-color: #fff;
+  background-color: #a51616;
   border-radius: 50%;
   transition: all 0.3s;
 }
@@ -112,18 +112,6 @@ input[type=text] {
   transition: width 0.15s ease-in-out;
 }
 
-#myInput {
-  background-image: url('../imgs/search.png'); 
-  background-position: 10px center;
-  background-repeat: no-repeat;
-  background-size: 20px;
-  width: 100%;
-  height: 50px;
-  font-size: 16px;
-  padding: 12px 20px 12px 40px;
-  border: 1px solid #ddd;
-  margin-bottom: 12px;
-}
 
 #myTable {
   border-collapse: collapse;
@@ -149,17 +137,6 @@ input[type=text] {
 #myTable tr.header,
 #myTable tr:hover {
   background-color: #f1f1f1;
-}
-
-.my-search-bar {
-  position: fixed;
-  top: 20px;
-  width: 2000px;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
-  flex-direction: row;
-  flex:1;
 }
 
 .container {
@@ -213,9 +190,6 @@ form {
 
 .date-form{
   width: 250px;
-}
-.my-search-button{
-  width: 140px;
 }
 
 input {
@@ -304,4 +278,32 @@ option{
   align-items: center; /* Align text vertically in the middle */
   justify-content: center; /* Align text horizontally in the middle */
   margin: 0 5px;
+}
+
+.my-search-bar {
+  position: fixed;
+  top: 20px;
+  padding-right: 335px;
+  width: 2000px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  flex-direction: row;
+  flex:1;
+}
+
+#myInput {
+  background-image: url('../imgs/search.png'); 
+  background-position: 10px center;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  width: 400px;
+  height: 50px;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+.my-search-button{
+  width: 140px;
 }
