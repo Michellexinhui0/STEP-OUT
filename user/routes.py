@@ -113,13 +113,15 @@ def receiveData():
         print("No document found with the given patient id")
         
     age = doc.get("hospital_visit", {}).get("condition", {}).get("age")
-    if age is not None:
-        return age
-    else:
-        print("No 'age' field found from the document")
+    age = int(age)
+    print(age)
+    
+    nested = nested[:-1]
+    print("nested slice", nested)
     
     flat_list = [num for sublist in nested for num in sublist]
     flat_list.insert(0,age) #hard-coding age
+    print("flat list here", flat_list)
     result = model.predict([flat_list])> 0.5
    
     to_json(flat_list) # convert the list to dic, but without the result
@@ -133,10 +135,12 @@ def receiveData():
         #flat_list.append(1) # Insert the R1 value
     package = {"status" : status}
     
-    query2 = {"patient_id": patient_id}
+    query2 = {"patient_id": p_id}
     doc2 = db.patient.find_one(query2)
+    print(doc2)
     if doc2:
         doc2["status"] = status
+        doc2["reason"] = "ML Output"
         db.patient.replace_one(query2, doc2)
         print("Status update success")
             
