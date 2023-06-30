@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
           "Patient can receive treatment from home by PCA";
         statusImg[3].src = "../static/imgs/outlying.png";
         statusText[1].textContent = "Hospitalized";
-        statusDesc[4].textContent = "Patient sitll requires medical attention";
+        statusDesc[4].textContent = "Patient still requires medical attention";
         statusImg[4].src = "../static/imgs/hospitalized.png";
         statusText[2].textContent = "Recovered";
         statusDesc[5].textContent = "Patient can check out from the hospital";
@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
       case "Hospitalized":
         statusName[3].style.background = "#7b1bff";
         statusText[0].textContent = "Hospitalized";
-        statusDesc[3].textContent = "Patient sitll requires medical attention";
+        statusDesc[3].textContent = "Patient still requires medical attention";
         statusImg[3].src = "../static/imgs/hospitalized.png";
         statusText[1].textContent = "Recovered";
         statusDesc[4].textContent = "Patient can check out from the hospital";
@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", function () {
           "Patient can receive treatment from home by PCA";
         statusImg[4].src = "../static/imgs/outlying.png";
         statusText[2].textContent = "Hospitalized";
-        statusDesc[5].textContent = "Patient sitll requires medical attention";
+        statusDesc[5].textContent = "Patient still requires medical attention";
         statusImg[5].src = "../static/imgs/hospitalized.png";
         break;
     }
@@ -355,7 +355,7 @@ document.addEventListener("DOMContentLoaded", function () {
           statusImg[3].src = "../static/imgs/outlying.png";
           statusText[1].textContent = "Hospitalized";
           statusDesc[4].textContent =
-            "Patient sitll requires medical attention";
+            "Patient still requires medical attention";
           statusImg[4].src = "../static/imgs/hospitalized.png";
           statusText[2].textContent = "Recovered";
           statusDesc[5].textContent = "Patient can check out from the hospital";
@@ -365,13 +365,13 @@ document.addEventListener("DOMContentLoaded", function () {
         case "Hospitalized":
           statusBanner.style.background = "#7b1bff";
           statusBanner.textContent = "Hospitalized";
-          updatedText.textContent = "Patient sitll requires medical attention";
+          updatedText.textContent = "Patient still requires medical attention";
           updatedImage.src = "../static/imgs/hospitalized.png";
           updateStatus.classList.add("hospitalized");
           statusName[3].style.background = "#7b1bff";
           statusText[0].textContent = "Hospitalized";
           statusDesc[3].textContent =
-            "Patient sitll requires medical attention";
+            "Patient still requires medical attention";
           statusImg[3].src = "../static/imgs/hospitalized.png";
           statusText[1].textContent = "Recovered";
           statusDesc[4].textContent = "Patient can check out from the hospital";
@@ -398,7 +398,7 @@ document.addEventListener("DOMContentLoaded", function () {
           statusImg[4].src = "../static/imgs/outlying.png";
           statusText[2].textContent = "Hospitalized";
           statusDesc[5].textContent =
-            "Patient sitll requires medical attention";
+            "Patient still requires medical attention";
           statusImg[5].src = "../static/imgs/hospitalized.png";
           break;
       }
