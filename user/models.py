@@ -51,17 +51,7 @@ class User:
 
 class functions:
     
-    def calc_age():
-        age = 0
-        return age
-    
-    #def patient_info(p_id):
-    #    from app import db
-    #    select_patient = db.patient.find_one({'patient_id': p_id})
-    #    return jsonify(select_patient)
-    
-    #Function to query db to display on the search page table 10 patient's info
-    #refer to search.html for the jinja for loop
+    #Function to query db for a specifc patient to display on the search page.
     def search_patient(searchTerm):
         from app import db #import database connection info
         
@@ -82,7 +72,7 @@ class functions:
     def patient_table(n):
         from app import db #import database connection info
         dict_patient = []
-        nPatient= db.patient.find({'hospital_visit.cur_stat':{"$in":["Hospitalized","Outlying"]} } ).limit(n) #find patient that are outlying or hospitalised to display on search page
+        nPatient= db.patient.find({'status':{"$in":["Hospitalized","Outlying"]} } ).limit(n) #find patient that are outlying or hospitalised to display on search page
         for patient in nPatient:
             dict_patient.append(patient)
         return dict_patient
@@ -109,31 +99,28 @@ class functions:
                 "admission_date": request.form.get('admission_date'),
                 "ward": request.form.get('ward'),
                 "doctor": request.form.get('doctor'),
-                "prev_upd": request.form.get('prev_upd'),
                 "condition": {
                     "age": request.form.get('age'),
-                    "blood_pres": request.form.get('blood_pres'),
-                    "oxy_flow_rate": request.form.get('oxy_flow_rate'),
-                    "oxy_sat": request.form.get('oxy_sat'),
+                    "systolic_BP": request.form.get('systolic_BP'),
+                    "diastolic_BP": request.form.get('diastolic_BP'),
+                    "oxygen_lvl": request.form.get('oxygen_lvl'),
                     "gen_sickness": {
                         "allergies": request.form.get('allergies'),
-                        "colds": request.form.get('colds'),
-                        "coughing": request.form.get('coughing'),
                         "flu": request.form.get('flu'),
+                        "coughing": request.form.get('coughing'),
                         "diarrhea": request.form.get('diarrhea'),
                         "fatigue": request.form.get('fatigue'),
                         "fever": request.form.get('fever'),
                         "muscle_ache": request.form.get('muscle_ache'),
+                        "sore_throat": request.form.get('sore_throat'),
+                        "cold": request.form.get('cold'),
                     },
-                    "chest": request.form.get('chest'),
-                    "hand": request.form.get('hand'),
-                    "head": request.form.get('head'),
-                    "leg": request.form.get('leg'),
-                    "sen_organ": request.form.get('sen_organ'),
+                    "legs": request.form.get('legs'),
+                    "hands": request.form.get('hands'),
                     "stomach": request.form.get('stomach'),
+                    "chest": request.form.get('chest'),
+                    "eyes": request.form.get('eyes'),
                     },
-                "cur_stat": request.form.get('cur_stat'),
-                "final_output": request.form.get('final_output'),
                 },
             
             "status": request.form.get('status'),
