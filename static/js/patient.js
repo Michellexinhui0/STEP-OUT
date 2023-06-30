@@ -13,16 +13,21 @@ document.addEventListener("DOMContentLoaded", function () {
   const detailsValue = document.querySelectorAll(".details-input");
   const save = document.getElementById("save");
   const review = document.querySelector(".review-container");
+  const reviewError = document.querySelector(".errorContainer");
+  const reviewTable = document.querySelector(".review-table");
   const reviewEdit = document.getElementById("review-edit");
   const reviewSubmit = document.getElementById("review-submit");
   const loading = document.querySelector(".loading-container");
   const skip = document.getElementById("skip");
   const updated = document.querySelector(".updated-container");
-  const updateStatus = document.querySelector(".save.submit.edit-status");
+  const updateStatus = document.getElementById("updateStatus");
   const confirmUpdateStatus = document.querySelector(
     ".save.update.update-status"
   );
   const statusUpdated = document.querySelector(".statusUpdatedContainer");
+  const statusBanner = document.querySelector(".updated-status");
+  const updatedImage = document.querySelector(".updated-img");
+  const updatedText = document.querySelector(".updated-status.desc");
   const exit = document.querySelector(".exit");
   const status1 = document.getElementById("s1");
   const status2 = document.getElementById("s2");
@@ -176,6 +181,9 @@ document.addEventListener("DOMContentLoaded", function () {
   exit.addEventListener("click", (e) => {
     console.log("Exit button was clicked.");
     status.style.display = "none";
+    statusName[3].style.background = "#a7a7a7";
+    statusName[4].style.background = "#a7a7a7";
+    statusName[5].style.background = "#a7a7a7";
     switch (previousSection) {
       case "details":
         details.style.display = "grid";
@@ -190,7 +198,7 @@ document.addEventListener("DOMContentLoaded", function () {
         loading.style.display = "grid";
         break;
       case "updated":
-        updated.style.display = "grid";
+        details.style.display = "grid";
         break;
     }
   });
@@ -672,7 +680,11 @@ document.addEventListener("DOMContentLoaded", function () {
       body: JSON.stringify({ data: final }),
     })
       .then((response) => response.json())
-      .then((json) => console.log(json));
+      .then((json) => {
+        console.log(json);
+        predictedStatus = json.status;
+        console.log(predictedStatus);
+      });
   }
 
   function getCheckedBoxes(chkboxName) {
@@ -682,9 +694,9 @@ document.addEventListener("DOMContentLoaded", function () {
       // And stick the checked ones onto an array...
       if (checkboxes[i].checked) {
         checkboxesChecked.push(checkboxes[i].value);
-        checkboxesCheckedValue.push("1");
+        checkboxesCheckedValue.push(1);
       } else {
-        checkboxesCheckedValue.push("0");
+        checkboxesCheckedValue.push(0);
       }
     }
     // Return the array if it is non-empty, or null
