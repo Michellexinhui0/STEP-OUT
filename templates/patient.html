@@ -24,27 +24,27 @@
       <img src="../static/imgs/PChart.png" class="chart"/>
     </div>
   </div>
-  <div style="display:grid; grid-template-rows:70px 1fr; min-height:0; height:100vh; z-index:1">
+  <div style="display:grid; grid-template-rows:92px 1fr; min-height:0; height:100vh; z-index:1">
     <!--Top Section-->
     <div class="top-section">
       <div style="flex:1">
-        <img src="../static/imgs/STEP OUT Logo.png" class="stepout" />
+        <img src="../static/imgs/STEP OUT Logo.png" width="80px" height="68px" class="stepout"/>
       </div>
-      <div id="mysearchbar">
-        <form action="/searchPatient" method="GET" class="my-search-bar"> 
-          <input class="my-search-input" type="text" id="myInput" name="searchTerm" placeholder="Search for a patient..." title="Search for a patient...">
-          <div>
-              <button type="submit"  class="my-search-button">Search</button> 
-          </div>     
-      </form>
-      </div>
+      <div class="my-search-bar">
+        <form action="/searchPatient" method="GET"> 
+            <input type="text" id="myInput" name="searchTerm" placeholder="Search for a patient..." title="Search for a patient...">
+            <div>
+                <button type="submit"  class="my-search-button">Search</button> 
+            </div>    
+        </form>
+    </div>     
       <div style="display:flex; flex:1; justify-content:flex-end">
-        <button class="save" id="signOut" style="margin: 20px 20px 0 0" >Sign Out</button>
+        <button class="save-signout" id="signOut"  >Log Out</button>
       </div>
     </div>
 
     <!--Non-Top Section-->
-    <div style="display:grid; grid-template-columns:330px 1fr; background-color: white; margin-top:1px; padding-bottom:5px">
+    <div style="display:grid; grid-template-columns:330px 1fr; background-color: white; margin-top:1px; padding-bottom:15px">
       <!--Left Section-->
       <div class="leftSection">
         <!--Personal Information-->
@@ -130,7 +130,7 @@
               <tb>Related Charts and Documents</tb>
             </div>
             <div style="display:grid; justify-content:flex-end; margin:15px 15px 0 0">
-              <button class="save" id = "backSearch">Save and Exit</button>
+              <button class="save-and-exit-button" id = "backSearch">Save and Exit</button>
             </div>
           </div>
           <div class="container">
@@ -144,7 +144,7 @@
               <button class="document">Records of Patient Status Prediction</button>
             </div>
             <div class="document-container">
-              <button class="document">2+ Documents</button>
+              <button class="document">Supporting Documents</button>
             </div>
           </div>
         </div>
@@ -192,7 +192,7 @@
               </div>
             </div>
 
-            <!--Manually Update Status Section-->
+            <!-- Update Status Section-->
             <div class="statusContainer" style="display:none">
               <div class="statusHeader">
                 <button class="exit">&#10006</button>
@@ -245,7 +245,7 @@
               </div>
               <div class="status-reason">
                 <t class="status-title">Notes on reason for status update:</t>
-                <textarea placeholder="Insert your reason for manually updating patient’s status here..."></textarea>
+                <textarea placeholder="Insert your reason for updating patient’s status here..."></textarea>
               </div>
               <div>
                 <button class="save update update-status">Confirm</button>
