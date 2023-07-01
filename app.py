@@ -1,10 +1,8 @@
-from flask import Flask, render_template, session, redirect, request, jsonify
+from flask import Flask, render_template, session, redirect
 from functools import wraps
 from user.models import functions
-import pymongo
-import numpy as np
 import pickle
-from sklearn.preprocessing import StandardScaler
+
 
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
