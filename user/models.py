@@ -1,4 +1,3 @@
-import pprint
 from flask import Flask, jsonify, render_template, request, session, redirect, url_for
 from passlib.hash import pbkdf2_sha256
 import uuid
@@ -8,7 +7,6 @@ class User:
         del user['password']
         session['logged_in'] = True
         session['user'] = user
-        dict_patient = functions.patient_table(10)
         return jsonify(user), 200
 
     def signup(self):
@@ -67,8 +65,8 @@ class functions:
             dict_patient.append(patient)
         return dict_patient
      
-    #Function to query db to display on the search page table 10 patient's info
-    #refer to search.html for the jinja for loop
+    #Function to query db to display on the initial search page table with patient's info
+    #Refer to search.HTML with a jinja for loop
     def patient_table(n):
         from app import db #import database connection info
         dict_patient = []

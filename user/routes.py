@@ -1,9 +1,7 @@
 from flask import Flask, redirect, render_template, url_for, jsonify, request
 from app import app, login_required, db
 from user.models import User, functions
-import numpy as np
 import pickle
-from sklearn.preprocessing import StandardScaler
 
 @app.route('/user/signup', methods=['POST'])
 def signup():
@@ -18,10 +16,12 @@ def login():
     return User().login()
 
 @app.route('/addpatient/', methods=['POST'])
+@login_required
 def add_patient():
     return functions.addPatient()
 
 @app.route('/searchPatient', methods=['GET'])
+@login_required
 def search_document():
     search_term = request.args.get('searchTerm', '')
     search_patient = []
@@ -30,6 +30,7 @@ def search_document():
 
 #return personal info + current status return jsonify
 @app.route('/patientdetails/', methods=['POST'])
+@login_required
 def patientDetails():
     data = request.get_json()
     p_id = data['data']
@@ -39,6 +40,7 @@ def patientDetails():
 
 
 @app.route('/update', methods=['POST'])
+@login_required
 def patientUpdate():
     data = request.get_json()
     print(data)
@@ -88,6 +90,7 @@ def to_json(list_x):
     return doc
 
 @app.route('/result', methods = ['POST'])
+@login_required
 def receiveData():
     data =  request.get_json()
     print(data)
