@@ -41,7 +41,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const statusImg = document.querySelectorAll(".status-img");
   const statusDirection = document.getElementById("status-direction");
   const backSearch = document.getElementById("backSearch");
-  const signout = document.getElementById("signOut");
   const statusReason = document.querySelector("textarea");
 
   var previousSection = "details";
@@ -83,9 +82,6 @@ document.addEventListener("DOMContentLoaded", function () {
       break;
   }
 
-  signout.addEventListener("click", (e) => {
-    window.location.href = "/user/signout";
-  });
   backSearch.addEventListener("click", (e) => {
     window.location.href = "/search/";
   });
