@@ -73,22 +73,20 @@ textarea {
   margin: 0 18px;
 }
 
-/* .my-search-bar {
-  width: 500px;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
-  flex-direction: row;
-  flex:1;
-  align-items:center;
-} */
-
-/* .my-search-input {
-  background-color:white;
-  border-radius:10px 0 0 10px;
-  padding:2% 0 2% 15px;
-  width:300px;
-} */
+.save {
+  border-radius: 10px;
+  border: 1px solid #ffffff;
+  background-color: #1a5154;
+  color: #ffffff;
+  width: 244px;
+  transition: transform 80ms ease-in;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  transition: transform 80ms ease-in;
+  height: 52px;
+  letter-spacing: 1px;
+}
 
 .category-title {
   font-size: 25px;
@@ -518,7 +516,7 @@ button span:after {
   flex-direction: row;
   flex: 1fr 5fr;
   height: 100%;
-  width: 383px;
+  width: 103%;
   align-items: center;
   border-top-style: solid;
   border-color: #1a5154;
@@ -955,15 +953,16 @@ tbody {
 
 .edit-status {
   font-size: 30px;
-  width: 200px;
+  width: 550px;
   height: 90px;
   background-color: white;
+  border: 1px solid #000000;
   color: black;
   animation-name: appear;
   animation-duration: 0.3s;
   animation-delay: 0.8s;
   animation-fill-mode: both;
-  margin: 80px 80px;
+  margin: 50px 50px;
 }
 
 .edit-status:hover {
@@ -1078,7 +1077,6 @@ tbody {
   border-color: rgb(193, 48, 37);
   color: #FFFFFF;
   font-size: 18px;
-  font-weight: bold;
   transition: transform 80ms ease-in;
   position: fixed;
   width: 184px;
@@ -1103,23 +1101,10 @@ tbody {
   height: 42px;
   letter-spacing: 1px;
   margin: 0 25px;
-  bottom: 5px;
+  bottom: 80px;
 }
 
-.save {
-  border-radius: 10px;
-  border: 1px solid #ffffff;
-  background-color: #1a5154;
-  color: #FFFFFF;
-  width: 244px;
-  transition: transform 80ms ease-in;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
-  font-weight: bold;
-  transition: transform 80ms ease-in;
-  height: 52px;
-  letter-spacing: 1px;
-}
+
 
 .my-search-button{
   font-family: 'Montserrat', sans-serif;
