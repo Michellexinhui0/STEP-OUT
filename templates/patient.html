@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="../static/css/patientStyle.css"> 
  
   <script src="../static/js/patient.js"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
   <title> Step Out </title>
   <link rel="icon" type="image/icon" href="../static/imgs/favicon.ico" />
@@ -19,36 +20,42 @@
 </head>
 
 <body>
-  <div style="display:grid; grid-template-rows:70px 1fr; min-height:0; height:100vh;">
-
+  <div class="chartBackground">
+    <div class="chartContainer">
+      <img src="../static/imgs/OChart.png" class="chart"/>
+      <img src="../static/imgs/PChart.png" class="chart"/>
+    </div>
+  </div>
+  <div style="display:grid; grid-template-rows:92px 1fr; min-height:0; height:100vh; z-index:1">
     <!--Top Section-->
     <div class="top-section">
       <div style="flex:1">
+<<<<<<< HEAD
         <img src="../static/imgs/STEP OUT Logo.png" class="stepout" />
+=======
+        <img src="../static/imgs/STEP OUT Logo.png" width="80px" height="68px" class="stepout"/>
+>>>>>>> 8a7164f19af99311eb83cc452e308c0a12f1cb3e
       </div>
-      <div id="cover">
-        <form method="get" action="">
-          <div class="tb">
-            <div class="td" style="margin: 10px 10px"><input type="text" class="top-search"
-                placeholder="Search for a patient" required></div>
-            <div class="td" id="s-cover">
-              <button type="submit">
-                <div id="s-circle"></div>
-                <span></span>
-              </button>
-            </div>
-          </div>
+      <div class="my-search-bar">
+        <form action="/searchPatient" method="GET"> 
+            <input type="text" id="myInput" name="searchTerm" placeholder="Search for a patient..." title="Search for a patient...">
+            <div>
+                <button type="submit"  class="my-search-button">Search</button> 
+            </div>    
         </form>
-      </div>
+    </div>     
       <div style="display:flex; flex:1; justify-content:flex-end">
+<<<<<<< HEAD
         <img class="circular--landscape" src="../static/imgs/STEP OUT Logo.png" />
+=======
+>>>>>>> 8a7164f19af99311eb83cc452e308c0a12f1cb3e
       </div>
     </div>
 
     <!--Non-Top Section-->
-    <div style="display:grid; grid-template-columns:330px 1fr; background-color: white; margin-top:1px">
+    <div style="display:grid; grid-template-columns:330px 1fr; background-color: white; margin-top:1px; padding-bottom:15px">
       <!--Left Section-->
-      <div style="display:grid; grid-template-rows:310px 1fr; margin:0px 18px 0px 18px;">
+      <div class="leftSection">
         <!--Personal Information-->
         <div style="display:grid; grid-template-rows:65px 180px 10px;">
           <tb>Personal Information</tb>
@@ -65,19 +72,19 @@
               <t>Previous Updates:</t>
             </div>
             <div class="row" style="text-align:right;">
-              <t>P12348</t>
-              <t>Lee</t>
-              <t>Mark Ming Hung</t>
-              <t>M</t>
-              <t>1/4/1999</t>
-              <t>13/4/2023</t>
-              <t>ED-A</t>
-              <t>Dr. Alexandra Anne</t>
-              <t>15/4/2023, 1.35pm</t>
+              <t class="info"></t>
+              <t class="info"></t>
+              <t class="info"></t>
+              <t class="info"></t>
+              <t class="info"></t>
+              <t class="info"></t>
+              <t class="info"></t>
+              <t class="info"></t>
+              <t class="info"></t>
             </div>
           </div>
           <div style="text-align:right;">
-            <t style="font-size:12px;"><u>More Details</u></t>
+           
           </div>
           <hr />
         </div>
@@ -92,7 +99,7 @@
           </div>
           <!--Hopsitalized-->
           <div class="status">
-            <div class="status-name" style="background-color:#7b1bff">
+            <div class="status-name">
               <tb>Hospitalized</tb>
             </div>
             <div class="status-desc" style="margin-top:50px;">
@@ -102,7 +109,7 @@
           </div>
           <!--Outlying-->
           <div class="status">
-            <div class="status-name" style="background-color:#ff7b1b;">
+            <div class="status-name">
               <tb style="margin-right:18px">Outlying </tb>
             </div>
             <div class="status-desc">
@@ -112,7 +119,7 @@
           </div>
           <!--Recovered-->
           <div class="status">
-            <div class="status-name" style="background-color:#00bf8f">
+            <div class="status-name">
               <tb style="margin-right:5px">Recovered<tb>
             </div>
             <div class="status-desc">
@@ -132,7 +139,7 @@
               <tb>Related Charts and Documents</tb>
             </div>
             <div style="display:grid; justify-content:flex-end; margin:15px 15px 0 0">
-              <button class="save">Save and Exit</button>
+              <button class="save-and-exit-button" id = "backSearch">Save and Exit</button>
             </div>
           </div>
           <div class="container">
@@ -146,7 +153,7 @@
               <button class="document">Records of Patient Status Prediction</button>
             </div>
             <div class="document-container">
-              <button class="document">2+ Documents</button>
+              <button class="document">Supporting Documents</button>
             </div>
           </div>
         </div>
@@ -162,10 +169,8 @@
             <div class="basic-details" id="basic-details">
               <div class="details-title">Patient Personal Details Confirmation and Vital Signs</div>
               <div>
-                <t>Age: 24 years old</t>
               </div>
               <div>
-                <t>Gender: M</t>
               </div>
               <div>
                 <form>
@@ -196,6 +201,7 @@
               </div>
             </div>
 
+<<<<<<< HEAD
             <div class="statusContainer" style="display:none">
               <div class="statusHeader">
                 <button class="exit">&#10006</button>
@@ -213,25 +219,95 @@
                 4
               </div>
             </div>
+=======
+            <!-- Update Status Section-->
+            <div class="statusContainer" style="display:none">
+              <div class="statusHeader">
+                <button class="exit">&#10006</button>
+                <tb class="statusTitle">Update Patient's Status</tb>
+              </div>
+              <div class="statusTrio">
+
+                <!--1st Current Status-->
+                <div>
+                  <tb id="status-direction" style="margin-left:21px;">Current Status:</tb>
+                  <div class="status status-select s1" id="s1">
+                    <div class="status-name">
+                      <tb class="status-name-text">Hospitalized</tb>
+                    </div>
+                    <div class="status-desc">
+                      <t>Patient still requires medical attention.</t>
+                    </div>
+                    <img class="status-img color" src="../static/imgs/hospitalized.png" />
+                  </div>
+                </div>
+
+                <div style="display:flex">
+                  <vl/>
+                </div>
+
+                <!--2nd Status-->
+                <div>
+                  <tb style="margin-left:-18px;">Available Status:</tb>
+                  <div class="status status-select s2" id="s2" style="margin-left:-20px;">
+                    <div class="status-name">
+                      <tb class="status-name-text">Outlying</tb>
+                    </div>
+                    <div class="status-desc">
+                      <t>Patient can receive treatment from home by PCA.</t>
+                    </div>
+                    <img class="status-img" src="../static/imgs/outlying.png" />
+                  </div>
+                </div>
+
+                <!--3rd Status-->
+                <div class="status status-select s" id="s3" style="margin:30px 0 0 -50px;">
+                  <div class="status-name">
+                    <tb class="status-name-text">Recovered</tb>
+                  </div>
+                  <div class="status-desc">
+                    <t>Patient can check out from the hospital.</t>
+                  </div>
+                  <img class="status-img" src="../static/imgs/recovered.png" />
+                </div>
+              </div>
+              <div class="status-reason">
+                <t class="status-title">Notes on reason for status update:</t>
+                <textarea placeholder="Insert your reason for updating patient’s status here..."></textarea>
+              </div>
+              <div>
+                <button class="save update update-status">Confirm</button>
+              </div>
+            </div>
+
+            <!--Status Updated Section-->
+            <div class="statusUpdatedContainer" style="display:none">
+              <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_d19xdqkt.json" background="transparent"
+                speed="1" style="width: 300px; height: 300px; margin: 30px 0 0 40px" loop autoplay></lottie-player>
+              <t>You have successfully updated the patient's status! <br>
+                Patient's will be notified on preparation to check out in a day.</t>
+            </div>
+
+>>>>>>> 8a7164f19af99311eb83cc452e308c0a12f1cb3e
             <!--2nd Section, display is set to none by default and will be shown after clicking on 'next' button-->
             <div class="categories" id="conditions" style="display:none">
               <div class="categories-border">
                 <div class="container-header">
                   <numbering>1</numbering>
 
-                  <form class="search-form" method="get" action="">
+                  <form class="search-form">
                     <div class="tb">
-                      <div class="td"><input type="text" class="category-search" placeholder="Search for a patient"
+                      <div class="td"><input type="text" class="category-search" placeholder="Search for a category"
                           required></div>
-                      <div class="td" id="s-cover">
-                        <button type="submit">
-                          <div id="s-circle"></div>
-                          <span></span>
+                      <div>
+                        <button>
+                          <img src="../static/imgs/search.png" class="search" />
                         </button>
                       </div>
                     </div>
                   </form>
                 </div>
+<<<<<<< HEAD
                 <button class="category" style="color:white; background-color:#1a5154" id="general">
                   <img src="../static/imgs/generalW.png" />
                   General Sickness
@@ -247,6 +323,31 @@
                 <button class="category" id="stomach">
                   <img src="../static/imgs/stomach.png" />
                   Stomach
+=======
+                <button class="category general" style="color:white; background:#1a5154" id="general">
+                  <img src="../static/imgs/generalW.png" />
+                  General
+                </button>
+                <button class="category legs" id="leg">
+                  <img src="../static/imgs/leg.png" />
+                  Legs
+                </button>
+                <button class="category hands" id="hand">
+                  <img src="../static/imgs/hand.png" />
+                  Hands
+                </button>
+                <button class="category stomach" id="stomach">
+                  <img src="../static/imgs/stomach.png" />
+                  Stomach
+                </button>
+                <button class="category chest" id="chest">
+                  <img src="../static/imgs/chest.png" />
+                  Chest
+                </button>
+                <button class="category eyes" id="eye">
+                  <img src="../static/imgs/eye.png" />
+                  Eyes
+>>>>>>> 8a7164f19af99311eb83cc452e308c0a12f1cb3e
                 </button>
                 <button class="category" id="chest">
                   <img src="../static/imgs/chest.png" />
@@ -260,7 +361,11 @@
               <div class="symptoms-container">
                 <div class="container-header">
                   <numbering>2</numbering>
+<<<<<<< HEAD
                   <tb style="margin:15px 50px 0px 0px" id="symptoms-text">General Sickness Symptoms</tb>
+=======
+                  <tb style="margin:15px 50px 0px 0px" id="symptoms-text" class="category-title">General Symptoms</tb>
+>>>>>>> 8a7164f19af99311eb83cc452e308c0a12f1cb3e
                 </div>
                 <div>
                   <form id="generalForm" style="display:grid; grid-template-rows:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr">
@@ -625,7 +730,11 @@
             <!--3rd Section Review-->
             <div class="review-container" style="display:none">
               <div class="review-table">
+<<<<<<< HEAD
                 <tb>The below symptoms will be submitted:</tb>
+=======
+                The below symptoms will be submitted:
+>>>>>>> 8a7164f19af99311eb83cc452e308c0a12f1cb3e
                 <table class="table table-bordered">
                   <thead>
                     <tr>
@@ -633,7 +742,11 @@
                       <th class="tableHeader" scope="col">Symptoms/Records</th>
                     </tr>
                   </thead>
+<<<<<<< HEAD
                   <tbody>
+=======
+                  <tbody style="text-align:left">
+>>>>>>> 8a7164f19af99311eb83cc452e308c0a12f1cb3e
                     <tr id="tableDetails">
                       <td>Basic Details</td>
                       <td id="tableDetailsValues"></td>
@@ -649,11 +762,22 @@
                   </tbody>
                 </table>
               </div>
+<<<<<<< HEAD
+=======
+              <div class="errorContainer" style="display:none">
+                <img src="../static/imgs/error.png" class="error-img" />
+                Condition updates are incomplete.
+              </div>
+>>>>>>> 8a7164f19af99311eb83cc452e308c0a12f1cb3e
 
               <div class="review-buttons">
                 <img src="../static/imgs/doctor.png" class="review-img" />
                 <button class="save submit" id="review-edit">Edit Conditions</button>
+<<<<<<< HEAD
                 <button class="save submit" id="review-submit" style="margin-top:10px;" onclick="sendData()">Confirm Submission</button>
+=======
+                <button class="save submit" id="review-submit" style="margin-top:10px;">Confirm Submission</button>
+>>>>>>> 8a7164f19af99311eb83cc452e308c0a12f1cb3e
               </div>
             </div>
 
@@ -663,7 +787,10 @@
                 speed="1" style="width: 250px; height: 250px; margin-left:175px;" loop autoplay></lottie-player>
               <hr class="loading-line">
               <tb>STEP OUT AI is predicting patient's status.. It might take a while...</tb>
+<<<<<<< HEAD
               <button class="save" id="skip" style="position:absolute; margin:350px 0 0 1000px">Skip Loading</button>
+=======
+>>>>>>> 8a7164f19af99311eb83cc452e308c0a12f1cb3e
             </div>
 
             <!--5th Section Updated-->
@@ -673,7 +800,11 @@
               <tb class="updated-status">Outlying</tb>
               <div class="updated-body">
                 <tb class="updated-status desc">Patient can receive treatment from home by PCA</tb>
+<<<<<<< HEAD
                 <button class="save submit edit-status" id="Next">Click Here to Edit Status</button>
+=======
+                <button class="save submit edit-status" id="updateStatus">Click Here to Edit Status</button>
+>>>>>>> 8a7164f19af99311eb83cc452e308c0a12f1cb3e
               </div>
 
             </div>
