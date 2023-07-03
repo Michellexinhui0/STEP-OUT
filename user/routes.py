@@ -2,6 +2,7 @@ from flask import Flask, redirect, render_template, url_for, jsonify, request
 from app import app, login_required, db
 from user.models import User, functions
 import pickle
+import datetime
 
 @app.route('/user/signup', methods=['POST'])
 def signup():
@@ -47,12 +48,15 @@ def patientUpdate():
     patient_id = data['patient_id']
     status = data['status']
     reason = data['reason']
+    time = get_current_date_time()
+    
     
     query = {"patient_id": patient_id}
     doc = db.patient.find_one(query)
     if doc:
         doc["status"] = status
         doc["reason"] = reason
+        doc["last_update"] = time
         db.patient.replace_one(query, doc)
         print("Status update success")
             
@@ -88,6 +92,17 @@ def to_json(list_x):
             break
     print(str(doc))
     return doc
+
+
+
+def get_current_date_time():
+    now = datetime.datetime.now()
+    formatted_date = now.strftime("%B %d, %Y")
+    formatted_time = now.strftime("%I:%M:%S %p")
+    current_date_time = f"{formatted_date}, {formatted_time}"
+    return current_date_time
+
+
 
 @app.route('/result', methods = ['POST'])
 @login_required
@@ -141,9 +156,11 @@ def receiveData():
     query2 = {"patient_id": p_id}
     doc2 = db.patient.find_one(query2)
     print(doc2)
+    time = get_current_date_time()
     if doc2:
         doc2["status"] = status
         doc2["reason"] = "ML Output"
+        doc2["last_update"] = time
         db.patient.replace_one(query2, doc2)
         print("Status update success")
             
