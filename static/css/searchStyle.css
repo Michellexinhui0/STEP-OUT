@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: #ffffff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-family: 'Montserrat', sans-serif;
+	height: 100vh;
+	background-image: url("../imgs/background.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+  
+}
+
+h1 {
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+t {
+  margin-bottom: 2px;
+}
+
+#toggle {
+  display: none;
+}
+
+/* Style the toggle switch */
+.toggle-switch {
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  background-color: #ccc;
+  border-radius: 34px;
+  position: relative;
+}
+
+/* Style the toggle switch thumb */
+.toggle-switch::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 30px;
+  height: 30px;
+  background-color: #a51616;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+/* Style the toggle switch when it's checked */
+#toggle:checked+.toggle-switch::after {
+  transform: translateX(26px);
+}
+
+.stepout {
+  margin-bottom: 30px;
+}
+
+.submit {
+  color: #FFFFFF;
+  background-color: #1a5154;
+  border-radius: 10px;
+  border-width: 0px;
+  width: 85%;
+  height: 30px;
+  margin-top: 5px;
+}
+
+.container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(0, 0, 0, 0.22);
+  position: relative;
+  overflow: hidden;
+  margin-top: 10px;
+  width: 330px;
+  height: 320px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex: 1
+}
+
+.column-text {
+  flex: 5;
+}
+
+.table-hover tbody tr:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+input[type=text] {
+  width: 30%;
+  -webkit-transition: width 0.15s ease-in-out;
+  transition: width 0.15s ease-in-out;
+}
+
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+  position: fixed;
+  top: 170px;
+  right: 0px;
+  background-color: white;
+}
+
+#myTable th,
+#myTable td {
+  text-align: left;
+  padding: 12px;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header,
+#myTable tr:hover {
+  background-color: #f1f1f1;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+h3 {
+  font-size: 20px;
+  padding: 15px;
+}
+
+.container-component {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  padding: 15px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  border-radius: 10px;
+  border: 1px solid #1a5154;
+  background-color: #1a5154;
+  color: #FFFFFF;
+  font-size: 18px;
+  font-weight: bold;
+  width: 80%;
+  padding: 12px;
+  margin: 4px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+form {
+  height: 100%;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+}
+
+.date-form{
+  width: 250px;
+}
+
+input {
+  background-color: #ffffff;
+  border: 1px solid #1a5154;
+  border-radius: 10px;
+  padding: 12px 15px;
+  margin: 4px 0;
+  width: 70%;
+}
+
+select {
+  background-color: #ffffff;
+  border: 1px solid #1a5154;
+  border-radius: 10px;
+  padding: 12px 15px;
+  margin: 4px 0;
+  width: 80%;
+}
+
+.stepout {
+  margin-bottom: 30px;
+}
+
+/* homescreencss */
+.home-logo-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+}
+
+.log-out-button{
+  position: fixed;
+  width: 250px;
+  top: 10px; /* Adjust this value to move the button down */
+  left: 1470px;
+  padding: 10px;
+}
+.red-logout-button{
+  background-color: rgb(193, 48, 37);
+  border-color: rgb(193, 48, 37);
+}
+
+
+
+.d-flex {
+  background-color: transparent;
+  flex-direction: row;
+}
+
+select {
+  width: 170px;
+  font-size: 16px;
+  height: 50px;
+}
+
+option{
+  height: 60px;
+
+}
+
+.container-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px; 
+}
+
+.sticky-div {
+  display: flex; 
+  justify-content: center;
+  position: fixed;
+  bottom: 25px;
+  width: 6%;
+  padding: 0px;
+  text-align: center;
+}
+
+.page-button {
+  width: 40px;
+  background-color: #194d4f;  
+  outline: none;
+  height: 30px;
+  display: flex; /* Add this line to enable flexbox layout */
+  align-items: center; /* Align text vertically in the middle */
+  justify-content: center; /* Align text horizontally in the middle */
+  margin: 0 5px;
+}
+
+.my-search-bar {
+  position: fixed;
+  top: 20px;
+  padding-right: 335px;
+  width: 2000px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  flex-direction: row;
+  flex:1;
+}
+
+#myInput {
+  background-image: url('../imgs/search.png'); 
+  background-position: 10px center;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  width: 400px;
+  height: 50px;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+.my-search-button{
+  width: 140px;
+}
