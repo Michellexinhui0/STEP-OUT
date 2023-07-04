@@ -1032,11 +1032,14 @@ tbody {
   min-width:100%;
 }
 
+.date{
+  font-size:11px;
+}
+
 .my-search-bar {
   position: fixed;
   top: 20px;
-  padding-right: 335px;
-  width: 2000px;
+  margin-left: 580px;
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
