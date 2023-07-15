@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template, url_for, jsonify, request
+from flask import Flask, render_template, jsonify, request
 from app import app, login_required, db
 from user.models import User, functions
 import pickle
@@ -152,7 +152,7 @@ def receiveData():
     print("nested slice", nested)
     
     flat_list = [num for sublist in nested for num in sublist]
-    flat_list.insert(0,age) #hard-coding age
+    flat_list.insert(0,age)
     print("flat list here", flat_list)
     result = model.predict([flat_list])> 0.5
    
