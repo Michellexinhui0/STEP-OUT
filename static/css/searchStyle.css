@@ -232,6 +232,8 @@ select {
 .red-logout-button{
   background-color: rgb(193, 48, 37);
   border-color: rgb(193, 48, 37);
+  position:absolute;
+  right:200px;
 }
 
 
@@ -254,6 +256,7 @@ option{
 
 .container-bottom {
   display: flex;
+  background-color: #ccc;
   justify-content: center;
   align-items: center;
   height: 100px; 
@@ -283,7 +286,7 @@ option{
 .my-search-bar {
   position: fixed;
   top: 20px;
-  padding-right: 335px;
+  padding-right: 400px;
   width: 2000px;
   display: flex;
   flex-wrap: nowrap;

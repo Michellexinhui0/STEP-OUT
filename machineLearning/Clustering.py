@@ -6,7 +6,7 @@ import warnings
 warnings.filterwarnings('ignore')
 import tensorflow as tf
 
-dataset = pd.read_csv("./Machine_Learning/Final_Samplev1.0.csv")
+dataset = pd.read_csv("./machineLearning/Final_Samplev1.0.csv")
 dataset.shape
 
 Y = dataset.iloc[:,-1].values

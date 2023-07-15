@@ -571,6 +571,7 @@ button span:after {
 .symptoms-container {
   display: grid;
   grid-template-rows: 3fr 17fr;
+  margin-bottom:15px;
 }
 
 .button:active {
@@ -640,7 +641,7 @@ button span:after {
 .update {
   width: 230px;
   height: 70px;
-  margin-top: 140px;
+  margin-top:130px;
 }
 
 .update-status {
@@ -864,7 +865,7 @@ tbody {
 
 @keyframes slideleft {
   from {
-    right: -410px;
+    right: -460px;
   }
   
   to {
@@ -878,13 +879,6 @@ tbody {
   margin-top: 10px;
   color: black;
   background: white;
-}
-
-.submit:hover{
-  background-color:rgb(193, 48, 37);
-  color:white;
-  transition: all 0.3s ease;
-  
 }
 
 .loading-container {
@@ -946,8 +940,9 @@ tbody {
   font-size: 20px;
   color: black;
   background: white;
-  padding: 0;
-  width: 462px;
+  padding-left: 150px;
+  padding-top: 0px;
+  width: 530px;
   margin-bottom: -30px;
 }
 
@@ -1037,11 +1032,14 @@ tbody {
   min-width:100%;
 }
 
+.date{
+  font-size:11px;
+}
+
 .my-search-bar {
   position: fixed;
   top: 20px;
-  padding-right: 335px;
-  width: 2000px;
+  margin-left: 580px;
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
@@ -1065,7 +1063,7 @@ tbody {
   padding: 12px 20px 12px 40px;
   border: 1px solid #ddd;
   margin-bottom: 12px;
-  color: #d92525;
+  color: black;
 }
 
 
