@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template, url_for, jsonify, request
+from flask import Flask, render_template, jsonify, request
 from app import app, login_required, db
 from user.models import User, functions
 import pickle
@@ -116,13 +116,27 @@ def receiveData():
     doc = db.patient.find_one(query)
     if doc:
         # Insert the first embedded JSON into specific embedded fields
-        doc["hospital_visit"]["condition"]["systolic_BP"], doc["hospital_visit"]["condition"]["diastolic_BP"], doc["hospital_visit"]["condition"]["oxygen_lvl"] = nested[0]
+        doc["hospital_visit"]["condition"]["systolic_BP"], 
+        doc["hospital_visit"]["condition"]["diastolic_BP"], 
+        doc["hospital_visit"]["condition"]["oxygen_lvl"] = nested[0]
 
         # Insert the second embedded JSON into specific embedded fields
-        doc["hospital_visit"]["condition"]["gen_sickness"]["allergies"], doc["hospital_visit"]["condition"]["gen_sickness"]["flu"], doc["hospital_visit"]["condition"]["gen_sickness"]["coughing"], doc["hospital_visit"]["condition"]["gen_sickness"]["diarrhea"], doc["hospital_visit"]["condition"]["gen_sickness"]["fatigue"], doc["hospital_visit"]["condition"]["gen_sickness"]["fever"], doc["hospital_visit"]["condition"]["gen_sickness"]["muscle_ache"], doc["hospital_visit"]["condition"]["gen_sickness"]["sore_throat"], doc["hospital_visit"]["condition"]["gen_sickness"]["cold"] = nested[1]
+        doc["hospital_visit"]["condition"]["gen_sickness"]["allergies"], 
+        doc["hospital_visit"]["condition"]["gen_sickness"]["flu"], 
+        doc["hospital_visit"]["condition"]["gen_sickness"]["coughing"], 
+        doc["hospital_visit"]["condition"]["gen_sickness"]["diarrhea"], 
+        doc["hospital_visit"]["condition"]["gen_sickness"]["fatigue"], 
+        doc["hospital_visit"]["condition"]["gen_sickness"]["fever"], 
+        doc["hospital_visit"]["condition"]["gen_sickness"]["muscle_ache"], 
+        doc["hospital_visit"]["condition"]["gen_sickness"]["sore_throat"], 
+        doc["hospital_visit"]["condition"]["gen_sickness"]["cold"] = nested[1]
 
         # Insert the third embedded JSON into specific embedded fields
-        doc["hospital_visit"]["condition"]["legs"], doc["hospital_visit"]["condition"]["hands"], doc["hospital_visit"]["condition"]["stomach"], doc["hospital_visit"]["condition"]["chest"], doc["hospital_visit"]["condition"]["eyes"] = nested[2]
+        doc["hospital_visit"]["condition"]["legs"], 
+        doc["hospital_visit"]["condition"]["hands"], 
+        doc["hospital_visit"]["condition"]["stomach"], 
+        doc["hospital_visit"]["condition"]["chest"], 
+        doc["hospital_visit"]["condition"]["eyes"] = nested[2]
 
         # Save the updated document back to the database
         db.patient.replace_one(query, doc)
@@ -138,7 +152,7 @@ def receiveData():
     print("nested slice", nested)
     
     flat_list = [num for sublist in nested for num in sublist]
-    flat_list.insert(0,age) #hard-coding age
+    flat_list.insert(0,age)
     print("flat list here", flat_list)
     result = model.predict([flat_list])> 0.5
    

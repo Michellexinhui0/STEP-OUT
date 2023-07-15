@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, render_template, request, session, redirect, url_for
+from flask import Flask, jsonify, request, session, redirect
 from passlib.hash import pbkdf2_sha256
 import uuid
 
@@ -70,7 +70,7 @@ class functions:
     def patient_table(n):
         from app import db #import database connection info
         dict_patient = []
-        nPatient= db.patient.find({'status':{"$in":["Hospitalized","Outlying"]} } ).limit(n) #find patient that are outlying or hospitalised to display on search page
+        nPatient= db.patient.find({'status':{"$in":["Hospitalized","Outlying", "Recovered"]} } ).limit(n) #find patient that are outlying or hospitalised to display on search page
         for patient in nPatient:
             dict_patient.append(patient)
         return dict_patient
